@@ -1,0 +1,182 @@
+\hypertarget{main_8h}{}\section{inc/main.h File Reference}
+\label{main_8h}\index{inc/main.\+h@{inc/main.\+h}}
+
+
+Header file for main.\+c.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}inc/hw\+\_\+memmap.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/hw\+\_\+types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/hw\+\_\+ints.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/pin\+\_\+map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/rom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/rom\+\_\+map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/sysctl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensorlib/i2cm\+\_\+drv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driverlib/i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/uartstdio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}drivers/pinout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}drivers/buttons.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtemp}{temp}
+\item 
+struct \hyperlink{structevent}{event}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{main_8h_ae46715b8c3e3e175b44e3d0f2aecd7bb}{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE}~(128)
+\item 
+\#define \hyperlink{main_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}{printf}~(U\+A\+R\+Tprintf)
+\item 
+\#define \hyperlink{main_8h_ae42fcded76d6550261dac91cb89e0c9e}{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID}~(0)
+\item 
+\#define \hyperlink{main_8h_a1dfc06b020ba4038f330e714a620644a}{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}~(1)
+\item 
+\#define \hyperlink{main_8h_ac2a9918e6ef6f34da1839788a161b794}{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID}~(2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8h_a5f60b6a60802eccd1ae9526e776a476c}{Configure\+U\+A\+RT} (void)
+\begin{DoxyCompactList}\small\item\em Configures the U\+A\+RT and its pins.\+This must be called before U\+A\+R\+Tprintf(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{main_8h_a85ea8ca26e195a17da88e70e7e4ddf82}{g\+\_\+ui32\+Sys\+Clock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for main.\+c. 
+
+The file consists of all the function declarations, macros and datatype declarations. The Code has been executed on T\+I\+VA C Series T\+M4\+C1294\+XL on Free\+R\+T\+OS.
+
+\begin{DoxyAuthor}{Author}
+Siddhant Jajoo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+04/16/2019
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8h_ac2a9918e6ef6f34da1839788a161b794}\label{main_8h_ac2a9918e6ef6f34da1839788a161b794}} 
+\index{main.\+h@{main.\+h}!L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID@{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID}}
+\index{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID@{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID}{LED\_RCV\_ID}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID~(2)}
+
+
+
+Definition at line 53 of file main.\+h.
+
+
+
+Referenced by nrf\+\_\+log().
+
+\mbox{\Hypertarget{main_8h_ae46715b8c3e3e175b44e3d0f2aecd7bb}\label{main_8h_ae46715b8c3e3e175b44e3d0f2aecd7bb}} 
+\index{main.\+h@{main.\+h}!L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE@{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE}}
+\index{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE@{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE}{LEDTASKSTACKSIZE}}
+{\footnotesize\ttfamily \#define L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE~(128)}
+
+
+
+Definition at line 44 of file main.\+h.
+
+
+
+Referenced by nrf\+\_\+loggertask\+\_\+init(), and temptask\+\_\+init().
+
+\mbox{\Hypertarget{main_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}\label{main_8h_a3cb9f0894fab1c8fbb0753c9c7c2a8d9}} 
+\index{main.\+h@{main.\+h}!printf@{printf}}
+\index{printf@{printf}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{printf}{printf}}
+{\footnotesize\ttfamily \#define printf~(U\+A\+R\+Tprintf)}
+
+
+
+Definition at line 45 of file main.\+h.
+
+
+
+Referenced by nrf\+\_\+config(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), and nrf\+\_\+read\+\_\+\+T\+Xaddr().
+
+\mbox{\Hypertarget{main_8h_ae42fcded76d6550261dac91cb89e0c9e}\label{main_8h_ae42fcded76d6550261dac91cb89e0c9e}} 
+\index{main.\+h@{main.\+h}!R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID@{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID}}
+\index{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID@{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID}{RANDOM\_TEST\_ID}}
+{\footnotesize\ttfamily \#define R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID~(0)}
+
+
+
+Definition at line 51 of file main.\+h.
+
+
+
+Referenced by nrf\+\_\+log(), and temp().
+
+\mbox{\Hypertarget{main_8h_a1dfc06b020ba4038f330e714a620644a}\label{main_8h_a1dfc06b020ba4038f330e714a620644a}} 
+\index{main.\+h@{main.\+h}!T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID@{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}}
+\index{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID@{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}{TEMP\_RCV\_ID}}
+{\footnotesize\ttfamily \#define T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID~(1)}
+
+
+
+Definition at line 52 of file main.\+h.
+
+
+
+Referenced by nrf\+\_\+log(), and temp\+\_\+send().
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8h_a5f60b6a60802eccd1ae9526e776a476c}\label{main_8h_a5f60b6a60802eccd1ae9526e776a476c}} 
+\index{main.\+h@{main.\+h}!Configure\+U\+A\+RT@{Configure\+U\+A\+RT}}
+\index{Configure\+U\+A\+RT@{Configure\+U\+A\+RT}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{Configure\+U\+A\+R\+T()}{ConfigureUART()}}
+{\footnotesize\ttfamily void Configure\+U\+A\+RT (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures the U\+A\+RT and its pins.\+This must be called before U\+A\+R\+Tprintf(). 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8h_a85ea8ca26e195a17da88e70e7e4ddf82}\label{main_8h_a85ea8ca26e195a17da88e70e7e4ddf82}} 
+\index{main.\+h@{main.\+h}!g\+\_\+ui32\+Sys\+Clock@{g\+\_\+ui32\+Sys\+Clock}}
+\index{g\+\_\+ui32\+Sys\+Clock@{g\+\_\+ui32\+Sys\+Clock}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{g\+\_\+ui32\+Sys\+Clock}{g\_ui32SysClock}}
+{\footnotesize\ttfamily uint32\+\_\+t g\+\_\+ui32\+Sys\+Clock}
+
+
+
+Definition at line 59 of file main.\+h.
+
+
+
+Referenced by spi\+\_\+config().
+

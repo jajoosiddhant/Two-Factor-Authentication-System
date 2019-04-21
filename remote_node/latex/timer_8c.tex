@@ -1,0 +1,120 @@
+\hypertarget{timer_8c}{}\section{src/timer.c File Reference}
+\label{timer_8c}\index{src/timer.\+c@{src/timer.\+c}}
+
+
+This file consists of all the functions required for Timer initialization, enable and callback functions.  
+
+
+{\ttfamily \#include \char`\"{}inc/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/sync\+\_\+objects.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{timer_8c_ac80668239a538c87b30765c4326f62d3}{timer\+\_\+config} (uint8\+\_\+t timer\+\_\+x)
+\begin{DoxyCompactList}\small\item\em This function creates, initializes and enables T\+I\+M\+E\+R0A and T\+I\+M\+E\+R1A. \end{DoxyCompactList}\item 
+void \hyperlink{timer_8c_aef253a602294654ea631e2f1115d7f55}{enable\+\_\+timer\+\_\+int} (void)
+\begin{DoxyCompactList}\small\item\em This function enbale the Timer Interrupts. \end{DoxyCompactList}\item 
+void \hyperlink{timer_8c_a1735b4041e6e28093a5559c6b2efce45}{temp\+\_\+timer0handler} (void)
+\begin{DoxyCompactList}\small\item\em Callback Function for Temperature Timer(\+T\+I\+M\+E\+R0\+A). \end{DoxyCompactList}\item 
+void \hyperlink{timer_8c_aaa389ac76be7ac3cf4e9f1263a183900}{led\+\_\+timer0handler} (void)
+\begin{DoxyCompactList}\small\item\em Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R0\+A). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file consists of all the functions required for Timer initialization, enable and callback functions. 
+
+The Code has been executed on T\+I\+VA C Series T\+M4\+C1294\+XL on Free\+R\+T\+OS.
+
+\begin{DoxyAuthor}{Author}
+Siddhant Jajoo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+04/13/2019
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{timer_8c_aef253a602294654ea631e2f1115d7f55}\label{timer_8c_aef253a602294654ea631e2f1115d7f55}} 
+\index{timer.\+c@{timer.\+c}!enable\+\_\+timer\+\_\+int@{enable\+\_\+timer\+\_\+int}}
+\index{enable\+\_\+timer\+\_\+int@{enable\+\_\+timer\+\_\+int}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{enable\+\_\+timer\+\_\+int()}{enable\_timer\_int()}}
+{\footnotesize\ttfamily void enable\+\_\+timer\+\_\+int (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function enbale the Timer Interrupts. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_aaa389ac76be7ac3cf4e9f1263a183900}\label{timer_8c_aaa389ac76be7ac3cf4e9f1263a183900}} 
+\index{timer.\+c@{timer.\+c}!led\+\_\+timer0handler@{led\+\_\+timer0handler}}
+\index{led\+\_\+timer0handler@{led\+\_\+timer0handler}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{led\+\_\+timer0handler()}{led\_timer0handler()}}
+{\footnotesize\ttfamily void led\+\_\+timer0handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R0\+A). 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file timer.\+c.
+
+\mbox{\Hypertarget{timer_8c_a1735b4041e6e28093a5559c6b2efce45}\label{timer_8c_a1735b4041e6e28093a5559c6b2efce45}} 
+\index{timer.\+c@{timer.\+c}!temp\+\_\+timer0handler@{temp\+\_\+timer0handler}}
+\index{temp\+\_\+timer0handler@{temp\+\_\+timer0handler}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{temp\+\_\+timer0handler()}{temp\_timer0handler()}}
+{\footnotesize\ttfamily void temp\+\_\+timer0handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Callback Function for Temperature Timer(\+T\+I\+M\+E\+R0\+A). 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file timer.\+c.
+
+
+
+References g\+\_\+temp.
+
+\mbox{\Hypertarget{timer_8c_ac80668239a538c87b30765c4326f62d3}\label{timer_8c_ac80668239a538c87b30765c4326f62d3}} 
+\index{timer.\+c@{timer.\+c}!timer\+\_\+config@{timer\+\_\+config}}
+\index{timer\+\_\+config@{timer\+\_\+config}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+config()}{timer\_config()}}
+{\footnotesize\ttfamily void timer\+\_\+config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+This function creates, initializes and enables T\+I\+M\+E\+R0A and T\+I\+M\+E\+R1A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer\+\_\+x} & These are Macros defined to create and initialize a particular timer. The Macros are T\+I\+M\+E\+R0A and T\+I\+M\+E\+R1A. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file timer.\+c.
+
+
+
+References L\+E\+D\+\_\+\+I\+N\+T\+E\+R\+V\+AL, T\+E\+M\+P\+\_\+\+I\+N\+T\+E\+R\+V\+AL, T\+I\+M\+E\+R0A, and T\+I\+M\+E\+R1A.
+
