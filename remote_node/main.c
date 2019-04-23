@@ -46,6 +46,10 @@
 #include "inc/nrf_driver.h"
 #include "inc/buzzer.h"
 #include "inc/keypad.h"
+#include "inc/uart_comm_bbg.h"
+#include "inc/checksum.h"
+#include "inc/myuart.h"
+#include "inc/fingerprint.h"
 
 
 
@@ -109,6 +113,11 @@ void ConfigureUART(void)
 }
 
 
+void gpio_enable(void)
+{
+
+}
+
 
 /**
  * @brief  Initialize FreeRTOS and start the initial set of tasks.
@@ -120,9 +129,12 @@ int main(void)
     g_ui32SysClock = MAP_SysCtlClockFreqSet((SYSCTL_XTAL_25MHZ |
                                              SYSCTL_OSC_MAIN |
                                              SYSCTL_USE_PLL |
-                                             SYSCTL_CFG_VCO_480), 16000000);
+                                             SYSCTL_CFG_VCO_480), CLOCK);
 
 
+
+    //Enabling all required GPIO Peripherals
+    gpio_enable();
 
     // Initialize the UART and configure it for 115,200, 8-N-1 operation.
     ConfigureUART();
@@ -182,6 +194,30 @@ int main(void)
 //    nrf_config();
 
     keypad_config();
+
+//    checksum_init();
+//    crc check = checksum_calc("123456789", 9);
+//
+//    printf("Checksum = %x.\n", check);
+
+//    configureUART_bbg();
+//    uart_send(UART4);
+
+//    int32_t x = UARTCharGet(UART4_BASE);
+//
+//    printf("Displaying received Characters : %d\n", x);
+
+
+    uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
+
+    fp_interrupt_enable();
+
+    fp_cmdsend(UART_FP, FP_CMOSLED_CMD, FP_LEDON);
+    fp_responsercv(UART_FP);
+
+
+
+
 
     // Start the scheduler.  This should not return.
     vTaskStartScheduler();

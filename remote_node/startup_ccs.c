@@ -68,6 +68,7 @@ extern void Timer0IntHandler(void);
 extern void UARTStdioIntHandler(void);
 extern void temp_timer0handler(void);
 extern void led_timer0handler(void);
+extern void uart_commhandler(void);
 
 //*****************************************************************************
 //
@@ -155,7 +156,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // UART3 Rx and Tx
     IntDefaultHandler,                      // UART4 Rx and Tx
     IntDefaultHandler,                      // UART5 Rx and Tx
-    IntDefaultHandler,                      // UART6 Rx and Tx
+    uart_commhandler,                       // UART6 Rx and Tx
     IntDefaultHandler,                      // UART7 Rx and Tx
     IntDefaultHandler,                      // I2C2 Master and Slave
     IntDefaultHandler,                      // I2C3 Master and Slave

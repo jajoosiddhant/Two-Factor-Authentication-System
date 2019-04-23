@@ -43,6 +43,7 @@
 
 #define LEDTASKSTACKSIZE        (128)
 #define printf                  (UARTprintf)
+#define CLOCK                   (16000000)
 
 
 //******************************************************************************************/
@@ -91,5 +92,12 @@ typedef struct
  * @return void
  */
 void ConfigureUART(void);
+
+/**
+ * @brief This function enables all the required GPIO peripherals.
+ * @return void.
+ */
+void gpio_enable(void);
+
 
 #endif /* INC_MAIN_H_ */
