@@ -208,14 +208,24 @@ int main(void)
 //    printf("Displaying received Characters : %d\n", x);
 
 
+
+    //Fingerprint Testing
+
     uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
 
     fp_interrupt_enable();
 
-    fp_cmdsend(UART_FP, FP_CMOSLED_CMD, FP_LEDON);
-    fp_responsercv(UART_FP);
+    //Initializing the fingerprint sensor.
+    fp_open(UART_FP);
 
+    //Turning the LED on
+    fp_led_status(UART_FP, FP_LEDON);
 
+//    fp_deleteid(UART_FP, 0);
+    add_fingerprint(UART_FP);
+
+    //Terminating the fingerprint sensor
+    fp_close(UART_FP);
 
 
 

@@ -103,6 +103,7 @@ void column_handler(void)
 
 
     //Clear Interrupt.
+    //TODO: Change only the particular triggered interrupt.
     GPIOIntClear(COMMON_COLUMN_PORT, int_status);
 
 
