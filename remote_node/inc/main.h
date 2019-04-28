@@ -18,6 +18,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
 #include "inc/hw_ints.h"
@@ -44,20 +45,35 @@
 #define LEDTASKSTACKSIZE        (128)
 #define printf                  (UARTprintf)
 #define CLOCK                   (16000000)
-
+#define TRUE                    (1)
+#define FALSE                   (0)
+#define FINGERPRINT_MATCHED     (1)
+#define FINGERPRINT_NOTMATCHED  (0)
+#define DONT_CARE               (0)
 
 //******************************************************************************************/
 //                                MACROS FOR DIFFERENT EVENTS
 //******************************************************************************************/
-#define RANDOM_TEST_ID  (0)
-#define TEMP_RCV_ID     (1)
-#define LED_RCV_ID      (2)
+#define RANDOM_TEST_ID              (0)
+#define FINGERPRINT_ID              (1)
+#define OTP_SENT_USER_ID            (2)
+#define OTP_SEND_BBG_ID             (3)
+#define ACCESS_STATUS_RCV_ID        (4)
+#define MSG_LOG_ID                  (5)
+#define ACK_ID                      (6)
+#define TEMP_RCV_ID                 (10)
+#define LED_RCV_ID                  (11)
+
+
 
 
 //******************************************************************************************/
-//                        GLOBAL VARIABLE TO HOLD THE SYSTEM CLOCK SPEED
+//                                  GLOBAL VARIABLES
 //******************************************************************************************/
-uint32_t g_ui32SysClock;
+uint32_t g_ui32SysClock;                        /**< This variable holds the system clock*/
+volatile uint8_t otp_flag;                      /**< This flag allows data to be stored in the array otp_arr only when OTP has been sent to user*/
+volatile uint8_t otp_count;                     /**< Keeps a Tab on how many digits have been entered*/
+uint8_t otp_arr[4];                    /**< Global array where OTP input by user is stored*/
 
 
 //******************************************************************************************/

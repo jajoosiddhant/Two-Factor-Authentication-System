@@ -226,7 +226,7 @@ void nrf_config_mode(spi_t spi, modes_t mode)
     }
     else if (mode == mode_rx)
     {
-        uint8_t res;
+//        uint8_t res;
 
         //Flush TX FIFO Data
         nrf_write_cmd(SPI2, FLUSH_RX_CMD);

@@ -11,6 +11,7 @@
  * @copyright Copyright (c) 2019
  *
  */
+
 #ifndef INC_KEYPAD_H_
 #define INC_KEYPAD_H_
 
@@ -89,6 +90,19 @@
  */
 void keypad_config(void);
 
+
+/**
+ * @brief Enable Interrupts for Keypad Functionality.
+ * @return void.
+ */
+void keypad_interrupt_enable(void);
+
+
+/**
+ * @brief Disable Interrupts for Keypad Functionality.
+ * @return void.
+ */
+void keypad_interrupt_disable(void);
 
 /**
  * @brief Callback function of Column 1 Interrupt.

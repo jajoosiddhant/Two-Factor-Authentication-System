@@ -61,4 +61,11 @@ void buzzer_dutycycle(uint32_t freq);
  */
 void buzzer_onoff(bool state);
 
+
+/**
+ * @brief This function is used for testing.
+ * @return void.
+ */
+void buzzer_test(void);
+
 #endif /* INC_BUZZER_H_ */

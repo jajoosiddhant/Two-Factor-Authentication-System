@@ -36,7 +36,7 @@ typedef enum
    UART3 = UART3_BASE,
    UART4 = UART4_BASE,
    UART5 = UART5_BASE,
-   UART6 = UART6_BASE,
+   UART_BBG = UART6_BASE,
    UART7 = UART7_BASE
 
 }uart_t;
@@ -82,13 +82,16 @@ void uart_comm_flushTX(uart_t uart);
 /**
  * @brief This function sends data over UART.
  * @param uart The UART line being used.
+ * @param value The value to be sent on UART.
+ * @return void.
  */
-void uart_send(uart_t uart);
+void uart_send(uart_t uart, uint8_t value);
 
 
 /**
  * @brief This function checks is the specified UART line is busy and waits till it is free.
  * @param uart The UART line used.
+ * @return void.
  */
 inline void uart_busy(uart_t uart)
 {

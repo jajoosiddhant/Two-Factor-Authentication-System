@@ -78,6 +78,14 @@
 #define FP_FINGER_PRESSED       (0)                  /**< Parameter Value in response indicating finger is pressed.*/
 
 
+
+//******************************************************************************************/
+//                                  ERROR CODES
+//******************************************************************************************/
+#define FP_NACK_DB_IS_EMPTY     (0x100A)
+#define FP_NACK_IDENTIFY_FAILED (0x1008)
+
+
 //******************************************************************************************/
 //                     GPIO PORT and PINS assigned for ICPCK with GT-521F32
 //******************************************************************************************/
@@ -94,7 +102,7 @@
  * @brief This function initializes and enables the required GPIO pins interrupts for fingerprint sensor GT-521F32.
  * @return void.
  */
-void fp_interrupt_enable(void);
+void fp_interrupt_config(void);
 
 
 /**
@@ -190,6 +198,34 @@ uint16_t fp_identify(uart_t uart);
  * @return void.
  */
 void fp_irqhandler(void);
+
+
+/**
+ * @brief This function was used for testing purposes.
+ * @return void.
+ */
+void fingerprint_test(void);
+
+
+/**
+ * @brief This function enables the interrupts for fingerprint sensor.
+ * @return void.
+ */
+inline void fp_interrupt_enable(void)
+{
+    GPIOIntEnable(FP_IRQ_PORT, FP_IRQ_PIN);
+}
+
+
+
+/**
+ * @brief This function disables the interrupts for fingerprint sensor.
+ * @return void.
+ */
+inline void fp_interrupt_disable(void)
+{
+    GPIOIntDisable(FP_IRQ_PORT, FP_IRQ_PIN);
+}
 
 
 

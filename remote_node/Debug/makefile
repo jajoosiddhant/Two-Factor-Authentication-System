@@ -21,11 +21,13 @@ ORDERED_OBJS += \
 "./src/checksum.obj" \
 "./src/fingerprint.obj" \
 "./src/keypad.obj" \
+"./src/lcd.obj" \
 "./src/led.obj" \
 "./src/logger.obj" \
 "./src/msg_queue.obj" \
 "./src/myuart.obj" \
 "./src/nrf_driver.obj" \
+"./src/packet.obj" \
 "./src/spi.obj" \
 "./src/sync_objects.obj" \
 "./src/temp.obj" \
@@ -191,7 +193,7 @@ all: remote_node.out
 remote_node.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O0 --advice:power=all -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=TARGET_IS_TM4C129_RA0 --define=UART_BUFFERED --diag_warning=225 --diag_wrap=off --display_error_number --gen_func_subsections=on --ual -z -m"senshub_iot_ccs.map" --stack_size=16384 --heap_size=0 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="remote_node_linkInfo.xml" --rom_model -o "remote_node.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -Ooff --advice:power=all -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=TARGET_IS_TM4C129_RA0 --define=UART_BUFFERED --diag_warning=225 --diag_wrap=off --display_error_number --gen_func_subsections=on --ual -z -m"senshub_iot_ccs.map" --stack_size=16384 --heap_size=0 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="remote_node_linkInfo.xml" --rom_model -o "remote_node.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
@@ -207,8 +209,8 @@ remote_node.bin: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "startup_ccs.obj" "drivers\buttons.obj" "drivers\eth_client_lwip.obj" "drivers\exosite_hal_lwip.obj" "drivers\http.obj" "drivers\pinout.obj" "src\buzzer.obj" "src\checksum.obj" "src\fingerprint.obj" "src\keypad.obj" "src\led.obj" "src\logger.obj" "src\msg_queue.obj" "src\myuart.obj" "src\nrf_driver.obj" "src\spi.obj" "src\sync_objects.obj" "src\temp.obj" "src\timer.obj" "src\uart_comm_bbg.obj" "third_party\FreeRTOS\Source\list.obj" "third_party\FreeRTOS\Source\queue.obj" "third_party\FreeRTOS\Source\tasks.obj" "third_party\FreeRTOS\Source\timers.obj" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\port.obj" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\portasm.obj" "third_party\FreeRTOS\Source\portable\MemMang\heap_1.obj" "third_party\exosite\exosite.obj" "third_party\exosite\exosite_meta.obj" "utils\cmdline.obj" "utils\flash_pb.obj" "utils\locator.obj" "utils\lwiplib.obj" "utils\ringbuf.obj" "utils\uartstdio.obj" "utils\ustdlib.obj" 
-	-$(RM) "main.d" "startup_ccs.d" "drivers\buttons.d" "drivers\eth_client_lwip.d" "drivers\exosite_hal_lwip.d" "drivers\http.d" "drivers\pinout.d" "src\buzzer.d" "src\checksum.d" "src\fingerprint.d" "src\keypad.d" "src\led.d" "src\logger.d" "src\msg_queue.d" "src\myuart.d" "src\nrf_driver.d" "src\spi.d" "src\sync_objects.d" "src\temp.d" "src\timer.d" "src\uart_comm_bbg.d" "third_party\FreeRTOS\Source\list.d" "third_party\FreeRTOS\Source\queue.d" "third_party\FreeRTOS\Source\tasks.d" "third_party\FreeRTOS\Source\timers.d" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\port.d" "third_party\FreeRTOS\Source\portable\MemMang\heap_1.d" "third_party\exosite\exosite.d" "third_party\exosite\exosite_meta.d" "utils\cmdline.d" "utils\flash_pb.d" "utils\locator.d" "utils\lwiplib.d" "utils\ringbuf.d" "utils\uartstdio.d" "utils\ustdlib.d" 
+	-$(RM) "main.obj" "startup_ccs.obj" "drivers\buttons.obj" "drivers\eth_client_lwip.obj" "drivers\exosite_hal_lwip.obj" "drivers\http.obj" "drivers\pinout.obj" "src\buzzer.obj" "src\checksum.obj" "src\fingerprint.obj" "src\keypad.obj" "src\lcd.obj" "src\led.obj" "src\logger.obj" "src\msg_queue.obj" "src\myuart.obj" "src\nrf_driver.obj" "src\packet.obj" "src\spi.obj" "src\sync_objects.obj" "src\temp.obj" "src\timer.obj" "src\uart_comm_bbg.obj" "third_party\FreeRTOS\Source\list.obj" "third_party\FreeRTOS\Source\queue.obj" "third_party\FreeRTOS\Source\tasks.obj" "third_party\FreeRTOS\Source\timers.obj" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\port.obj" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\portasm.obj" "third_party\FreeRTOS\Source\portable\MemMang\heap_1.obj" "third_party\exosite\exosite.obj" "third_party\exosite\exosite_meta.obj" "utils\cmdline.obj" "utils\flash_pb.obj" "utils\locator.obj" "utils\lwiplib.obj" "utils\ringbuf.obj" "utils\uartstdio.obj" "utils\ustdlib.obj" 
+	-$(RM) "main.d" "startup_ccs.d" "drivers\buttons.d" "drivers\eth_client_lwip.d" "drivers\exosite_hal_lwip.d" "drivers\http.d" "drivers\pinout.d" "src\buzzer.d" "src\checksum.d" "src\fingerprint.d" "src\keypad.d" "src\lcd.d" "src\led.d" "src\logger.d" "src\msg_queue.d" "src\myuart.d" "src\nrf_driver.d" "src\packet.d" "src\spi.d" "src\sync_objects.d" "src\temp.d" "src\timer.d" "src\uart_comm_bbg.d" "third_party\FreeRTOS\Source\list.d" "third_party\FreeRTOS\Source\queue.d" "third_party\FreeRTOS\Source\tasks.d" "third_party\FreeRTOS\Source\timers.d" "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\port.d" "third_party\FreeRTOS\Source\portable\MemMang\heap_1.d" "third_party\exosite\exosite.d" "third_party\exosite\exosite_meta.d" "utils\cmdline.d" "utils\flash_pb.d" "utils\locator.d" "utils\lwiplib.d" "utils\ringbuf.d" "utils\uartstdio.d" "utils\ustdlib.d" 
 	-$(RM) "third_party\FreeRTOS\Source\portable\CCS\ARM_CM4F\portasm.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

@@ -13,11 +13,14 @@
 
 
 #include "inc/fingerprint.h"
+#include "inc/packet.h"
+#include "inc/lcd.h"
+#include "inc/timer.h"
 
 
 
 
-void fp_interrupt_enable(void)
+void fp_interrupt_config(void)
 {
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOL);
 
@@ -32,7 +35,8 @@ void fp_interrupt_enable(void)
 
     GPIOIntTypeSet(FP_IRQ_PORT, FP_IRQ_PIN, GPIO_RISING_EDGE);
 
-    GPIOIntEnable(FP_IRQ_PORT, FP_IRQ_PIN);
+    fp_interrupt_enable();
+
 }
 
 
@@ -86,9 +90,6 @@ uint16_t fp_responsercv(uart_t uart)
 
     if(response_packet[8] == ACK)
     {
-//        printf("Acknowledge Received Successfully.\n");
-//        printf("Parameter Received: %x.\n", response_packet[4]);
-
         temp = response_packet[5] << 8;
         temp = temp | response_packet[4];
 
@@ -98,8 +99,6 @@ uint16_t fp_responsercv(uart_t uart)
     {
         temp = response_packet[5] << 8;
         temp = temp | response_packet[4];
-        printf("NACK Received.\n");
-        printf("ERROR CODE Received: %x\n", temp);
 
         return (temp);
     }
@@ -201,6 +200,8 @@ void add_fingerprint(uart_t uart)
     fp_enroll(uart, FP_ENROLL1_CMD);
     fp_enroll(uart, FP_ENROLL2_CMD);
     fp_enroll(uart, FP_ENROLL3_CMD);
+
+    printf("Enrollment Successful.\n");
 
 
     //Clear Interrupts if in case interrupts were triggered.
@@ -328,10 +329,55 @@ uint16_t fp_identify(uart_t uart)
 
 
 
+void fp_access_handle(void)
+{
+    uint16_t identify_status;
+    uint8_t payload_arr[3];
+
+    fp_capture(UART_FP, FP_LOW_IMAGE);
+
+    identify_status = fp_identify(UART_FP);
+
+    if(identify_status < 3000)
+    {
+        printf("Verifying Fingerprint.\n");
+        LCD_write("Verifying Fingerprint");
+
+        payload_arr[0] = FINGERPRINT_MATCHED;
+        payload_arr[1] = (identify_status & 0x00FF);
+        payload_arr[2] = ((identify_status & 0xFF00)>>8);
+
+        //Send fingerprint status TO BBG over here.
+        packet_send_uart(UART_BBG, packet_make(FINGERPRINT_ID, payload_arr, 3, TRUE));
+
+    }
+    else if(identify_status == FP_NACK_DB_IS_EMPTY)
+    {
+        printf("WARNING: DATABASE EMPTY.\n");
+        LCD_write("WARNING: DATABASE EMPTY");
+        printf("ADD FINGERPRINT.\n");
+        //TODO: Send (Add Fingerprint) packet over here.
+
+    }
+    else if(identify_status == FP_NACK_IDENTIFY_FAILED)
+    {
+        printf("Verifying Fingerprint.\n");
+        printf("Not matched\n");
+        LCD_write("Verifying Fingerprint");
+
+        payload_arr[0] = FINGERPRINT_NOTMATCHED;
+        payload_arr[1] = DONT_CARE;
+        payload_arr[2] = DONT_CARE;
+
+        //Send fingerprint status TO BBG over here.
+        packet_send_uart(UART_BBG, packet_make(FINGERPRINT_ID, payload_arr, 3, TRUE));
+    }
+}
+
+
+
 void fp_irqhandler(void)
 {
-    uint8_t i;
-    uint16_t verify_status;
     uint32_t int_status;
 
     IntMasterDisable();
@@ -343,26 +389,34 @@ void fp_irqhandler(void)
     {
         GPIOIntClear(FP_IRQ_PORT, int_status & FP_IRQ_PIN);
         printf("Fingerprint Sensor Touched.\n");
-
-        fp_capture(UART_FP, FP_LOW_IMAGE);
-
-
-        //TODO:Use identify instead OF THE FOR LOOP below.
-
-        for(i = 0; i < fp_get_enrollcount(UART_FP); i++)
-        {
-            verify_status = fp_verify(UART_FP, 0);
-            printf("Verify Status: %d", verify_status);
-
-
-            //Send OTP over here.
-        }
-
-//        SysCtlDelay(1600);
+        fp_access_handle();
     }
 
     IntMasterEnable();
 }
 
 
+
+void fingerprint_test(void)
+{
+    //Fingerprint Testing
+
+//    uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
+//
+//    fp_interrupt_config();
+
+    //Initializing the fingerprint sensor.
+    fp_open(UART_FP);
+
+    //Turning the LED on
+    fp_led_status(UART_FP, FP_LEDON);
+
+//    fp_deleteid(UART_FP, 0);
+//    fp_deleteall(UART_FP);
+//    add_fingerprint(UART_FP);
+
+    //Terminating the fingerprint sensor
+//    fp_close(UART_FP);
+
+}
 

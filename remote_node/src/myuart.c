@@ -58,22 +58,10 @@ void uart_configure(uart_t uart, uint32_t clock, uint32_t baudrate, bool irq)
 
 
 
-void uart_send(uart_t uart)
+void uart_send(uart_t uart, uint8_t value)
 {
-    uint8_t arr = 8;
-    UARTCharPut(uart, arr);
-
+    UARTCharPut(uart, value);
     uart_busy(uart);
-
-
-    //    UARTCharPut(UART7_BASE, ui8DataTx[ui32index]);
-    ////
-    //// Wait for the UART module to complete transmitting.
-    ////
-    //while(MAP_UARTBusy(UART7_BASE))
-    //{
-    //}
-
 }
 
 

@@ -66,8 +66,8 @@ extern void vPortSVCHandler(void);
 extern void xPortSysTickHandler(void);
 extern void Timer0IntHandler(void);
 extern void UARTStdioIntHandler(void);
-extern void temp_timer0handler(void);
-extern void led_timer0handler(void);
+extern void timer0handler(void);
+extern void timer1handler(void);
 extern void uart_commhandler(void);
 
 //*****************************************************************************
@@ -116,9 +116,9 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // ADC Sequence 2
     IntDefaultHandler,                      // ADC Sequence 3
     IntDefaultHandler,                      // Watchdog timer
-    temp_timer0handler,                     // Timer 0 subtimer A
+    timer0handler,                          // Timer 0 subtimer A
     IntDefaultHandler,                      // Timer 0 subtimer B
-    led_timer0handler,                      // Timer 1 subtimer A
+    timer1handler,                          // Timer 1 subtimer A
     IntDefaultHandler,                      // Timer 1 subtimer B
     IntDefaultHandler,                      // Timer 2 subtimer A
     IntDefaultHandler,                      // Timer 2 subtimer B

@@ -71,3 +71,13 @@ void buzzer_onoff(bool state)
 }
 
 
+void buzzer_test(void)
+{
+    buzzer_config();
+    buzzer_dutycycle(MAX_FREQ);
+//    buzzer_onoff(1);
+//    //    SysCtlDelay(100000);
+//    buzzer_onoff(0);
+
+}
+

@@ -50,6 +50,9 @@
 #include "inc/checksum.h"
 #include "inc/myuart.h"
 #include "inc/fingerprint.h"
+#include "inc/delay.h"
+#include "inc/lcd.h"
+#include "inc/packet.h"
 
 
 
@@ -133,11 +136,28 @@ int main(void)
 
 
 
+    //Global Variable Initialization.
+    otp_flag = 0;
+    otp_count = 0;
+    memset(otp_arr, 0, 4);
+
     //Enabling all required GPIO Peripherals
     gpio_enable();
 
     // Initialize the UART and configure it for 115,200, 8-N-1 operation.
     ConfigureUART();
+    configureUART_bbg();
+    keypad_config();
+    uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
+    fp_interrupt_config();
+    lcd_init();
+
+
+    //Configure Timer for Retries.
+    timer_config(timer_retry, PACKET_RETRY_TIME);
+    timer_config(timer_otp, OTP_INPUT_TIME);
+
+    checksum_init();
 
     //Empty function
     sem_create();
@@ -149,7 +169,7 @@ int main(void)
     queue_create();
 
     //Configuring CSN and CE pins
-    nrf_gpio_init();
+//    nrf_gpio_init();
 
     //Configuring SPI pins on TIVA.
     spi_config(SPI2);
@@ -176,58 +196,23 @@ int main(void)
     }
 
 
-//    buzzer_config();
-//    buzzer_dutycycle(MAX_FREQ);
-//    buzzer_onoff(HIGH);
-//    SysCtlDelay(100000);
-//    buzzer_onoff(LOW);
+    //nrf_config();
 
-    //Configuring and Enabling Timer
-    //timer_config(TIMER0A);
-    //enable_timer_int();
+    //Uart testing with BBG
+    //uart_bbg_test();
 
+    //Buzzer Testing
+    buzzer_test();
 
-//    uint8_t x;
-//    x = spi_transfer(SPI2, W_REGISTER_CMD(0x00));
-//    printf("************%x", x);
+    //LCD testing
+    lcd_test();
 
-//    nrf_config();
-
-    keypad_config();
-
-//    checksum_init();
-//    crc check = checksum_calc("123456789", 9);
-//
-//    printf("Checksum = %x.\n", check);
-
-//    configureUART_bbg();
-//    uart_send(UART4);
-
-//    int32_t x = UARTCharGet(UART4_BASE);
-//
-//    printf("Displaying received Characters : %d\n", x);
+    //Fingerprint Test Function.
+    fingerprint_test();
 
 
-
-    //Fingerprint Testing
-
-    uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
-
-    fp_interrupt_enable();
-
-    //Initializing the fingerprint sensor.
-    fp_open(UART_FP);
-
-    //Turning the LED on
-    fp_led_status(UART_FP, FP_LEDON);
-
-//    fp_deleteid(UART_FP, 0);
-    add_fingerprint(UART_FP);
-
-    //Terminating the fingerprint sensor
-    fp_close(UART_FP);
-
-
+//    Packet Data testing
+//    packet_loopback_test();
 
     // Start the scheduler.  This should not return.
     vTaskStartScheduler();
