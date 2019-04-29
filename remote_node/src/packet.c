@@ -27,11 +27,11 @@ packet packet_make(uint8_t event_id, uint8_t *payload, uint16_t size, uint8_t ac
     datap.preamble = PREAMBLE;
     datap.event_id = event_id;
     datap.size = size;
-    printf("Size: %d\n", datap.size);
+//    printf("Size: %d\n", datap.size);
     for(i = 0; i < datap.size; i++)
     {
         datap.payload[i] = payload[i];
-        printf("Payload : %d\n", datap.payload[i]);
+//        printf("Payload : %d\n", datap.payload[i]);
     }
     datap.ack = ack;
     datap.crc_check = checksum_calc(payload, datap.size);
@@ -76,40 +76,40 @@ packet packet_rcv_uart(uart_t uart)
     packet datap_rcv;
 
     datap_rcv.preamble = UARTCharGetNonBlocking(uart);
-    printf("PREAMBLE: %d.\n", datap_rcv.preamble);
+//    printf("PREAMBLE: %d.\n", datap_rcv.preamble);
 
     datap_rcv.event_id = UARTCharGetNonBlocking(uart);
-    printf("EVENT ID: %d.\n", datap_rcv.event_id);
+//    printf("EVENT ID: %d.\n", datap_rcv.event_id);
 
     datap_rcv.size = UARTCharGetNonBlocking(uart);
     datap_rcv.size = datap_rcv.size | (UARTCharGetNonBlocking(uart)<<8);
-    printf("SIZE: %d.\n", datap_rcv.size);
+//    printf("SIZE: %d.\n", datap_rcv.size);
 
 
     for(i = 0; i < datap_rcv.size; i++)
     {
         datap_rcv.payload[i] = (uint8_t)UARTCharGetNonBlocking(uart);
-        printf("PAYLOAD RECEIVED: %d.\n", datap_rcv.payload[i]);
+//        printf("PAYLOAD RECEIVED: %d.\n", datap_rcv.payload[i]);
     }
 
 
     datap_rcv.ack = UARTCharGetNonBlocking(uart);
-    printf("ACK: %d.\n", datap_rcv.ack);
+//    printf("ACK: %d.\n", datap_rcv.ack);
 
 
     datap_rcv.crc_check = UARTCharGetNonBlocking(uart);
     datap_rcv.crc_check = datap_rcv.crc_check | (UARTCharGetNonBlocking(uart)<<8);
-    printf("CHECKSUM: %x.\n", datap_rcv.crc_check);
+//    printf("CHECKSUM: %x.\n", datap_rcv.crc_check);
 
 
     datap_rcv.postamble = UARTCharGetNonBlocking(uart);
-    printf("POSTAMBLE: %d.\n", datap_rcv.postamble);
+//    printf("POSTAMBLE: %d.\n", datap_rcv.postamble);
 
     //Send Acknowledgement here if ACK bit is set..
     if(datap_rcv.ack && datap_rcv.crc_check == checksum_calc(datap_rcv.payload, datap_rcv.size))
     {
         ack_send_uart(UART_BBG);
-        printf("Acknowledgement Sent.\n");
+//        printf("Acknowledgement Sent.\n");
     }
 
     return datap_rcv;

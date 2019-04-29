@@ -53,6 +53,7 @@
 #include "inc/delay.h"
 #include "inc/lcd.h"
 #include "inc/packet.h"
+#include "inc/application.h"
 
 
 
@@ -129,74 +130,10 @@ int main(void)
                                              SYSCTL_USE_PLL |
                                              SYSCTL_CFG_VCO_480), CLOCK);
 
-
-
-    //Global Variable Initialization.
-    otp_flag = 0;
-    otp_count = 0;
-    memset(otp_arr, 0, 4);
-
-
-    // Initialize the UART for serial Terminal, BBG, Fingerprint Scanner.
-    ConfigureUART();
-    configureUART_bbg();
-    uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
-
-    //Initializing LCD and 4 USR LEDs.
-    lcd_init();
-    led_init();
-
-    //Initializing Buzzer
-    buzzer_config();
-    buzzer_dutycycle(MAX_FREQ);
-
-    //Initializing Keypad and enabling interrupts for Keypad and Fingerprint Scanner.
-    keypad_config();
-    keypad_interrupt_enable();
-    fp_interrupt_config();
-
-    //Initializing fingerprint.
-    fp_init();
-
-    //Configure Timer for Retries.
-    timer_config(timer_retry, PACKET_RETRY_TIME);
-    timer_config(timer_otp, OTP_INPUT_TIME);
-
-    //Initializing Checksum.
-    checksum_init();
-
-    //Create Semaphores, mutexes and queues.
-    sem_create();
-    mutex_create();
-    queue_create();
-
-    //TODO:/*INITIALIZATION FOR NRF*/
-    //Configuring CSN and CE pins
-    //nrf_gpio_init();
-
-    //Configuring SPI pins on TIVA.
-    //spi_config(SPI2);
-
-    //nrf_config();
+    system_init();
 
     printf("Welcome to the Remote Node!!!\n");
-
-    // Create Temperature Task.
-    if(temptask_init() != 0)
-    {
-        while(1)
-        {
-        }
-    }
-
-    // Create NRF_Logger Task.
-    if(nrf_loggertask_init() != 0)
-    {
-        while(1)
-        {
-        }
-    }
-
+    packet_msglog_uart(UART_BBG, "Hello");
 
     //Uart testing with BBG
     //uart_bbg_test();
@@ -209,8 +146,6 @@ int main(void)
 
     //Fingerprint Test Function.
     //fingerprint_test();
-
-    packet_msglog_uart(UART_BBG, "Hello");
 
 //    Packet Data testing
 //    packet_loopback_test();
