@@ -17,6 +17,12 @@
 #include "inc/main.h"
 
 
+/**
+ * @brief This function initializes the system with the required configurations and peripherals.
+ * @return void.
+ */
+void system_init(void);
+
 
 
 #endif /* INC_APPLICATION_H_ */

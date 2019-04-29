@@ -211,11 +211,7 @@ void fingerprint_test(void);
  * @brief This function initializes the Scanner and turns LED on.
  * @return void.
  */
-inline void fp_init(void)
-{
-    fp_open(UART_FP);
-    fp_led_status(UART_FP, FP_LEDON);
-}
+void fp_init(void);
 
 
 /**

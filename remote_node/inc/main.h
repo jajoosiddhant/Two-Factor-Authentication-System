@@ -74,7 +74,7 @@
 #define GUI_BUZZER_ON               (3)             /**< Buzzer ON Request from BBG GUI*/
 #define GUI_DELETE_FINGERPRINT_ALL  (4)             /**< Delete Fingerprint Request from BBG GUI*/
 #define GUI_RESET_SYSTEM            (5)             /**< Reset System Request from GUI*/
-
+#define GUI_ALLOW_ACCESS            (6)             /**< Allow Access Request from GUI*/
 
 //******************************************************************************************/
 //                                  GLOBAL VARIABLES

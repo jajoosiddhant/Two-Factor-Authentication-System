@@ -156,7 +156,9 @@ uint16_t fp_start_enroll(uart_t uart, uint16_t new_id)
 
 void fp_enroll(uart_t uart, uint8_t enroll_cmd)
 {
-    printf("Place finger on Scanner.\n");
+    printf("Press finger on Scanner.\n");
+    packet_msglog_uart(UART_BBG, "Press Finger on Scanner");
+
     //Stays here till finger is not pressed.
     while(fp_isfingerpress(uart));
 
@@ -168,6 +170,9 @@ void fp_enroll(uart_t uart, uint8_t enroll_cmd)
     fp_responsercv(uart);
 
     printf("Lift finger from Scanner.\n");
+    packet_msglog_uart(UART_BBG, "Lift finger from Scanner.");
+    LCD_write("Lift finger from Scanner.");
+
     //Stay here till finger is lifted
     while(!fp_isfingerpress(uart));
 }
@@ -192,7 +197,8 @@ void add_fingerprint(uart_t uart)
     //Get enrollment count
     enroll_count = fp_get_enrollcount(uart);
 
-    printf("Starting Enrollment.\n");
+    printf("Starting Fingerprint Enrollment.\n");
+    packet_msglog_uart(UART_BBG, "Starting Fingerprint Enrollment");
 
     fp_start_enroll(uart, enroll_count);
 
@@ -201,7 +207,9 @@ void add_fingerprint(uart_t uart)
     fp_enroll(uart, FP_ENROLL2_CMD);
     fp_enroll(uart, FP_ENROLL3_CMD);
 
-    printf("Enrollment Successful.\n");
+    printf("Fingerprint Added.\n");
+    LCD_write("Fingerprint Added");
+    packet_msglog_uart(UART_BBG, "Fingerprint Added");
 
 
     //Clear Interrupts if in case interrupts were triggered.
@@ -328,6 +336,13 @@ uint16_t fp_identify(uart_t uart)
 }
 
 
+void fp_init(void)
+{
+    fp_open(UART_FP);
+    fp_led_status(UART_FP, FP_LEDON);
+}
+
+
 
 void fp_access_handle(void)
 {
@@ -342,6 +357,7 @@ void fp_access_handle(void)
     {
         printf("Verifying Fingerprint.\n");
         LCD_write("Verifying Fingerprint");
+        packet_msglog_uart(UART_BBG, "Verifying Fingerprint");
 
         payload_arr[0] = FINGERPRINT_MATCHED;
         payload_arr[1] = (identify_status & 0x00FF);
@@ -354,16 +370,19 @@ void fp_access_handle(void)
     else if(identify_status == FP_NACK_DB_IS_EMPTY)
     {
         printf("WARNING: DATABASE EMPTY.\n");
-        LCD_write("WARNING: DATABASE EMPTY");
         printf("ADD FINGERPRINT.\n");
+        LCD_write("WARNING: DATABASE EMPTY");
+        packet_msglog_uart(UART_BBG, "WARNING: DATABASE EMPTY");
+        packet_msglog_uart(UART_BBG, "ADD FINGERPRINT TO DATABASE");
         //TODO: Send (Add Fingerprint) packet over here.
 
     }
     else if(identify_status == FP_NACK_IDENTIFY_FAILED)
     {
         printf("Verifying Fingerprint.\n");
-        printf("Not matched\n");
+        printf("In not matched handler\n");
         LCD_write("Verifying Fingerprint");
+        packet_msglog_uart(UART_BBG, "Verifying Fingerprint");
 
         payload_arr[0] = FINGERPRINT_NOTMATCHED;
         payload_arr[1] = DONT_CARE;

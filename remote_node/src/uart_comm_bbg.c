@@ -19,6 +19,7 @@
 #include "inc/fingerprint.h"
 #include "inc/buzzer.h"
 #include "inc/checksum.h"
+#include "inc/delay.h"
 
 
 
@@ -83,7 +84,7 @@ void uart_packet_handler(packet datap_rcv)
             otp_flag = 1;
 
             printf("OTP has been Sent to the Registered Email id.\n");
-            LCD_write("ENTER OTP....");
+            LCD_write("ENTER OTP....SENT TO REGISTERED EMAIL ID");
 
             break;
         }
@@ -94,9 +95,13 @@ void uart_packet_handler(packet datap_rcv)
             {
                 printf("Access Granted.\n");
                 LCD_write("Access Granted");
+                packet_msglog_uart(UART_BBG, "Access Granted");
             }
             else
             {
+                printf("Access Denied.\n");
+                LCD_write("Access Denied");
+                packet_msglog_uart(UART_BBG, "Access Denied");
                 buzzer_onoff(1);
             }
 
@@ -110,18 +115,29 @@ void uart_packet_handler(packet datap_rcv)
             if(datap_rcv.payload[0] == GUI_BUZZER_OFF)
             {
                 buzzer_onoff(0);
+                printf("Buzzer off.\n");
+                LCD_write("Buzzer off");
+                packet_msglog_uart(UART_BBG, "Buzzer off");
             }
             else if(datap_rcv.payload[0] == GUI_ADD_FINGERPRINT)
             {
                 add_fingerprint(UART_FP);
+                delay_ms(3000);
+                LCD_write("Press Finger on Scanner to Unlock");
             }
             else if(datap_rcv.payload[0] == GUI_BUZZER_ON)
             {
                 buzzer_onoff(1);
+                printf("Buzzer on.\n");
+                LCD_write("Buzzer on");
+                packet_msglog_uart(UART_BBG, "Buzzer on");
             }
             else if(datap_rcv.payload[0] == GUI_DELETE_FINGERPRINT_ALL)
             {
                 fp_deleteall(UART_FP);
+                printf("Fingerprint Database Erased.\n");
+                LCD_write("Fingerprint Database Erased.");
+                packet_msglog_uart(UART_BBG, "Fingerprint Database Erased");
             }
             else if(datap_rcv.payload[0] == GUI_RESET_SYSTEM)
             {
@@ -135,6 +151,16 @@ void uart_packet_handler(packet datap_rcv)
                 reset_timer(timer_retry, PACKET_RETRY_TIME);
                 keypad_interrupt_enable();
                 fp_interrupt_enable();
+                IntMasterEnable();
+                printf("Resetting System.\n");
+                LCD_write("Resetting System.");
+                packet_msglog_uart(UART_BBG, "Resetting System");
+            }
+            else if(datap_rcv.payload[0] == GUI_ALLOW_ACCESS)
+            {
+                printf("Access Granted.\n");
+                LCD_write("Access Granted");
+                packet_msglog_uart(UART_BBG, "Access Granted");
             }
 
             break;
@@ -151,7 +177,6 @@ void uart_packet_handler(packet datap_rcv)
 
             break;
         }
-
 
         }
     }
