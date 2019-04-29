@@ -1,5 +1,5 @@
 /**
- * @file buzzer.c
+ * @file lcd.c
  * @brief This file consists of all the functions required for the LCD.
  *
  * The Code has been executed on TIVA C Series TM4C1294XL on FreeRTOS.

@@ -69,6 +69,9 @@ $(function() {
 <div class="title">temp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Header file for <a class="el" href="temp_8c.html">temp.c</a>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">inc/main.h</a>&quot;</code><br />
 </div>
 <p><a href="temp_8h_source.html">Go to the source code of this file.</a></p>
@@ -96,7 +99,15 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae8d9420e1c899877c46e57e70502336e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads 2 byte Temperature register using I2C.  <a href="#ae8d9420e1c899877c46e57e70502336e">More...</a><br /></td></tr>
 <tr class="separator:ae8d9420e1c899877c46e57e70502336e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for <a class="el" href="temp_8c.html">temp.c</a>. </p>
+<p>The file consists of all the function declarations, macros and typedefs related to Temperature functionality. The Code has been executed on TIVA C Series TM4C1294XL on FreeRTOS.</p>
+<dl class="section author"><dt>Author</dt><dd>Satya Mehta </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>04/14/2019</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2019 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a2675eee3a5655765963703bb567ae5d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2675eee3a5655765963703bb567ae5d0">&#9670;&nbsp;</a></span>CONFIG_TEMP</h2>
 
@@ -109,7 +120,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00014">14</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00020">20</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="temp_8c_source.html#l00036">temp_write()</a>.</p>
 
@@ -127,7 +138,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00015">15</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00021">21</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="temp_8c_source.html#l00053">temp_read()</a>, and <a class="el" href="temp_8c_source.html#l00036">temp_write()</a>.</p>
 
@@ -145,7 +156,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00016">16</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="temp_8h_source.html#l00022">22</a> of file <a class="el" href="temp_8h_source.html">temp.h</a>.</p>
 
 </div>
 </div>
@@ -197,7 +208,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="temp_8c_source.html#l00053">53</a> of file <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 
-<p class="reference">References <a class="el" href="temp_8h_source.html#l00015">SLAVE_ADDR</a>, <a class="el" href="temp_8c_source.html#l00110">temp()</a>, and <a class="el" href="temp_8c_source.html#l00036">temp_write()</a>.</p>
+<p class="reference">References <a class="el" href="temp_8h_source.html#l00021">SLAVE_ADDR</a>, <a class="el" href="temp_8c_source.html#l00110">temp()</a>, and <a class="el" href="temp_8c_source.html#l00036">temp_write()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="temp_8c_source.html#l00087">temp_send()</a>.</p>
 
@@ -224,7 +235,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="temp_8c_source.html#l00087">87</a> of file <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 
-<p class="reference">References <a class="el" href="sync__objects_8h_source.html#l00026">g_qsem</a>, <a class="el" href="sync__objects_8h_source.html#l00025">g_uartsem</a>, <a class="el" href="msg__queue_8h_source.html#l00030">nrf_log_mq</a>, <a class="el" href="main_8h_source.html#l00052">TEMP_RCV_ID</a>, and <a class="el" href="temp_8c_source.html#l00053">temp_read()</a>.</p>
+<p class="reference">References <a class="el" href="sync__objects_8h_source.html#l00026">g_qsem</a>, <a class="el" href="sync__objects_8h_source.html#l00025">g_uartsem</a>, <a class="el" href="msg__queue_8h_source.html#l00030">nrf_log_mq</a>, <a class="el" href="main_8h_source.html#l00065">TEMP_RCV_ID</a>, and <a class="el" href="temp_8c_source.html#l00053">temp_read()</a>.</p>
 
 </div>
 </div>
@@ -249,7 +260,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="temp_8c_source.html#l00019">19</a> of file <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 
-<p class="reference">References <a class="el" href="main_8h_source.html#l00044">LEDTASKSTACKSIZE</a>.</p>
+<p class="reference">References <a class="el" href="main_8h_source.html#l00045">LEDTASKSTACKSIZE</a>.</p>
 
 </div>
 </div>

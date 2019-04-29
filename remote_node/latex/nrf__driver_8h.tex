@@ -17,6 +17,8 @@ struct \hyperlink{struct_r_x}{RX}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \hyperlink{nrf__driver_8h_a0b1880fab9116a93a980bf986e08a9ab}{N\+R\+F\+\_\+\+S\+E\+ND}
+\item 
 \#define \hyperlink{nrf__driver_8h_ab811d8c6ff3a505312d3276590444289}{L\+OW}~(0)
 \item 
 \#define \hyperlink{nrf__driver_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{H\+I\+GH}~(1)
@@ -69,7 +71,7 @@ struct \hyperlink{struct_r_x}{RX}
 \item 
 \#define \hyperlink{nrf__driver_8h_a9953e07294187a20dd4375901470f967}{N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+F\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+EG}~(0x05)
 \item 
-\#define \hyperlink{nrf__driver_8h_a0743928c81579d46262df02c8fbe65be}{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG}~(0\+X06)
+\#define \hyperlink{nrf__driver_8h_a0743928c81579d46262df02c8fbe65be}{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG}~(0x06)
 \item 
 \#define \hyperlink{nrf__driver_8h_aa179f60396373eb8a79206db84f38b63}{N\+R\+F\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG}~(0x07)
 \item 
@@ -107,6 +109,12 @@ struct \hyperlink{struct_r_x}{RX}
 \item 
 \#define \hyperlink{nrf__driver_8h_abd7f2e51313a2bc4be176c747c95f8f9}{R\+F\+\_\+\+D\+R\+\_\+\+L\+OW}~(0b00100000)
 \item 
+\#define \hyperlink{nrf__driver_8h_ab95b21578012b113e505ada311151287}{N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK}~(0x40)
+\item 
+\#define \hyperlink{nrf__driver_8h_a734c810387bf3b61ab5bfcff4023d5ad}{N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK}~(0x20)
+\item 
+\#define \hyperlink{nrf__driver_8h_a0cf810b0d14e915c034d3ae0838a1083}{N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK}~(0x10)
+\item 
 \#define \hyperlink{nrf__driver_8h_a76b54f087ed2a1396d732ffd23021423}{R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD}(y)~(0x1\+F \& y)
 \item 
 \#define \hyperlink{nrf__driver_8h_a9a74de11b61fa77ab63871211f5c1fbf}{W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD}(y)~(0x20 $\vert$ y)
@@ -121,6 +129,13 @@ struct \hyperlink{struct_r_x}{RX}
 \item 
 \#define \hyperlink{nrf__driver_8h_a853bc275e077805ba1957fae2005b481}{W\+\_\+\+T\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD}~(0x\+A0)
 \end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t} \{ \hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3afe2af8623ba4be84ceb3458b8d63aade}{mode\+\_\+tx} = 1, 
+\hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3ae088a96e38e478d73656eb4dee959e64}{mode\+\_\+rx} = 2
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -134,22 +149,30 @@ uint8\+\_\+t \hyperlink{nrf__driver_8h_aa7813f43e890c1f61a06f24865aa71b4}{nrf\+\
 \begin{DoxyCompactList}\small\item\em This function reads the value from the register specified by the parameter {\bfseries reg}. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_ae49e3dc1dba04af38b5bbf26baf0937e}{nrf\+\_\+config} (void)
 \begin{DoxyCompactList}\small\item\em This function configures the register value for N\+R\+F24\+L01+. \end{DoxyCompactList}\item 
+void \hyperlink{nrf__driver_8h_a846ef214cd629b9fd4da0d3a4c1b091c}{nrf\+\_\+config\+\_\+mode} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi, \hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t} mode)
+\begin{DoxyCompactList}\small\item\em This function configures the N\+R\+F24\+L01+ in \hyperlink{struct_t_x}{TX} or \hyperlink{struct_r_x}{RX} Mode. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_a073806e85c367bf6737859eba2d82314}{nrf\+\_\+irqhandler} (void)
 \begin{DoxyCompactList}\small\item\em Callback Function for N\+R\+F24\+L01+ Interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{nrf__driver_8h_a9c6bbb5f30692a640260860af7219104}{nrf\+\_\+packet\+\_\+send} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi)
+\begin{DoxyCompactList}\small\item\em This function sends the packet data. \end{DoxyCompactList}\item 
+void \hyperlink{nrf__driver_8h_a4099fc2fef18753a0d5cf3012dcbcab2}{nrf\+\_\+packet\+\_\+rcv} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi)
+\begin{DoxyCompactList}\small\item\em This function receives the packet data. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_adce2e0ca73ee6899d2bd0049a552f58c}{nrf\+\_\+write\+\_\+\+T\+Xaddr} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi, \hyperlink{struct_t_x}{TX} addr)
-\begin{DoxyCompactList}\small\item\em This function assigns the specified \hyperlink{struct_t_x}{TX} Pipe address. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This function assigns the specified \hyperlink{struct_t_x}{TX} pipe address. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_a232161e29bfe81695558a7d84e82680f}{nrf\+\_\+read\+\_\+\+T\+Xaddr} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi)
 \begin{DoxyCompactList}\small\item\em This function reads the specified \hyperlink{struct_t_x}{TX} Pipe address. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_a55c3570ff7fe5fc1ce765816903a93b3}{nrf\+\_\+write\+\_\+\+R\+Xaddr} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi, uint8\+\_\+t reg, \hyperlink{struct_r_x}{RX} addr)
-\item 
+\begin{DoxyCompactList}\small\item\em This function assigns the specified \hyperlink{struct_r_x}{RX} pipe address. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_af974a92ab834aaa7575da7c612ee768b}{nrf\+\_\+read\+\_\+\+R\+Xaddr} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi, uint8\+\_\+t reg)
-\item 
+\begin{DoxyCompactList}\small\item\em This function reads the specified \hyperlink{struct_r_x}{RX} pipe address. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_adaf5c954ed225869d7e8b7702280676e}{ce\+\_\+status} (uint8\+\_\+t status)
 \begin{DoxyCompactList}\small\item\em This function changes the status of chip enable(\+C\+E) G\+P\+IO pin. \end{DoxyCompactList}\item 
 void \hyperlink{nrf__driver_8h_a06940c78881ef360743f62602bb3ade5}{csn\+\_\+status} (uint8\+\_\+t status)
 \begin{DoxyCompactList}\small\item\em This function changes the status of Chip Select(\+C\+S) G\+P\+IO pin. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{nrf__driver_8h_ac0fe4129938042198202e1e309704cd7}{nrf\+\_\+get\+\_\+statusreg} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi)
-\begin{DoxyCompactList}\small\item\em Thuis function returns the status register contents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Thuis function returns the status register contents. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{nrf__driver_8h_a9188fc59f28c937806c0ffecb39871ff}{nrf\+\_\+write\+\_\+cmd} (\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t} spi, uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em This function writes a command to the N\+R\+F24\+L01+. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -177,7 +200,11 @@ Copyright (c) 2019
 
 Flush \hyperlink{struct_r_x}{RX} F\+I\+FO Command, used in Rx Mode 
 
-Definition at line 102 of file nrf\+\_\+driver.\+h.
+Definition at line 110 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a8f0b67284141b2e3e7cee5a3d78e8d69}\label{nrf__driver_8h_a8f0b67284141b2e3e7cee5a3d78e8d69}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!F\+L\+U\+S\+H\+\_\+\+T\+X\+\_\+\+C\+MD@{F\+L\+U\+S\+H\+\_\+\+T\+X\+\_\+\+C\+MD}}
@@ -187,7 +214,11 @@ Definition at line 102 of file nrf\+\_\+driver.\+h.
 
 Flush \hyperlink{struct_t_x}{TX} F\+I\+FO Command, used in Tx Mode 
 
-Definition at line 101 of file nrf\+\_\+driver.\+h.
+Definition at line 109 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}\label{nrf__driver_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!H\+I\+GH@{H\+I\+GH}}
@@ -197,11 +228,11 @@ Definition at line 101 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 24 of file nrf\+\_\+driver.\+h.
+Definition at line 27 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
+Referenced by nrf\+\_\+config\+\_\+mode(), nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+packet\+\_\+send(), nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
 
 \mbox{\Hypertarget{nrf__driver_8h_ab811d8c6ff3a505312d3276590444289}\label{nrf__driver_8h_ab811d8c6ff3a505312d3276590444289}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!L\+OW@{L\+OW}}
@@ -211,11 +242,11 @@ Referenced by nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_
 
 
 
-Definition at line 23 of file nrf\+\_\+driver.\+h.
+Definition at line 26 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
+Referenced by nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+packet\+\_\+send(), nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
 
 \mbox{\Hypertarget{nrf__driver_8h_a5f30d66a7a448dc83fd695dbd3efbe31}\label{nrf__driver_8h_a5f30d66a7a448dc83fd695dbd3efbe31}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!M\+A\+S\+K\+\_\+\+R\+X\+\_\+\+DR@{M\+A\+S\+K\+\_\+\+R\+X\+\_\+\+DR}}
@@ -225,7 +256,7 @@ Referenced by nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_
 
 Mask Interrupt caused by R\+X\+\_\+\+DR 
 
-Definition at line 90 of file nrf\+\_\+driver.\+h.
+Definition at line 93 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_ae5caa326c94a634b12295cad6eea55ea}\label{nrf__driver_8h_ae5caa326c94a634b12295cad6eea55ea}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+O\+P\+\_\+\+C\+MD@{N\+O\+P\+\_\+\+C\+MD}}
@@ -235,7 +266,7 @@ Definition at line 90 of file nrf\+\_\+driver.\+h.
 
 No Operation Command which can be used to get status Register 
 
-Definition at line 100 of file nrf\+\_\+driver.\+h.
+Definition at line 108 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_ad55c22cf98fb208089b6224405ca9d77}\label{nrf__driver_8h_ad55c22cf98fb208089b6224405ca9d77}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+C\+H\+I\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+IN@{N\+R\+F\+\_\+\+C\+H\+I\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+IN}}
@@ -245,7 +276,7 @@ Definition at line 100 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 31 of file nrf\+\_\+driver.\+h.
+Definition at line 34 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -259,7 +290,7 @@ Referenced by ce\+\_\+status(), and nrf\+\_\+gpio\+\_\+init().
 
 
 
-Definition at line 30 of file nrf\+\_\+driver.\+h.
+Definition at line 33 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -273,7 +304,7 @@ Referenced by ce\+\_\+status(), and nrf\+\_\+gpio\+\_\+init().
 
 
 
-Definition at line 33 of file nrf\+\_\+driver.\+h.
+Definition at line 36 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -287,7 +318,7 @@ Referenced by csn\+\_\+status(), and nrf\+\_\+gpio\+\_\+init().
 
 
 
-Definition at line 32 of file nrf\+\_\+driver.\+h.
+Definition at line 35 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -301,7 +332,7 @@ Referenced by csn\+\_\+status(), and nrf\+\_\+gpio\+\_\+init().
 
 
 
-Definition at line 43 of file nrf\+\_\+driver.\+h.
+Definition at line 46 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a1e4e032490e18a46f977ed8b4a5e32f0}\label{nrf__driver_8h_a1e4e032490e18a46f977ed8b4a5e32f0}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+C\+L\+K\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+C\+L\+K\+\_\+\+P\+O\+RT}}
@@ -311,7 +342,7 @@ Definition at line 43 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 42 of file nrf\+\_\+driver.\+h.
+Definition at line 45 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_aa510ffb5b6065f3c2686f2a78ac1ad1a}\label{nrf__driver_8h_aa510ffb5b6065f3c2686f2a78ac1ad1a}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+EG}}
@@ -321,7 +352,11 @@ Definition at line 42 of file nrf\+\_\+driver.\+h.
 
 Configuration Register address 
 
-Definition at line 62 of file nrf\+\_\+driver.\+h.
+Definition at line 65 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a6f30de9040932df65043478edef57f5e}\label{nrf__driver_8h_a6f30de9040932df65043478edef57f5e}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+E\+N\+\_\+\+A\+A\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+E\+N\+\_\+\+A\+A\+\_\+\+R\+EG}}
@@ -331,7 +366,11 @@ Definition at line 62 of file nrf\+\_\+driver.\+h.
 
 AA Register address 
 
-Definition at line 63 of file nrf\+\_\+driver.\+h.
+Definition at line 66 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a8b73529870b333653ace72a93586852a}\label{nrf__driver_8h_a8b73529870b333653ace72a93586852a}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+X\+P\+I\+P\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+X\+P\+I\+P\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+R\+EG}}
@@ -341,7 +380,11 @@ Definition at line 63 of file nrf\+\_\+driver.\+h.
 
 Receiver Pipe Enable Register address 
 
-Definition at line 64 of file nrf\+\_\+driver.\+h.
+Definition at line 67 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config().
 
 \mbox{\Hypertarget{nrf__driver_8h_af65e89dd82725ac69bed466d5eea4b32}\label{nrf__driver_8h_af65e89dd82725ac69bed466d5eea4b32}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+F\+I\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+F\+I\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG}}
@@ -351,7 +394,7 @@ Definition at line 64 of file nrf\+\_\+driver.\+h.
 
 F\+I\+FO Status Register Address 
 
-Definition at line 83 of file nrf\+\_\+driver.\+h.
+Definition at line 86 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a5bfce403c43951c88694f4bc81558337}\label{nrf__driver_8h_a5bfce403c43951c88694f4bc81558337}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+F\+S\+S\+\_\+\+P\+IN@{N\+R\+F\+\_\+\+F\+S\+S\+\_\+\+P\+IN}}
@@ -361,7 +404,7 @@ Definition at line 83 of file nrf\+\_\+driver.\+h.
 
 This pin is used for slave functionality of T\+I\+VA 
 
-Definition at line 45 of file nrf\+\_\+driver.\+h.
+Definition at line 48 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_afed7bdf8f9dba29d4d38582edd460945}\label{nrf__driver_8h_afed7bdf8f9dba29d4d38582edd460945}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+F\+S\+S\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+F\+S\+S\+\_\+\+P\+O\+RT}}
@@ -371,7 +414,7 @@ Definition at line 45 of file nrf\+\_\+driver.\+h.
 
 This port is used for slave functionality of T\+I\+VA 
 
-Definition at line 44 of file nrf\+\_\+driver.\+h.
+Definition at line 47 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a1ec7cf714e5e5c54a46c1cdd185fa8d7}\label{nrf__driver_8h_a1ec7cf714e5e5c54a46c1cdd185fa8d7}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+IN@{N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+IN}}
@@ -381,11 +424,11 @@ Definition at line 44 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 35 of file nrf\+\_\+driver.\+h.
+Definition at line 38 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+interrupt\+\_\+enable(), and nrf\+\_\+irqhandler().
+Referenced by nrf\+\_\+interrupt\+\_\+enable().
 
 \mbox{\Hypertarget{nrf__driver_8h_a18b67f06d0afa127e089fc06299854ec}\label{nrf__driver_8h_a18b67f06d0afa127e089fc06299854ec}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT}}
@@ -395,11 +438,25 @@ Referenced by nrf\+\_\+interrupt\+\_\+enable(), and nrf\+\_\+irqhandler().
 
 
 
-Definition at line 34 of file nrf\+\_\+driver.\+h.
+Definition at line 37 of file nrf\+\_\+driver.\+h.
 
 
 
 Referenced by nrf\+\_\+interrupt\+\_\+enable(), and nrf\+\_\+irqhandler().
+
+\mbox{\Hypertarget{nrf__driver_8h_a0cf810b0d14e915c034d3ae0838a1083}\label{nrf__driver_8h_a0cf810b0d14e915c034d3ae0838a1083}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK}}
+\index{N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK}{NRF\_MAX\_RT\_MASK}}
+{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK~(0x10)}
+
+Mask for Maximum Retries 
+
+Definition at line 99 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+irqhandler().
 
 \mbox{\Hypertarget{nrf__driver_8h_a3cfb5f4aa0cf3bd382725d7c7dae85e0}\label{nrf__driver_8h_a3cfb5f4aa0cf3bd382725d7c7dae85e0}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN@{N\+R\+F\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN}}
@@ -409,7 +466,7 @@ Referenced by nrf\+\_\+interrupt\+\_\+enable(), and nrf\+\_\+irqhandler().
 
 
 
-Definition at line 49 of file nrf\+\_\+driver.\+h.
+Definition at line 52 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a317f79c56077b197bec688d36042f266}\label{nrf__driver_8h_a317f79c56077b197bec688d36042f266}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+M\+I\+S\+O\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+M\+I\+S\+O\+\_\+\+P\+O\+RT}}
@@ -419,7 +476,7 @@ Definition at line 49 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 48 of file nrf\+\_\+driver.\+h.
+Definition at line 51 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_abac74eabaa1f321f12a17d5ebb3f3978}\label{nrf__driver_8h_abac74eabaa1f321f12a17d5ebb3f3978}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN@{N\+R\+F\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN}}
@@ -429,7 +486,7 @@ Definition at line 48 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 47 of file nrf\+\_\+driver.\+h.
+Definition at line 50 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_ad44e152bec165d60e9ab0cb0ffed6052}\label{nrf__driver_8h_ad44e152bec165d60e9ab0cb0ffed6052}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+M\+O\+S\+I\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+M\+O\+S\+I\+\_\+\+P\+O\+RT}}
@@ -439,7 +496,7 @@ Definition at line 47 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 46 of file nrf\+\_\+driver.\+h.
+Definition at line 49 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_aeb05464641ed8ad2ffde48abc60e6803}\label{nrf__driver_8h_aeb05464641ed8ad2ffde48abc60e6803}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+P\+O\+RT@{N\+R\+F\+\_\+\+P\+O\+RT}}
@@ -449,21 +506,17 @@ Definition at line 46 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 41 of file nrf\+\_\+driver.\+h.
+Definition at line 44 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a0743928c81579d46262df02c8fbe65be}\label{nrf__driver_8h_a0743928c81579d46262df02c8fbe65be}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG}}
 \index{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
 \subsubsection{\texorpdfstring{N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG}{NRF\_RFSETUP\_REG}}
-{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG~(0\+X06)}
+{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG~(0x06)}
 
 RF Setup Register address 
 
-Definition at line 68 of file nrf\+\_\+driver.\+h.
-
-
-
-Referenced by nrf\+\_\+config().
+Definition at line 71 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a5c757d9e0fdd92af7fa81ac928f14eff}\label{nrf__driver_8h_a5c757d9e0fdd92af7fa81ac928f14eff}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P0\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P0\+\_\+\+R\+EG}}
@@ -473,7 +526,7 @@ Referenced by nrf\+\_\+config().
 
 Register address containing Receiver Pipe0 Address 
 
-Definition at line 70 of file nrf\+\_\+driver.\+h.
+Definition at line 73 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -487,7 +540,7 @@ Referenced by nrf\+\_\+config().
 
 Register address containing Receiver Pipe1 Address 
 
-Definition at line 71 of file nrf\+\_\+driver.\+h.
+Definition at line 74 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_ad6ebdf23b8a278045b0996d06a038372}\label{nrf__driver_8h_ad6ebdf23b8a278045b0996d06a038372}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P2\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P2\+\_\+\+R\+EG}}
@@ -497,7 +550,7 @@ Definition at line 71 of file nrf\+\_\+driver.\+h.
 
 Register address containing Receiver Pipe2 Address 
 
-Definition at line 72 of file nrf\+\_\+driver.\+h.
+Definition at line 75 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_afe9370ef6bf855dc53d2d17076b01dd2}\label{nrf__driver_8h_afe9370ef6bf855dc53d2d17076b01dd2}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P3\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P3\+\_\+\+R\+EG}}
@@ -507,7 +560,7 @@ Definition at line 72 of file nrf\+\_\+driver.\+h.
 
 Register address containing Receiver Pipe3 Address 
 
-Definition at line 73 of file nrf\+\_\+driver.\+h.
+Definition at line 76 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_aeac1f78434e975d86fac04e0220dd1e4}\label{nrf__driver_8h_aeac1f78434e975d86fac04e0220dd1e4}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P4\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P4\+\_\+\+R\+EG}}
@@ -517,7 +570,7 @@ Definition at line 73 of file nrf\+\_\+driver.\+h.
 
 Register address containing Receiver Pipe4 Address 
 
-Definition at line 74 of file nrf\+\_\+driver.\+h.
+Definition at line 77 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a0cf07c587ec73b3cceceb78b879f3810}\label{nrf__driver_8h_a0cf07c587ec73b3cceceb78b879f3810}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P5\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P5\+\_\+\+R\+EG}}
@@ -527,7 +580,7 @@ Definition at line 74 of file nrf\+\_\+driver.\+h.
 
 Register address containing Receiver Pipe5 Address 
 
-Definition at line 75 of file nrf\+\_\+driver.\+h.
+Definition at line 78 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a87b7d963b82d40de4f354e45b956f29c}\label{nrf__driver_8h_a87b7d963b82d40de4f354e45b956f29c}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P0\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P0\+\_\+\+R\+EG}}
@@ -537,7 +590,11 @@ Definition at line 75 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe0 
 
-Definition at line 77 of file nrf\+\_\+driver.\+h.
+Definition at line 80 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+config().
 
 \mbox{\Hypertarget{nrf__driver_8h_a94b65baa77535feba4bf9c24714a780a}\label{nrf__driver_8h_a94b65baa77535feba4bf9c24714a780a}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P1\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P1\+\_\+\+R\+EG}}
@@ -547,7 +604,7 @@ Definition at line 77 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe1 
 
-Definition at line 78 of file nrf\+\_\+driver.\+h.
+Definition at line 81 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a9ac7a161c44f6b2cc897e4f0aa3ee468}\label{nrf__driver_8h_a9ac7a161c44f6b2cc897e4f0aa3ee468}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P2\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P2\+\_\+\+R\+EG}}
@@ -557,7 +614,7 @@ Definition at line 78 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe2 
 
-Definition at line 79 of file nrf\+\_\+driver.\+h.
+Definition at line 82 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_ab6dc603c62ae06bcb77755f80f63e04b}\label{nrf__driver_8h_ab6dc603c62ae06bcb77755f80f63e04b}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P3\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P3\+\_\+\+R\+EG}}
@@ -567,7 +624,7 @@ Definition at line 79 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe3 
 
-Definition at line 80 of file nrf\+\_\+driver.\+h.
+Definition at line 83 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a9ee34bd06146decce3ce620b7da1c752}\label{nrf__driver_8h_a9ee34bd06146decce3ce620b7da1c752}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P4\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P4\+\_\+\+R\+EG}}
@@ -577,7 +634,7 @@ Definition at line 80 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe4 
 
-Definition at line 81 of file nrf\+\_\+driver.\+h.
+Definition at line 84 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_abf60111ca91f1aa02fc3078cdc786810}\label{nrf__driver_8h_abf60111ca91f1aa02fc3078cdc786810}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P5\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P5\+\_\+\+R\+EG}}
@@ -587,7 +644,31 @@ Definition at line 81 of file nrf\+\_\+driver.\+h.
 
 Register address containing Number of Data Bytes in Receiver Pipe5 
 
-Definition at line 82 of file nrf\+\_\+driver.\+h.
+Definition at line 85 of file nrf\+\_\+driver.\+h.
+
+\mbox{\Hypertarget{nrf__driver_8h_ab95b21578012b113e505ada311151287}\label{nrf__driver_8h_ab95b21578012b113e505ada311151287}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK}}
+\index{N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK}{NRF\_RX\_DR\_MASK}}
+{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK~(0x40)}
+
+Mask for \hyperlink{struct_r_x}{RX} data receive 
+
+Definition at line 97 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+irqhandler().
+
+\mbox{\Hypertarget{nrf__driver_8h_a0b1880fab9116a93a980bf986e08a9ab}\label{nrf__driver_8h_a0b1880fab9116a93a980bf986e08a9ab}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+S\+E\+ND@{N\+R\+F\+\_\+\+S\+E\+ND}}
+\index{N\+R\+F\+\_\+\+S\+E\+ND@{N\+R\+F\+\_\+\+S\+E\+ND}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{N\+R\+F\+\_\+\+S\+E\+ND}{NRF\_SEND}}
+{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+S\+E\+ND}
+
+
+
+Definition at line 24 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a6039f909ef7150a47050408fd42ab224}\label{nrf__driver_8h_a6039f909ef7150a47050408fd42ab224}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+A\+W\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+A\+W\+\_\+\+R\+EG}}
@@ -597,7 +678,7 @@ Definition at line 82 of file nrf\+\_\+driver.\+h.
 
 Address Width Register address 
 
-Definition at line 65 of file nrf\+\_\+driver.\+h.
+Definition at line 68 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_af756b48f9fb677a3b0e674a844b4bafc}\label{nrf__driver_8h_af756b48f9fb677a3b0e674a844b4bafc}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+E\+T\+R\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+E\+T\+R\+\_\+\+R\+EG}}
@@ -607,7 +688,7 @@ Definition at line 65 of file nrf\+\_\+driver.\+h.
 
 Retransmission Register address 
 
-Definition at line 66 of file nrf\+\_\+driver.\+h.
+Definition at line 69 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a9953e07294187a20dd4375901470f967}\label{nrf__driver_8h_a9953e07294187a20dd4375901470f967}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+F\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+F\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+EG}}
@@ -617,7 +698,7 @@ Definition at line 66 of file nrf\+\_\+driver.\+h.
 
 RF Channel Setup Register address 
 
-Definition at line 67 of file nrf\+\_\+driver.\+h.
+Definition at line 70 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_aa179f60396373eb8a79206db84f38b63}\label{nrf__driver_8h_aa179f60396373eb8a79206db84f38b63}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG}}
@@ -627,11 +708,11 @@ Definition at line 67 of file nrf\+\_\+driver.\+h.
 
 Status Register address 
 
-Definition at line 69 of file nrf\+\_\+driver.\+h.
+Definition at line 72 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+config().
+Referenced by nrf\+\_\+irqhandler().
 
 \mbox{\Hypertarget{nrf__driver_8h_ad797d33a599ad41eb364f83967f5766b}\label{nrf__driver_8h_ad797d33a599ad41eb364f83967f5766b}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+T\+X\+\_\+\+A\+D\+D\+R\+\_\+\+R\+EG@{N\+R\+F\+\_\+\+T\+X\+\_\+\+A\+D\+D\+R\+\_\+\+R\+EG}}
@@ -641,11 +722,25 @@ Referenced by nrf\+\_\+config().
 
 Register address containing Transmitter Pipe Address 
 
-Definition at line 76 of file nrf\+\_\+driver.\+h.
+Definition at line 79 of file nrf\+\_\+driver.\+h.
 
 
 
 Referenced by nrf\+\_\+read\+\_\+\+T\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
+
+\mbox{\Hypertarget{nrf__driver_8h_a734c810387bf3b61ab5bfcff4023d5ad}\label{nrf__driver_8h_a734c810387bf3b61ab5bfcff4023d5ad}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK}}
+\index{N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK@{N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK}{NRF\_TX\_DS\_MASK}}
+{\footnotesize\ttfamily \#define N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK~(0x20)}
+
+Mask for \hyperlink{struct_t_x}{TX} data send 
+
+Definition at line 98 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+irqhandler().
 
 \mbox{\Hypertarget{nrf__driver_8h_a76b54f087ed2a1396d732ffd23021423}\label{nrf__driver_8h_a76b54f087ed2a1396d732ffd23021423}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD@{R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD}}
@@ -655,11 +750,11 @@ Referenced by nrf\+\_\+read\+\_\+\+T\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xadd
 
 Register Read Command with Register address as Parameter 
 
-Definition at line 98 of file nrf\+\_\+driver.\+h.
+Definition at line 106 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+config(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), and nrf\+\_\+read\+\_\+\+T\+Xaddr().
+Referenced by nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), nrf\+\_\+irqhandler(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), and nrf\+\_\+read\+\_\+\+T\+Xaddr().
 
 \mbox{\Hypertarget{nrf__driver_8h_a4dedf80319effb65e2b1c493b3c233f9}\label{nrf__driver_8h_a4dedf80319effb65e2b1c493b3c233f9}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!R\+\_\+\+R\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD@{R\+\_\+\+R\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD}}
@@ -669,7 +764,11 @@ Referenced by nrf\+\_\+config(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), and nrf\+\_\+r
 
 Read \hyperlink{struct_r_x}{RX} Payload, Payload deleted after reading, used in \hyperlink{struct_r_x}{RX} Mode 
 
-Definition at line 103 of file nrf\+\_\+driver.\+h.
+Definition at line 111 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+irqhandler(), and nrf\+\_\+packet\+\_\+rcv().
 
 \mbox{\Hypertarget{nrf__driver_8h_af8fe54f90634a968e3d728abf1ac87a1}\label{nrf__driver_8h_af8fe54f90634a968e3d728abf1ac87a1}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!R\+E\+A\+D\+\_\+\+M\+A\+SK@{R\+E\+A\+D\+\_\+\+M\+A\+SK}}
@@ -679,7 +778,7 @@ Definition at line 103 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 55 of file nrf\+\_\+driver.\+h.
+Definition at line 58 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_abd7f2e51313a2bc4be176c747c95f8f9}\label{nrf__driver_8h_abd7f2e51313a2bc4be176c747c95f8f9}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!R\+F\+\_\+\+D\+R\+\_\+\+L\+OW@{R\+F\+\_\+\+D\+R\+\_\+\+L\+OW}}
@@ -689,7 +788,7 @@ Definition at line 55 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 92 of file nrf\+\_\+driver.\+h.
+Definition at line 95 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_aaadaf459a4a7e5e3a2a2518c01c3d148}\label{nrf__driver_8h_aaadaf459a4a7e5e3a2a2518c01c3d148}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!R\+F\+\_\+\+D\+R\+\_\+\+L\+O\+W250@{R\+F\+\_\+\+D\+R\+\_\+\+L\+O\+W250}}
@@ -699,7 +798,7 @@ Definition at line 92 of file nrf\+\_\+driver.\+h.
 
 Bit to set data rate to 250kbps 
 
-Definition at line 89 of file nrf\+\_\+driver.\+h.
+Definition at line 92 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a86eb8dcfca5e7faa37cd8d4bb2c7d797}\label{nrf__driver_8h_a86eb8dcfca5e7faa37cd8d4bb2c7d797}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!S\+H\+I\+FT@{S\+H\+I\+FT}}
@@ -709,7 +808,7 @@ Definition at line 89 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 25 of file nrf\+\_\+driver.\+h.
+Definition at line 28 of file nrf\+\_\+driver.\+h.
 
 \mbox{\Hypertarget{nrf__driver_8h_a9a74de11b61fa77ab63871211f5c1fbf}\label{nrf__driver_8h_a9a74de11b61fa77ab63871211f5c1fbf}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD@{W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD}}
@@ -719,11 +818,11 @@ Definition at line 25 of file nrf\+\_\+driver.\+h.
 
 Register Write Command with Register address as Parameter 
 
-Definition at line 99 of file nrf\+\_\+driver.\+h.
+Definition at line 107 of file nrf\+\_\+driver.\+h.
 
 
 
-Referenced by nrf\+\_\+config(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
+Referenced by nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), nrf\+\_\+irqhandler(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
 
 \mbox{\Hypertarget{nrf__driver_8h_a853bc275e077805ba1957fae2005b481}\label{nrf__driver_8h_a853bc275e077805ba1957fae2005b481}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!W\+\_\+\+T\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD@{W\+\_\+\+T\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD}}
@@ -733,7 +832,11 @@ Referenced by nrf\+\_\+config(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+
 
 Read \hyperlink{struct_r_x}{RX} Payload, used in \hyperlink{struct_t_x}{TX} Mode 
 
-Definition at line 104 of file nrf\+\_\+driver.\+h.
+Definition at line 112 of file nrf\+\_\+driver.\+h.
+
+
+
+Referenced by nrf\+\_\+packet\+\_\+send().
 
 \mbox{\Hypertarget{nrf__driver_8h_aa10f470e996d0f51210d24f442d25e1e}\label{nrf__driver_8h_aa10f470e996d0f51210d24f442d25e1e}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!W\+R\+I\+TE@{W\+R\+I\+TE}}
@@ -743,7 +846,30 @@ Definition at line 104 of file nrf\+\_\+driver.\+h.
 
 
 
-Definition at line 56 of file nrf\+\_\+driver.\+h.
+Definition at line 59 of file nrf\+\_\+driver.\+h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}\label{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!modes\+\_\+t@{modes\+\_\+t}}
+\index{modes\+\_\+t@{modes\+\_\+t}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{modes\+\_\+t}{modes\_t}}
+{\footnotesize\ttfamily enum \hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mode\+\_\+tx@{mode\+\_\+tx}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!mode\+\_\+tx@{mode\+\_\+tx}}}\mbox{\Hypertarget{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3afe2af8623ba4be84ceb3458b8d63aade}\label{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3afe2af8623ba4be84ceb3458b8d63aade}} 
+mode\+\_\+tx&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mode\+\_\+rx@{mode\+\_\+rx}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!mode\+\_\+rx@{mode\+\_\+rx}}}\mbox{\Hypertarget{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3ae088a96e38e478d73656eb4dee959e64}\label{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3ae088a96e38e478d73656eb4dee959e64}} 
+mode\+\_\+rx&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 130 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -768,11 +894,15 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 203 of file nrf\+\_\+driver.\+h.
+Definition at line 254 of file nrf\+\_\+driver.\+h.
 
 
 
 References N\+R\+F\+\_\+\+C\+H\+I\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+IN, and N\+R\+F\+\_\+\+C\+H\+I\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+P\+O\+RT.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a06940c78881ef360743f62602bb3ade5}\label{nrf__driver_8h_a06940c78881ef360743f62602bb3ade5}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!csn\+\_\+status@{csn\+\_\+status}}
@@ -794,7 +924,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 220 of file nrf\+\_\+driver.\+h.
+Definition at line 271 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -802,7 +932,7 @@ References N\+R\+F\+\_\+\+C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+P\+IN, and N
 
 
 
-Referenced by nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
+Referenced by nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+packet\+\_\+send(), nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), and nrf\+\_\+write\+\_\+\+T\+Xaddr().
 
 \mbox{\Hypertarget{nrf__driver_8h_ae49e3dc1dba04af38b5bbf26baf0937e}\label{nrf__driver_8h_ae49e3dc1dba04af38b5bbf26baf0937e}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+config@{nrf\+\_\+config}}
@@ -819,11 +949,40 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 85 of file nrf\+\_\+driver.\+c.
+Definition at line 88 of file nrf\+\_\+driver.\+c.
 
 
 
-References nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), N\+R\+F\+\_\+\+R\+F\+S\+E\+T\+U\+P\+\_\+\+R\+EG, N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P0\+\_\+\+R\+EG, N\+R\+F\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG, nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), nrf\+\_\+write\+\_\+\+T\+Xaddr(), printf, R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD, R\+X\+::rx\+\_\+pipe\+\_\+address, S\+P\+I2, T\+X\+::tx\+\_\+pipe\+\_\+address, and W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD.
+References mode\+\_\+tx, nrf\+\_\+config\+\_\+mode(), N\+R\+F\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+R\+X\+P\+I\+P\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+R\+EG, nrf\+\_\+read\+\_\+reg(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), N\+R\+F\+\_\+\+R\+X\+\_\+\+A\+D\+D\+R\+\_\+\+P0\+\_\+\+R\+EG, N\+R\+F\+\_\+\+R\+X\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+P0\+\_\+\+R\+EG, nrf\+\_\+write\+\_\+reg(), nrf\+\_\+write\+\_\+\+R\+Xaddr(), nrf\+\_\+write\+\_\+\+T\+Xaddr(), printf, R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD, R\+X\+::rx\+\_\+pipe\+\_\+address, S\+P\+I2, T\+X\+::tx\+\_\+pipe\+\_\+address, and W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD.
+
+\mbox{\Hypertarget{nrf__driver_8h_a846ef214cd629b9fd4da0d3a4c1b091c}\label{nrf__driver_8h_a846ef214cd629b9fd4da0d3a4c1b091c}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+config\+\_\+mode@{nrf\+\_\+config\+\_\+mode}}
+\index{nrf\+\_\+config\+\_\+mode@{nrf\+\_\+config\+\_\+mode}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{nrf\+\_\+config\+\_\+mode()}{nrf\_config\_mode()}}
+{\footnotesize\ttfamily void nrf\+\_\+config\+\_\+mode (\begin{DoxyParamCaption}\item[{\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t}}]{spi,  }\item[{\hyperlink{nrf__driver_8h_a8eed5a50145baadb7eb8bf497dbb06e3}{modes\+\_\+t}}]{mode }\end{DoxyParamCaption})}
+
+
+
+This function configures the N\+R\+F24\+L01+ in \hyperlink{struct_t_x}{TX} or \hyperlink{struct_r_x}{RX} Mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+{\em mode} & The mode specified by the user. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file nrf\+\_\+driver.\+c.
+
+
+
+References ce\+\_\+status(), F\+L\+U\+S\+H\+\_\+\+R\+X\+\_\+\+C\+MD, F\+L\+U\+S\+H\+\_\+\+T\+X\+\_\+\+C\+MD, H\+I\+GH, mode\+\_\+rx, mode\+\_\+tx, N\+R\+F\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+EG, N\+R\+F\+\_\+\+E\+N\+\_\+\+A\+A\+\_\+\+R\+EG, nrf\+\_\+packet\+\_\+send(), nrf\+\_\+read\+\_\+reg(), nrf\+\_\+write\+\_\+cmd(), nrf\+\_\+write\+\_\+reg(), printf, R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD, S\+P\+I2, and W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD.
+
+
+
+Referenced by nrf\+\_\+config().
 
 \mbox{\Hypertarget{nrf__driver_8h_ac0fe4129938042198202e1e309704cd7}\label{nrf__driver_8h_ac0fe4129938042198202e1e309704cd7}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+get\+\_\+statusreg@{nrf\+\_\+get\+\_\+statusreg}}
@@ -845,7 +1004,7 @@ uint8\+\_\+t The contents of Status register.
 \end{DoxyReturn}
 
 
-Definition at line 238 of file nrf\+\_\+driver.\+h.
+Definition at line 289 of file nrf\+\_\+driver.\+h.
 
 
 
@@ -887,7 +1046,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 35 of file nrf\+\_\+driver.\+c.
+Definition at line 37 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -912,15 +1071,69 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 189 of file nrf\+\_\+driver.\+c.
+Definition at line 369 of file nrf\+\_\+driver.\+c.
 
 
 
-References N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+IN, and N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT.
+References N\+R\+F\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT, N\+R\+F\+\_\+\+M\+A\+X\+\_\+\+R\+T\+\_\+\+M\+A\+SK, nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+read\+\_\+reg(), N\+R\+F\+\_\+\+R\+X\+\_\+\+D\+R\+\_\+\+M\+A\+SK, N\+R\+F\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EG, N\+R\+F\+\_\+\+T\+X\+\_\+\+D\+S\+\_\+\+M\+A\+SK, nrf\+\_\+write\+\_\+reg(), printf, R\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD, R\+\_\+\+R\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD, S\+P\+I2, spi\+\_\+dummy\+\_\+transfer(), spi\+\_\+transfer(), and W\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+C\+MD.
 
 
 
 Referenced by nrf\+\_\+interrupt\+\_\+enable().
+
+\mbox{\Hypertarget{nrf__driver_8h_a4099fc2fef18753a0d5cf3012dcbcab2}\label{nrf__driver_8h_a4099fc2fef18753a0d5cf3012dcbcab2}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+packet\+\_\+rcv@{nrf\+\_\+packet\+\_\+rcv}}
+\index{nrf\+\_\+packet\+\_\+rcv@{nrf\+\_\+packet\+\_\+rcv}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{nrf\+\_\+packet\+\_\+rcv()}{nrf\_packet\_rcv()}}
+{\footnotesize\ttfamily void nrf\+\_\+packet\+\_\+rcv (\begin{DoxyParamCaption}\item[{\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t}}]{spi }\end{DoxyParamCaption})}
+
+
+
+This function receives the packet data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 281 of file nrf\+\_\+driver.\+c.
+
+
+
+References csn\+\_\+status(), H\+I\+GH, L\+OW, printf, R\+\_\+\+R\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD, S\+P\+I2, and spi\+\_\+transfer().
+
+
+
+Referenced by nrf\+\_\+irqhandler().
+
+\mbox{\Hypertarget{nrf__driver_8h_a9c6bbb5f30692a640260860af7219104}\label{nrf__driver_8h_a9c6bbb5f30692a640260860af7219104}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+packet\+\_\+send@{nrf\+\_\+packet\+\_\+send}}
+\index{nrf\+\_\+packet\+\_\+send@{nrf\+\_\+packet\+\_\+send}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{nrf\+\_\+packet\+\_\+send()}{nrf\_packet\_send()}}
+{\footnotesize\ttfamily void nrf\+\_\+packet\+\_\+send (\begin{DoxyParamCaption}\item[{\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t}}]{spi }\end{DoxyParamCaption})}
+
+
+
+This function sends the packet data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file nrf\+\_\+driver.\+c.
+
+
+
+References csn\+\_\+status(), H\+I\+GH, L\+OW, spi\+\_\+transfer(), and W\+\_\+\+T\+X\+\_\+\+P\+A\+Y\+L\+O\+D\+\_\+\+C\+MD.
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_aa7813f43e890c1f61a06f24865aa71b4}\label{nrf__driver_8h_aa7813f43e890c1f61a06f24865aa71b4}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+read\+\_\+reg@{nrf\+\_\+read\+\_\+reg}}
@@ -944,7 +1157,7 @@ uint8\+\_\+t The value read from the register {\bfseries reg}.
 \end{DoxyReturn}
 
 
-Definition at line 70 of file nrf\+\_\+driver.\+c.
+Definition at line 73 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -952,7 +1165,7 @@ References csn\+\_\+status(), H\+I\+GH, L\+OW, spi\+\_\+dummy\+\_\+transfer(), a
 
 
 
-Referenced by nrf\+\_\+config().
+Referenced by nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), and nrf\+\_\+irqhandler().
 
 \mbox{\Hypertarget{nrf__driver_8h_af974a92ab834aaa7575da7c612ee768b}\label{nrf__driver_8h_af974a92ab834aaa7575da7c612ee768b}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+read\+\_\+\+R\+Xaddr@{nrf\+\_\+read\+\_\+\+R\+Xaddr}}
@@ -962,7 +1175,18 @@ Referenced by nrf\+\_\+config().
 
 
 
-Definition at line 169 of file nrf\+\_\+driver.\+c.
+This function reads the specified \hyperlink{struct_r_x}{RX} pipe address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+{\em reg} & The Register address of the P\+I\+PE. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 350 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -989,7 +1213,7 @@ This function reads the specified \hyperlink{struct_t_x}{TX} Pipe address.
 \end{DoxyParams}
 
 
-Definition at line 134 of file nrf\+\_\+driver.\+c.
+Definition at line 315 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -998,6 +1222,35 @@ References csn\+\_\+status(), H\+I\+GH, L\+OW, N\+R\+F\+\_\+\+T\+X\+\_\+\+A\+D\+
 
 
 Referenced by nrf\+\_\+config().
+
+\mbox{\Hypertarget{nrf__driver_8h_a9188fc59f28c937806c0ffecb39871ff}\label{nrf__driver_8h_a9188fc59f28c937806c0ffecb39871ff}} 
+\index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+write\+\_\+cmd@{nrf\+\_\+write\+\_\+cmd}}
+\index{nrf\+\_\+write\+\_\+cmd@{nrf\+\_\+write\+\_\+cmd}!nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}}
+\subsubsection{\texorpdfstring{nrf\+\_\+write\+\_\+cmd()}{nrf\_write\_cmd()}}
+{\footnotesize\ttfamily uint8\+\_\+t nrf\+\_\+write\+\_\+cmd (\begin{DoxyParamCaption}\item[{\hyperlink{spi_8h_a4c4c3893bd4169998937dd7199875d64}{spi\+\_\+t}}]{spi,  }\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function writes a command to the N\+R\+F24\+L01+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+{\em cmd} & The Command M\+A\+C\+RO. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 299 of file nrf\+\_\+driver.\+h.
+
+
+
+References spi\+\_\+dummy\+\_\+transfer(), and spi\+\_\+transfer().
+
+
+
+Referenced by nrf\+\_\+config\+\_\+mode().
 
 \mbox{\Hypertarget{nrf__driver_8h_a583af0cd7ef2bb6563f469e219b2c249}\label{nrf__driver_8h_a583af0cd7ef2bb6563f469e219b2c249}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+write\+\_\+reg@{nrf\+\_\+write\+\_\+reg}}
@@ -1023,7 +1276,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 57 of file nrf\+\_\+driver.\+c.
+Definition at line 60 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -1031,7 +1284,7 @@ References csn\+\_\+status(), H\+I\+GH, L\+OW, and spi\+\_\+transfer().
 
 
 
-Referenced by nrf\+\_\+config().
+Referenced by nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), and nrf\+\_\+irqhandler().
 
 \mbox{\Hypertarget{nrf__driver_8h_a55c3570ff7fe5fc1ce765816903a93b3}\label{nrf__driver_8h_a55c3570ff7fe5fc1ce765816903a93b3}} 
 \index{nrf\+\_\+driver.\+h@{nrf\+\_\+driver.\+h}!nrf\+\_\+write\+\_\+\+R\+Xaddr@{nrf\+\_\+write\+\_\+\+R\+Xaddr}}
@@ -1041,7 +1294,20 @@ Referenced by nrf\+\_\+config().
 
 
 
-Definition at line 152 of file nrf\+\_\+driver.\+c.
+This function assigns the specified \hyperlink{struct_r_x}{RX} pipe address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spi} & The S\+PI line used. \\
+\hline
+{\em reg} & The Register address of the P\+I\+PE. \\
+\hline
+{\em addr} & The object of structure \hyperlink{struct_r_x}{RX}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 333 of file nrf\+\_\+driver.\+c.
 
 
 
@@ -1059,18 +1325,18 @@ Referenced by nrf\+\_\+config().
 
 
 
-This function assigns the specified \hyperlink{struct_t_x}{TX} Pipe address. 
+This function assigns the specified \hyperlink{struct_t_x}{TX} pipe address. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em spi} & The S\+PI line used. \\
+{\em spi} & The S\+PI line used \\
 \hline
-{\em arr\+\_\+addr} & An array of 5 bytes containing \hyperlink{struct_t_x}{TX} Pipe address. \\
+{\em addr} & The object of structure \hyperlink{struct_t_x}{TX}. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 118 of file nrf\+\_\+driver.\+c.
+Definition at line 299 of file nrf\+\_\+driver.\+c.
 
 
 

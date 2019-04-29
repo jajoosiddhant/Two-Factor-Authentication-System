@@ -67,12 +67,19 @@ void packet_send_uart(uart_t uart, packet data_send);
 
 
 /**
- * @brief This function receives the packet and populates the received data in a Packet structure.
+ * @brief This function receives the packet and populates the received data in a Packet structure and sends acknowledgement if ack bit is set.
  * @param uart The UARt line used.
  * @return packet The packet structure in which the data has been populated.
  */
 packet packet_rcv_uart(uart_t uart);
 
+
+/**
+ * @brief This function sends a message to be logged to the Beaglebone (Control Node).
+ * @param uart The UART line used.
+ * @param msg_log The String to send to the Control Node.
+ */
+void packet_msglog_uart(uart_t uart, uint8_t *msg_log);
 
 /**
  * @brief This function is used to test send and receive data.

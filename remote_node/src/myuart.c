@@ -1,5 +1,5 @@
 /**
- * @file uart.c
+ * @file myuart.c
  * @brief This file consists of all the functions required for UART initialization, enable and send/receive functions.
  *
  * The Code has been executed on TIVA C Series TM4C1294XL on FreeRTOS.

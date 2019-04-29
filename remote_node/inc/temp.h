@@ -1,10 +1,16 @@
-/*
- * temp.h
+/**
+ * @file temp.h
+ * @brief Header file for temp.c.
  *
- *  Created on: Apr 8, 2019
- *      Author: Siddhant Jajoo
+ * The file consists of all the function declarations, macros and typedefs related to Temperature functionality.
+ * The Code has been executed on TIVA C Series TM4C1294XL on FreeRTOS.
+ *
+ * @author Satya Mehta
+ * @date 04/14/2019
+ *
+ * @copyright Copyright (c) 2019
+ *
  */
-
 #ifndef INC_TEMP_H_
 #define INC_TEMP_H_
 

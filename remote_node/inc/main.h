@@ -61,10 +61,19 @@
 #define ACCESS_STATUS_RCV_ID        (4)
 #define MSG_LOG_ID                  (5)
 #define ACK_ID                      (6)
+#define GUI_ID                      (7)
 #define TEMP_RCV_ID                 (10)
 #define LED_RCV_ID                  (11)
 
 
+//******************************************************************************************/
+//                                 GUI PAYLOAD RECEIVE MACROS
+//******************************************************************************************/
+#define GUI_BUZZER_OFF              (1)             /**< Buzzer OFF Request from BBG GUI*/
+#define GUI_ADD_FINGERPRINT         (2)             /**< Add Fingerprint Request from BBG GUI*/
+#define GUI_BUZZER_ON               (3)             /**< Buzzer ON Request from BBG GUI*/
+#define GUI_DELETE_FINGERPRINT_ALL  (4)             /**< Delete Fingerprint Request from BBG GUI*/
+#define GUI_RESET_SYSTEM            (5)             /**< Reset System Request from GUI*/
 
 
 //******************************************************************************************/
@@ -73,7 +82,7 @@
 uint32_t g_ui32SysClock;                        /**< This variable holds the system clock*/
 volatile uint8_t otp_flag;                      /**< This flag allows data to be stored in the array otp_arr only when OTP has been sent to user*/
 volatile uint8_t otp_count;                     /**< Keeps a Tab on how many digits have been entered*/
-uint8_t otp_arr[4];                    /**< Global array where OTP input by user is stored*/
+uint8_t otp_arr[4];                             /**< Global array where OTP input by user is stored*/
 
 
 //******************************************************************************************/
@@ -109,11 +118,6 @@ typedef struct
  */
 void ConfigureUART(void);
 
-/**
- * @brief This function enables all the required GPIO peripherals.
- * @return void.
- */
-void gpio_enable(void);
 
 
 #endif /* INC_MAIN_H_ */

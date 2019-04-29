@@ -66,8 +66,6 @@ void keypad_config(void)
 
     GPIOIntRegister(COMMON_COLUMN_PORT, column_handler);
 
-    keypad_interrupt_enable();
-
 }
 
 
@@ -155,7 +153,6 @@ void column_handler(void)
 
     label:
     //Clear Interrupt.
-    //TODO: Change only the particular triggered interrupt.
     GPIOIntClear(COMMON_COLUMN_PORT, int_status & int_pin);
 
 

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['spi0',['SPI0',['../spi_8h.html#a4c4c3893bd4169998937dd7199875d64a7add1e0588a075d9385b10fcbb2010f4',1,'spi.h']]],
-  ['spi1',['SPI1',['../spi_8h.html#a4c4c3893bd4169998937dd7199875d64add83ddb396fbcb33f2d61248e5c4a185',1,'spi.h']]],
-  ['spi2',['SPI2',['../spi_8h.html#a4c4c3893bd4169998937dd7199875d64a382fe69d09c301ce8af3660713dfe8a2',1,'spi.h']]]
+  ['mode_5frx',['mode_rx',['../nrf__driver_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3ae088a96e38e478d73656eb4dee959e64',1,'nrf_driver.h']]],
+  ['mode_5ftx',['mode_tx',['../nrf__driver_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3afe2af8623ba4be84ceb3458b8d63aade',1,'nrf_driver.h']]]
 ];

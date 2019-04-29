@@ -105,7 +105,21 @@ packet packet_rcv_uart(uart_t uart)
     datap_rcv.postamble = UARTCharGetNonBlocking(uart);
     printf("POSTAMBLE: %d.\n", datap_rcv.postamble);
 
+    //Send Acknowledgement here if ACK bit is set..
+    if(datap_rcv.ack && datap_rcv.crc_check == checksum_calc(datap_rcv.payload, datap_rcv.size))
+    {
+        ack_send_uart(UART_BBG);
+        printf("Acknowledgement Sent.\n");
+    }
+
     return datap_rcv;
+}
+
+
+void packet_msglog_uart(uart_t uart, uint8_t *msg_log)
+{
+    packet_send_uart(uart, packet_make(MSG_LOG_ID, msg_log, strlen((char *)msg_log), TRUE));
+//    packet_send_uart(uart, packet_make(MSG_LOG_ID, msg_log, 8, TRUE));
 }
 
 
@@ -118,7 +132,6 @@ void packet_loopback_test(void)
     datap_send = packet_make(1,"Siddhant", 8, 0);
     packet_send_uart(UART_BBG, datap_send);
     delay_ms(1000);
-
 
 }
 

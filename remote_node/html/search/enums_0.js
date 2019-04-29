@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spi_5ft',['spi_t',['../spi_8h.html#a4c4c3893bd4169998937dd7199875d64',1,'spi.h']]]
+  ['modes_5ft',['modes_t',['../nrf__driver_8h.html#a8eed5a50145baadb7eb8bf497dbb06e3',1,'nrf_driver.h']]]
 ];

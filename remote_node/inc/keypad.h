@@ -115,6 +115,8 @@ void column_handler(void);
  * @brief This function detects which key is pressed.
  * @param column_port The Column Port being checked.
  * @param column_pin The Column Pin being checked.
+ * @param keypad_digits The array storing character data.
+ * @param column The column being examined.
  * @return void.
  */
 void keypad_button_detect(uint32_t column_port, uint32_t column_pin, char keypad_digits[ROWS][COLUMNS], uint8_t column);

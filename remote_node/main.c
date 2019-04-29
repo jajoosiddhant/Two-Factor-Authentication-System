@@ -116,11 +116,6 @@ void ConfigureUART(void)
 }
 
 
-void gpio_enable(void)
-{
-
-}
-
 
 /**
  * @brief  Initialize FreeRTOS and start the initial set of tasks.
@@ -141,41 +136,48 @@ int main(void)
     otp_count = 0;
     memset(otp_arr, 0, 4);
 
-    //Enabling all required GPIO Peripherals
-    gpio_enable();
 
-    // Initialize the UART and configure it for 115,200, 8-N-1 operation.
+    // Initialize the UART for serial Terminal, BBG, Fingerprint Scanner.
     ConfigureUART();
     configureUART_bbg();
-    keypad_config();
     uart_configure(UART_FP, CLOCK, BAUDRATE_FP, 0);
-    fp_interrupt_config();
-    lcd_init();
 
+    //Initializing LCD and 4 USR LEDs.
+    lcd_init();
+    led_init();
+
+    //Initializing Buzzer
+    buzzer_config();
+    buzzer_dutycycle(MAX_FREQ);
+
+    //Initializing Keypad and enabling interrupts for Keypad and Fingerprint Scanner.
+    keypad_config();
+    keypad_interrupt_enable();
+    fp_interrupt_config();
+
+    //Initializing fingerprint.
+    fp_init();
 
     //Configure Timer for Retries.
     timer_config(timer_retry, PACKET_RETRY_TIME);
     timer_config(timer_otp, OTP_INPUT_TIME);
 
+    //Initializing Checksum.
     checksum_init();
 
-    //Empty function
+    //Create Semaphores, mutexes and queues.
     sem_create();
-
-    //Creating Mutexes for UART and writing to message queues.
     mutex_create();
-
-    //Creating Message Queues.
     queue_create();
 
+    //TODO:/*INITIALIZATION FOR NRF*/
     //Configuring CSN and CE pins
-//    nrf_gpio_init();
+    //nrf_gpio_init();
 
     //Configuring SPI pins on TIVA.
-    spi_config(SPI2);
+    //spi_config(SPI2);
 
-    //Initializing the 4 USR LEDs
-    led_init();
+    //nrf_config();
 
     printf("Welcome to the Remote Node!!!\n");
 
@@ -196,20 +198,19 @@ int main(void)
     }
 
 
-    //nrf_config();
-
     //Uart testing with BBG
     //uart_bbg_test();
 
     //Buzzer Testing
-    buzzer_test();
+    //buzzer_test();
 
     //LCD testing
-    lcd_test();
+    //lcd_test();
 
     //Fingerprint Test Function.
-    fingerprint_test();
+    //fingerprint_test();
 
+    packet_msglog_uart(UART_BBG, "Hello");
 
 //    Packet Data testing
 //    packet_loopback_test();

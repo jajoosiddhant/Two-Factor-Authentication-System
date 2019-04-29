@@ -73,9 +73,6 @@ void uart_packet_handler(packet datap_rcv)
 
         case OTP_SENT_USER_ID:
         {
-            //Send acknowledgement here first
-            ack_send_uart(UART_BBG);
-
             //Disable Fingerprint Sensor Interrupts
             fp_interrupt_disable();
 
@@ -93,9 +90,6 @@ void uart_packet_handler(packet datap_rcv)
 
         case ACCESS_STATUS_RCV_ID:
         {
-            //Send acknowledgement here first
-            ack_send_uart(UART_BBG);
-
             if(datap_rcv.payload[0])
             {
                 printf("Access Granted.\n");
@@ -106,10 +100,46 @@ void uart_packet_handler(packet datap_rcv)
                 buzzer_onoff(1);
             }
 
+            break;
+        }
 
+        case GUI_ID:
+        {
+            printf("Request from GUI received.\n");
+
+            if(datap_rcv.payload[0] == GUI_BUZZER_OFF)
+            {
+                buzzer_onoff(0);
+            }
+            else if(datap_rcv.payload[0] == GUI_ADD_FINGERPRINT)
+            {
+                add_fingerprint(UART_FP);
+            }
+            else if(datap_rcv.payload[0] == GUI_BUZZER_ON)
+            {
+                buzzer_onoff(1);
+            }
+            else if(datap_rcv.payload[0] == GUI_DELETE_FINGERPRINT_ALL)
+            {
+                fp_deleteall(UART_FP);
+            }
+            else if(datap_rcv.payload[0] == GUI_RESET_SYSTEM)
+            {
+                send_failcount = 0;
+                otp_count = 0;
+                otp_flag = 0;
+                memset(otp_arr, 0, 4);
+                disable_timer(timer_otp);
+                disable_timer(timer_retry);
+                reset_timer(timer_otp, OTP_INPUT_TIME);
+                reset_timer(timer_retry, PACKET_RETRY_TIME);
+                keypad_interrupt_enable();
+                fp_interrupt_enable();
+            }
 
             break;
         }
+
         case ACK_ID:
         {
             printf("Acknowledgement Received.\n");
@@ -121,7 +151,6 @@ void uart_packet_handler(packet datap_rcv)
 
             break;
         }
-
 
 
         }
@@ -143,12 +172,12 @@ void uart_commhandler(void)
 
     if (int_status & UART_INT_TX)
     {
-        printf("Character Sent.\n");
+        printf("Packet Sent.\n");
         UARTIntClear(UART_BBG, UART_INT_TX);
     }
     else if (int_status & UART_INT_RT || int_status & UART_INT_RX)
     {
-        printf("Character Received due to RT/RX.\n");
+        printf("Packet Received due to RT/RX.\n");
 
         if(UARTCharsAvail(UART_BBG))
         {

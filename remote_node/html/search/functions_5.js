@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_5fcreate',['queue_create',['../msg__queue_8c.html#a553f3c27dec1d717b06f29199744ffc7',1,'queue_create(void):&#160;msg_queue.c'],['../msg__queue_8h.html#a553f3c27dec1d717b06f29199744ffc7',1,'queue_create(void):&#160;msg_queue.c']]]
+  ['enable_5ftimer_5fint',['enable_timer_int',['../timer_8c.html#aeac25b893d3d7db83d6e9aa8b776fb78',1,'enable_timer_int(timer_t timer):&#160;timer.c'],['../timer_8h.html#aeac25b893d3d7db83d6e9aa8b776fb78',1,'enable_timer_int(timer_t timer):&#160;timer.c']]]
 ];

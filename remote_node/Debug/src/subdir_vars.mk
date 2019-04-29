@@ -6,6 +6,7 @@ SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/application.c \
 ../src/buzzer.c \
 ../src/checksum.c \
 ../src/fingerprint.c \
@@ -24,6 +25,7 @@ C_SRCS += \
 ../src/uart_comm_bbg.c 
 
 C_DEPS += \
+./src/application.d \
 ./src/buzzer.d \
 ./src/checksum.d \
 ./src/fingerprint.d \
@@ -42,6 +44,7 @@ C_DEPS += \
 ./src/uart_comm_bbg.d 
 
 OBJS += \
+./src/application.obj \
 ./src/buzzer.obj \
 ./src/checksum.obj \
 ./src/fingerprint.obj \
@@ -60,6 +63,7 @@ OBJS += \
 ./src/uart_comm_bbg.obj 
 
 OBJS__QUOTED += \
+"src\application.obj" \
 "src\buzzer.obj" \
 "src\checksum.obj" \
 "src\fingerprint.obj" \
@@ -78,6 +82,7 @@ OBJS__QUOTED += \
 "src\uart_comm_bbg.obj" 
 
 C_DEPS__QUOTED += \
+"src\application.d" \
 "src\buzzer.d" \
 "src\checksum.d" \
 "src\fingerprint.d" \
@@ -96,6 +101,7 @@ C_DEPS__QUOTED += \
 "src\uart_comm_bbg.d" 
 
 C_SRCS__QUOTED += \
+"../src/application.c" \
 "../src/buzzer.c" \
 "../src/checksum.c" \
 "../src/fingerprint.c" \
