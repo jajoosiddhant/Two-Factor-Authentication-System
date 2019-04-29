@@ -44,7 +44,6 @@ uint8_t uart_init(void)
         return 1;
     } 
 
-    
     term.c_cflag |= (CLOCAL);
    // term.c_cflag &= ~CSIZE;
     term.c_cflag |= CS8;
@@ -157,6 +156,7 @@ struct packet_struct rcv_bytes()
 }
 uint8_t send_bytes(struct packet_struct obj)
 {
+    pthread_mutex_lock(&mutex_a);
     send_byte_uart(obj.preamble);
     send_byte_uart(obj.id);
     send_byte_uart(obj.size & 0x00FF);
@@ -169,6 +169,7 @@ uint8_t send_bytes(struct packet_struct obj)
     send_byte_uart(obj.crc & 0x00FF);
     send_byte_uart((obj.crc & 0xFF00)>>8);
     send_byte_uart(obj.postamble);
+    pthread_mutex_unlock(&mutex_a);
 }
 
 uint8_t send_ack()

@@ -13,6 +13,8 @@
 #define _TIMER_H
 
 #include "main.h"
+#include "queue.h"
+#include "uart.h"
 
 //Timer intervals
 #define RETRY_INTERVAL_SEC   (0)

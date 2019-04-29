@@ -81,9 +81,9 @@ void socket_listen()
 
 int socket_recv(void)
 {
-    int len, data;
+    uint8_t len, data;
     // len = recv(ser, (void *)&data, sizeof(data), MSG_WAITALL);
-    len = read(ser, (void *)&data, sizeof(data));
+    len = read(ser, (void *)&data, 1);
     if (len == 0)
     {
         return 0;

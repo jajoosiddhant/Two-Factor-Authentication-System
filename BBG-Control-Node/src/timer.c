@@ -55,6 +55,7 @@ err_t timer_init(uint8_t timer_handle)
         {
             msg_log("Temperature Timer started.\n", DEBUG, P0, CONTROL_NODE);
         }
+        retry_flag = 0;
     }
     else if (timer_handle == TIMER_HB)
     {
@@ -102,12 +103,19 @@ void timer_handler(union sigval sv)
 {
     if (sv.sival_int == TIMER_RETRY)
     {
-        retry_flag++;
+        struct packet_struct obj;
         msg_log("Retry timer fired.\n", DEBUG, P0, CONTROL_NODE);
+        if(retry_flag == 0)
+        {
+            mq_receive(packet_mq, (char *)&obj, sizeof(obj), 0);
+        }
         if(retry_flag == 3)
         {
             timer_delete(timeout_retry);
+            msg_log("Remote Node is offline\n", DEBUG, P0, CONTROL_NODE);
         }
+        send_bytes(obj);
+        retry_flag++;
     }
     else if (sv.sival_int == TIMER_HB)
     {

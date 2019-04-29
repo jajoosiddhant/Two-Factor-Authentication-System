@@ -71,10 +71,13 @@
 #define ACCESS_STATUS (4)
 #define LOG_MSG_ID (5)
 #define ACK_PACKET (6)
+#define GUI_ID (7)
 
 #define FINGRPRINT_MATCHED (1)
 #define FINGERPRINT_UNMATCHED (0)
 #define DONT_CARE (0)
+#define BUZZER (1)
+#define REG_NEW_FP (2)
 //Mutex declarations
 pthread_mutex_t mutex_a;
 pthread_mutex_t mutex_b;
@@ -115,6 +118,7 @@ struct error_struct
 //Message structure
 struct msg_struct
 {
+	struct timespec data_time;
 	char msg_str[50];
 };
 
@@ -123,11 +127,9 @@ typedef struct
 {
 	uint8_t id;
 	union msg_data {
-		
 		struct msg_struct msg_data;
 		struct error_struct error_data;
 	}msg;
-
 }logger_struct;
 
 // struct __attribute__((__packed__)) packet_struct

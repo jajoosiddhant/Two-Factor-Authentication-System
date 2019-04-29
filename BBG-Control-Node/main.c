@@ -122,14 +122,14 @@ int main(int argc, char *argv[])
 	}
 
 	//Deleting previous logfile
-	if (remove(filename))
-	{
-		error_log("ERROR: remove(); cannot delete log file", ERROR_DEBUG, P2);
-	}
-	else
-	{
-		//gpio_ctrl(GPIO53, GPIO53_V, 1);
-	}
+	// if (remove(filename))
+	// {
+	// 	error_log("ERROR: remove(); cannot delete log file", ERROR_DEBUG, P2);
+	// }
+	// else
+	// {
+	// 	//gpio_ctrl(GPIO53, GPIO53_V, 1);
+	// }
 
 	//Creating threads
 	res = create_threads(filename);
@@ -208,7 +208,7 @@ void *logger_thread(void *filename)
 }
 
 /**
- * @brief Sockets will be used for sending data to GUI process.
+ * @brief Sockets will be used for sending data from GUI process.
  * 
  * @param filename - Can be used to log any data
  * @return void* 
@@ -218,13 +218,57 @@ void *sock_thread(void *filename)
 {
 	msg_log("Entered Socket Thread", DEBUG, P0, CONTROL_NODE);
 	socket_init();
-	socket_listen();
-	int req;
+	uint8_t req;
+	uint8_t p[2];
+	struct packet_struct packet_send;
 	while (1)
-	{
+	{	
+		socket_listen();
 		usleep(1);
 		req = socket_recv();
 		printf("Data received from the socket %d\n", req);
+		if(req == 49) //Buzzer ON
+		{
+			p[0] = BUZZER;
+			printf("Will b sending Buzzer OFF signal\n");
+			packet_send = make_packet(GUI_ID, 1, p, 1);
+			send_bytes(packet_send);
+		}
+		else if(req == 50) //New FingerPrint register
+		{
+			p[0] = 2;
+			packet_send = make_packet(GUI_ID, 1, p, 1);	
+			send_bytes(packet_send);
+			print_packet(packet_send);
+		}
+		else if(req == 51)//Delete all Fingerprints
+		{
+			p[0] = 3;
+			packet_send = make_packet(GUI_ID, 1, p, 1);	
+			send_bytes(packet_send);
+			//print_packet(packet_send);
+		}
+		else if(req == 52)//Turn Buzzer ON
+		{
+			p[0] = 4;
+			packet_send = make_packet(GUI_ID, 1, p, 1);	
+			send_bytes(packet_send);
+			//print_packet(packet_send);
+		}
+		else if(req == 53) //Reset remote node
+		{
+			p[0] = 5;
+			packet_send = make_packet(GUI_ID, 1, p, 1);	
+			send_bytes(packet_send);
+			//print_packet(packet_send);
+		}
+		else if(req == 54) //Allow access
+		{
+			p[0] = 6;
+			packet_send = make_packet(GUI_ID, 1, p, 1);	
+			send_bytes(packet_send);
+			//print_packet(packet_send);
+		}
 	}
 }
 /**
@@ -252,8 +296,7 @@ void *uart_thread(void *filename)
 			{
 				send_ack();
 			}
-			printf("***rcvd packet**\n");
-			print_packet(packet_receive);
+			//print_packet(packet_receive);
 			switch (packet_receive.id)
 			{
 			case FINGER_PRINT_ID:
@@ -271,7 +314,7 @@ void *uart_thread(void *filename)
 						packet_send = make_packet(OTP_SEND, 1, pay, 1);
 						//timer_init(TIMER_RETRY);
 						printf("***sent pckt****\n");
-						print_packet(packet_send);
+						//print_packet(packet_send);
 						send_bytes(packet_send);
 						msg_log("Sent OTP sent packet to the remote node", DEBUG, P0, CONTROL_NODE);
 					}
@@ -324,7 +367,8 @@ void *uart_thread(void *filename)
 			case LOG_MSG_ID:
 			{
 				printf("Inside log msg\n");
-				msg_log(packet_receive.payload, DEBUG, P0, REMOTE_NODE);
+				packet_receive.payload[packet_receive.size] = '\0';
+				msg_log((char *)packet_receive.payload, DEBUG, P0, REMOTE_NODE);
 				break;
 			}
 			}
@@ -483,12 +527,10 @@ void *uart_thread(void *filename)
 	{
 		logger_struct read_data;
 		read_data.id = ERROR_RCV_ID;
-
-		// if (clock_gettime(CLOCK_REALTIME, &read_data.sensor_data.temp_data.data_time))
-		// {
-		// 	error_log("ERROR: clock_gettime(); in read_temp_data() function", ERROR_DEBUG, P2);
-		// }
-
+		if (clock_gettime(CLOCK_REALTIME, &read_data.msg.error_data.data_time))
+		{
+				error_log("ERROR: clock_gettime(); in read_error() function", ERROR_DEBUG, P2);
+		}
 		//Errno is thread safe , no mutex required.
 		read_data.msg.error_data.error_value = errno;
 		strcpy(read_data.msg.error_data.error_str, error_str);
@@ -515,6 +557,7 @@ void *uart_thread(void *filename)
 			read_data.id = MSG_RCV_REMOTE_ID;
 			strcpy(read_data.msg.msg_data.msg_str, msg_str);
 		}
+		clock_gettime(CLOCK_REALTIME, &read_data.msg.msg_data.data_time);
 		return read_data;
 	}
 

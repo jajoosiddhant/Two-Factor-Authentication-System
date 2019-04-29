@@ -43,20 +43,20 @@ void log_data(logger_struct data_rcv)
 	case MSG_RCV_ID:
 	{
 		FILE *logfile = fopen(filename, "a");
-
+		fprintf(stdout,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
 		fprintf(stdout, "%s", data_rcv.msg.msg_data.msg_str);
+		fprintf(logfile,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
 		fprintf(logfile, "%s", data_rcv.msg.msg_data.msg_str);
-
 		fclose(logfile);
 		break;
 	}
 	case MSG_RCV_REMOTE_ID:
 	{
 		FILE *logfile = fopen(filename, "a");
-
-		fprintf(stdout, "Log Message from Remote Node: %s\n", data_rcv.msg.msg_data.msg_str);
-		fprintf(logfile, "Log Message from Remote Node: %s\n", data_rcv.msg.msg_data.msg_str);
-
+		fprintf(stdout,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
+		fprintf(stdout, "[REMOTE NODE]: %s\n", data_rcv.msg.msg_data.msg_str);
+		fprintf(logfile,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
+		fprintf(logfile, "[REMOTE_NODE]: %s\n", data_rcv.msg.msg_data.msg_str);
 		fclose(logfile);
 		break;
 	}
