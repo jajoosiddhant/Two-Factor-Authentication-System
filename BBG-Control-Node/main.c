@@ -226,13 +226,15 @@ void *sock_thread(void *filename)
 		socket_listen();
 		usleep(1);
 		req = socket_recv();
-		printf("Data received from the socket %d\n", req);
-		if(req == 49) //Buzzer ON
+		msg_log("GUI Request received\n", DEBUG, P0, CONTROL_NODE);
+		if(req == 49) //Buzzer OFF
 		{
 			p[0] = BUZZER;
 			printf("Will b sending Buzzer OFF signal\n");
 			packet_send = make_packet(GUI_ID, 1, p, 1);
 			send_bytes(packet_send);
+			retry(packet_send);
+			msg_log("Buzzer OFF Request received from GUI", DEBUG, P0, CONTROL_NODE);
 		}
 		else if(req == 50) //New FingerPrint register
 		{
@@ -240,12 +242,14 @@ void *sock_thread(void *filename)
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
 			print_packet(packet_send);
+			msg_log("Register new finger print received from GUI", DEBUG, P0, CONTROL_NODE);
 		}
 		else if(req == 51)//Delete all Fingerprints
 		{
 			p[0] = 3;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			msg_log("Delete all fingrprints request received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
 		else if(req == 52)//Turn Buzzer ON
@@ -253,6 +257,7 @@ void *sock_thread(void *filename)
 			p[0] = 4;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			msg_log("Buzzer ON Request received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
 		else if(req == 53) //Reset remote node
@@ -260,6 +265,7 @@ void *sock_thread(void *filename)
 			p[0] = 5;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			msg_log("Reset remote node received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
 		else if(req == 54) //Allow access
@@ -267,6 +273,7 @@ void *sock_thread(void *filename)
 			p[0] = 6;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			msg_log("Allow access Request received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
 	}
@@ -312,10 +319,10 @@ void *uart_thread(void *filename)
 						msg_log("Sent OTP to the Siddhant\n", DEBUG, P0, CONTROL_NODE);
 						pay[0] = 1;
 						packet_send = make_packet(OTP_SEND, 1, pay, 1);
-						//timer_init(TIMER_RETRY);
-						printf("***sent pckt****\n");
+						//printf("***sent pckt****\n");
 						//print_packet(packet_send);
 						send_bytes(packet_send);
+						retry(packet_send);
 						msg_log("Sent OTP sent packet to the remote node", DEBUG, P0, CONTROL_NODE);
 					}
 					else if (packet_receive.payload[1] == 1)
@@ -326,6 +333,7 @@ void *uart_thread(void *filename)
 						pay[0] = 1;
 						packet_send = make_packet(OTP_SEND, 1, pay, 1);
 						send_bytes(packet_send);
+						retry(packet_send);
 						msg_log("Sent OTP packet to the remote node\n", DEBUG, P0, CONTROL_NODE);
 					}
 				}
@@ -335,19 +343,23 @@ void *uart_thread(void *filename)
 					pay[0] = 0;
 					packet_send = make_packet(ACCESS_STATUS, 1, pay, 1);
 					send_bytes(packet_send);
+					retry(packet_send);
 					msg_log("Sent FingerPrint not matched packet to the remote node\n", DEBUG, P0, CONTROL_NODE);
 				}
 				break;
 			}
 			case OTP_RECEIVE:
 			{
-				if (packet_receive.payload[0] == r_no[0] && packet_receive.payload[1] == r_no[1] &&
-					packet_receive.payload[2] == r_no[2] && packet_receive.payload[3] == r_no[3])
+				for(int i=0; i<4; i++)
+				printf("MY OTP %d\n",r_no[i]);
+				if ((packet_receive.payload[0]-48) == r_no[0] && (packet_receive.payload[1]-48) == r_no[1] &&
+					(packet_receive.payload[2]-48) == r_no[2] && (packet_receive.payload[3]-48) == r_no[3])
 				{
 					msg_log("User has entered correct OTP\n", DEBUG, P0, CONTROL_NODE);
 					pay[0] = 1;
 					packet_send = make_packet(ACCESS_STATUS, 1, pay, 1);
 					send_bytes(packet_send);
+					retry(packet_send);
 				}
 				else
 				{
@@ -355,12 +367,14 @@ void *uart_thread(void *filename)
 					pay[0] = 0;
 					packet_send = make_packet(ACCESS_STATUS, 1, pay, 1);
 					send_bytes(packet_send);
+					retry(packet_send);
 				}
 				break;
 			}
 			case ACK_PACKET:
 			{
 				msg_log("ACK Packet received\n", DEBUG, P0, REMOTE_NODE);
+				timer_delete(timeout_retry);
 				break;
 			}
 
@@ -861,5 +875,6 @@ void *uart_thread(void *filename)
 
 	void retry(struct packet_struct obj)
 	{
-		
+		mq_send(packet_mq, (char *)&obj, sizeof(obj), 0);
+		timer_init(TIMER_RETRY);	
 	}

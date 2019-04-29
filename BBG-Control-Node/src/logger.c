@@ -44,9 +44,9 @@ void log_data(logger_struct data_rcv)
 	{
 		FILE *logfile = fopen(filename, "a");
 		fprintf(stdout,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
-		fprintf(stdout, "%s", data_rcv.msg.msg_data.msg_str);
+		fprintf(stdout, "%s\n", data_rcv.msg.msg_data.msg_str);
 		fprintf(logfile,"[%lu sec, %lu nsec] ",data_rcv.msg.msg_data.data_time.tv_sec, data_rcv.msg.msg_data.data_time.tv_nsec);
-		fprintf(logfile, "%s", data_rcv.msg.msg_data.msg_str);
+		fprintf(logfile, "%s\n", data_rcv.msg.msg_data.msg_str);
 		fclose(logfile);
 		break;
 	}

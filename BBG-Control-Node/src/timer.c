@@ -46,7 +46,7 @@ err_t timer_init(uint8_t timer_handle)
         trigger_retry.it_interval.tv_sec = RETRY_INTERVAL_SEC;
         trigger_retry.it_value.tv_nsec = RETRY_INTERVAL_NSEC;
         trigger_retry.it_interval.tv_nsec = RETRY_INTERVAL_NSEC;
-
+        retry_flag = 0;
         if (timer_settime(timeout_retry, 0, &trigger_retry, NULL))
         {
             error_log("ERROR: timer_settime(temp); in timer_init function", ERROR_DEBUG, P2);
@@ -55,7 +55,6 @@ err_t timer_init(uint8_t timer_handle)
         {
             msg_log("Temperature Timer started.\n", DEBUG, P0, CONTROL_NODE);
         }
-        retry_flag = 0;
     }
     else if (timer_handle == TIMER_HB)
     {

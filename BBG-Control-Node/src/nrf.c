@@ -88,12 +88,12 @@ uint8_t nrf_set_addr()
 	a.rx_address[4] = 0x00;
 	spi_write_mul_bytes(RX_PIPE, (a.rx_address), 5);
 	ret = spi_read_mul_bytes(RX_PIPE, 5);
-    printf("RX Pipe Address 0 set as ");
+   // printf("RX Pipe Address 0 set as ");
     for(int i = 4; i >=0; i--)
     {
-        printf("%d",rx_buff[i]);
+        //printf("%d",rx_buff[i]);
     }
-    printf("\n");
+   // printf("\n");
     struct tx_pipe b;
 	b.tx_address[0] = 0x06;
 	b.tx_address[1] = 0x00;
@@ -102,12 +102,12 @@ uint8_t nrf_set_addr()
 	b.tx_address[4] = 0x00;
 	spi_write_mul_bytes(TX_PIPE, (b.tx_address), 5);
 	ret = spi_read_mul_bytes(TX_PIPE, 5);
-    printf("TX Pipe Address set as ");
+   // printf("TX Pipe Address set as ");
     for(int i = 4; i >=0; i--)
     {
-        printf("%d",rx_buff[i]);
+        // printf("%d",rx_buff[i]);
     }
-   printf("\n");
+//    printf("\n");
 
 }
 
@@ -156,9 +156,9 @@ uint32_t rx_packet()
     int ret;
     uint8_t received_pipe;
     spi_read(STATUS);
-    printf("Read status register value %x\n", read_status);
+    //printf("Read status register value %x\n", read_status);
     received_pipe = (read_status & RX_P_NO_MASK) >> 1;
-    printf("Data received in %d pipe\n", received_pipe);
+    //printf("Data received in %d pipe\n", received_pipe);
     if(read_status & RX_DR_MASK)
     {
         ret =  command_nrf(RX_PAYLOAD);
@@ -171,7 +171,7 @@ uint32_t rx_packet()
         }
         spi_write(STATUS, 0x40);
         spi_read(STATUS);
-        printf("Interrupt cleared new Status value %x\n", read_status);
+        //printf("Interrupt cleared new Status value %x\n", read_status);
         gpio_ctrl(GPIO51, GPIO51_V, 0); //set CE low
         command_nrf(RX_FLUSH);
     }
