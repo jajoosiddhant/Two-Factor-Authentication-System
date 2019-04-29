@@ -1,6 +1,6 @@
 /**
  * @file nrf.c
- * @author Satya Mehta and Siddhant Jajoo
+ * @author Satya Mehta
  * @brief 
  * @version 0.1
  * @date 2019-04-17
@@ -166,7 +166,7 @@ uint32_t rx_packet()
         {
             for(int  i = 0; i < 10; i++)
             {
-                printf("Bytes rcvd %d\n", rx_buff[i]);
+                //printf("Bytes rcvd %d\n", rx_buff[i]);
             }   
         }
         spi_write(STATUS, 0x40);

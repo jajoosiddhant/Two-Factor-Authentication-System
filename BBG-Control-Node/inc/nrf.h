@@ -43,7 +43,7 @@ typedef enum {
 #define RX_P_NO_MASK (0x0E)
 #define STATUS (0x07)
 
-
+/*Function declarations*/
 uint8_t spi_init(void);
 uint8_t spi_read(uint8_t reg);
 uint8_t spi_write(uint8_t,uint8_t);
@@ -58,7 +58,7 @@ uint8_t nrf_configure_mode(modes);
 uint8_t nrf_set_addr(void);
 
 
-
+/*Global variables*/
 static const char *device = "/dev/spidev1.0";
 static uint32_t mode = 0;
 static uint8_t bits = 8;

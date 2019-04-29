@@ -32,17 +32,16 @@
 
 //Timer initialization macros
 #define TIMER_RETRY (1)
-#define TIMER_LIGHT (2)
 #define TIMER_HB (3)
 
 #define TEMP_UNIT (0) //Set 0 for degree celsius, 1 for kelvin, 2 for fahrenheit.
 
-//Heartbeat values corresponding to different threads 
-#define TEMP_HB (1)
-#define LIGHT_HB (2)
-#define LOGGER_HB (3)
-#define SOCKET_HB (4)
-#define CLEAR_HB (5)
+// //Heartbeat values corresponding to different threads 
+// #define TEMP_HB (1)
+// #define LIGHT_HB (2)
+// #define LOGGER_HB (3)
+// #define SOCKET_HB (4)
+// #define CLEAR_HB (5)
 
 //Log Levels
 #define INFO (0x01)
@@ -84,15 +83,14 @@ pthread_mutex_t mutex_b;
 pthread_mutex_t mutex_error;
 
 //Global Variables
-int i2c_open;
 char *filename;
 volatile uint8_t retry_flag;
 volatile uint8_t light_timerflag;
 uint8_t g_ll;
 uint8_t main_exit;
 volatile uint8_t socket_flag;
-int gpio_fd[2]; //2, one for light and other for the temperature
-
+int gpio_fd[2];
+int r_no[4];
 // Error number
 typedef uint32_t err_t;
 
@@ -157,7 +155,6 @@ struct __attribute__((__packed__))packet_struct
 //Function Declarations
 err_t create_threads(char *filename);
 void *logger_thread(void *filename);
-err_t i2c_init(void);
 logger_struct read_error(char *error_str);
 logger_struct read_msg(char *msg_str, uint8_t);
 void error_log(char *error_str, uint8_t loglevel, uint8_t prio);
@@ -171,10 +168,8 @@ void retry(struct packet_struct);
 uint8_t send_otp(uint8_t);
 err_t mutex_init(void);
 err_t mutex_destroy(void);
-err_t i2c_close(void);
 err_t thread_destroy(void);
 err_t destroy_all(void);
 
-//Variables declarations
-int r_no[4];
+
 #endif

@@ -11,8 +11,11 @@
 #include "main.h"
 #include "checksum.h"
 
+/*Macros*/
 #define UART_PORT "/dev/ttyO4"
 
+
+/*Function declaration*/
 uint8_t uart_init();
 uint8_t send_uart(int*, uint8_t bytes);
 uint8_t rcv_byte_uart(void);
@@ -22,6 +25,8 @@ struct packet_struct rcv_bytes();
 uint8_t send_ack(void);
 uint8_t send_bytes(struct packet_struct obj);
 void print_packet(struct packet_struct);
+
+/*Global variables*/
 int uart_fd;
 
 #endif

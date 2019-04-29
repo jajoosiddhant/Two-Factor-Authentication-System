@@ -34,11 +34,11 @@ err_t timer_init(uint8_t timer_handle)
         sev_temp.sigev_value.sival_int = timer_handle;
         if (timer_create(CLOCK_REALTIME, &sev_temp, &timeout_retry))
         {
-            error_log("ERROR: timer_create(temp); in timer_init() function", ERROR_DEBUG, P2);
+            error_log("ERROR: timer_create(retry); in timer_init() function", ERROR_DEBUG, P2);
         }
         else
         {
-            msg_log("Temperature Timer initialized.\n", DEBUG, P0, CONTROL_NODE);
+            msg_log("Retry timer started", DEBUG, P0, CONTROL_NODE);
         }
 
         //Setting the first timer interval and the repeating timer interval
@@ -49,11 +49,11 @@ err_t timer_init(uint8_t timer_handle)
         retry_flag = 0;
         if (timer_settime(timeout_retry, 0, &trigger_retry, NULL))
         {
-            error_log("ERROR: timer_settime(temp); in timer_init function", ERROR_DEBUG, P2);
+            error_log("ERROR: timer_settime(retry); in timer_init function", ERROR_DEBUG, P2);
         }
         else
         {
-            msg_log("Temperature Timer started.\n", DEBUG, P0, CONTROL_NODE);
+            msg_log("Retry Timer started", DEBUG, P0, CONTROL_NODE);
         }
     }
     else if (timer_handle == TIMER_HB)
@@ -113,12 +113,12 @@ void timer_handler(union sigval sv)
             timer_delete(timeout_retry);
             msg_log("Remote Node is offline\n", DEBUG, P0, CONTROL_NODE);
         }
-        send_bytes(obj);
+       send_bytes(obj);
         retry_flag++;
     }
     else if (sv.sival_int == TIMER_HB)
     {
-        hb_send(CLEAR_HB);
+     //   hb_send(CLEAR_HB);
         msg_log("In Timer Handler: Heartbeat Timer fired.\n", DEBUG, P0, CONTROL_NODE);
     }
 }
@@ -134,12 +134,6 @@ err_t timer_del(void)
     {
         perror("ERROR: timer_delete(temp); in timer_del() function");
     }
-
-    if (timer_delete(timeout_light))
-    {
-        perror("ERROR: timer_delete(light); in timer_del() function");
-    }
-
     if (timer_delete(timeout_hb))
     {
         perror("ERROR: timer_delete(hb); in timer_del() function");

@@ -154,6 +154,13 @@ struct packet_struct rcv_bytes()
     obj.postamble = rcv_byte_uart();
     return obj;
 }
+
+/**
+ * @brief Send the packet over UART interface
+ * 
+ * @param obj -Specifies the packet which is required to be sent to remote node
+ * @return uint8_t 
+ */
 uint8_t send_bytes(struct packet_struct obj)
 {
     pthread_mutex_lock(&mutex_a);
@@ -172,6 +179,11 @@ uint8_t send_bytes(struct packet_struct obj)
     pthread_mutex_unlock(&mutex_a);
 }
 
+/**
+ * @brief Send acknowledge to the remote node.
+ * 
+ * @return uint8_t -Called if the received packet has ack bit set
+ */
 uint8_t send_ack()
 {
     uint8_t pay[2];
@@ -179,7 +191,13 @@ uint8_t send_ack()
     pay[0] = DONT_CARE;
 	ack_struct = make_packet(ACK_PACKET, 1, pay, 0);
 	send_bytes(ack_struct);
+    return 0;
 }
+/**
+ * @brief This function can be used to print any data packet
+ * 
+ * @param obj -Pass the packet structure which is required to be printed on stdout
+ */
 
 void print_packet(struct packet_struct obj)
 {

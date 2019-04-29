@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 	// gpio_init(LED2);
 	// gpio_init(LED3);
 	// gpio_init(LED4);
-	//Initializing queues
+	// Initializing queues
 	res = queue_init();
 	if (!res)
 	{
@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
 
 	while (!main_exit)
 	{
-		hb_handle(hb_receive());
+		// hb_handle(hb_receive());
 	}
 	msg_log("Exiting Main while loop.\n", DEBUG, P0, CONTROL_NODE);
 	msg_log("Destroying all initialized elements.\n", DEBUG, P0, CONTROL_NODE);
@@ -203,7 +203,7 @@ void *logger_thread(void *filename)
 	{
 		usleep(1);
 		log_data(queue_receive(log_mq));
-		hb_send(LOGGER_HB);
+		// hb_send(LOGGER_HB);
 	}
 }
 
@@ -241,23 +241,25 @@ void *sock_thread(void *filename)
 			p[0] = 2;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
-			print_packet(packet_send);
+			retry(packet_send);
 			msg_log("Register new finger print received from GUI", DEBUG, P0, CONTROL_NODE);
 		}
-		else if(req == 51)//Delete all Fingerprints
+		else if(req == 51)//Buzzer ON req
 		{
 			p[0] = 3;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
-			msg_log("Delete all fingrprints request received from GUI", DEBUG, P0, CONTROL_NODE);
+			retry(packet_send);
+			msg_log("Buzzer ON request received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
-		else if(req == 52)//Turn Buzzer ON
+		else if(req == 52)//Delete all FP
 		{
 			p[0] = 4;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
-			msg_log("Buzzer ON Request received from GUI", DEBUG, P0, CONTROL_NODE);
+			retry(packet_send);
+			msg_log("Delete all FP received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
 		else if(req == 53) //Reset remote node
@@ -265,6 +267,7 @@ void *sock_thread(void *filename)
 			p[0] = 5;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			retry(packet_send);
 			msg_log("Reset remote node received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
@@ -273,6 +276,7 @@ void *sock_thread(void *filename)
 			p[0] = 6;
 			packet_send = make_packet(GUI_ID, 1, p, 1);	
 			send_bytes(packet_send);
+			retry(packet_send);
 			msg_log("Allow access Request received from GUI", DEBUG, P0, CONTROL_NODE);
 			//print_packet(packet_send);
 		}
@@ -297,6 +301,7 @@ void *uart_thread(void *filename)
 	{
 		packet_receive = rcv_bytes();
 		print_packet(packet_receive);
+		printf("CRC %d:\n", packet_receive.crc);
 		if (packet_receive.preamble == PREAMBLE && packet_receive.crc == checksum_calc(packet_receive.payload, packet_receive.size))
 		{
 			if (packet_receive.ack == 1)
@@ -380,7 +385,6 @@ void *uart_thread(void *filename)
 
 			case LOG_MSG_ID:
 			{
-				printf("Inside log msg\n");
 				packet_receive.payload[packet_receive.size] = '\0';
 				msg_log((char *)packet_receive.payload, DEBUG, P0, REMOTE_NODE);
 				break;
@@ -644,105 +648,105 @@ void *uart_thread(void *filename)
  * @param hb_rcv - This value is returned from the hb_receive() function.
  */
 
-	void hb_handle(uint8_t hb_rcv)
-	{
-		switch (hb_rcv)
-		{
-		case TEMP_HB:
-		{
-			temp_hb_value++;
-			msg_log("Temperaure Heartbeat received.\n", DEBUG, P0, CONTROL_NODE);
-			break;
-		}
+	// void hb_handle(uint8_t hb_rcv)
+	// {
+	// 	switch (hb_rcv)
+	// 	{
+	// 	case TEMP_HB:
+	// 	{
+	// 		temp_hb_value++;
+	// 		msg_log("Temperaure Heartbeat received.\n", DEBUG, P0, CONTROL_NODE);
+	// 		break;
+	// 	}
 
-		case LIGHT_HB:
-		{
-			light_hb_value++;
-			msg_log("Light Heartbeat received.\n", DEBUG, P0, CONTROL_NODE);
-			break;
-		}
+	// 	case LIGHT_HB:
+	// 	{
+	// 		light_hb_value++;
+	// 		msg_log("Light Heartbeat received.\n", DEBUG, P0, CONTROL_NODE);
+	// 		break;
+	// 	}
 
-		case LOGGER_HB:
-		{
-			logger_hb_value++;
-			//msg_log("Logger Heartbeat received.\n", DEBUG, P0);
-			break;
-		}
+	// 	case LOGGER_HB:
+	// 	{
+	// 		logger_hb_value++;
+	// 		//msg_log("Logger Heartbeat received.\n", DEBUG, P0);
+	// 		break;
+	// 	}
 
-		case CLEAR_HB:
-		{
-			if (temp_hb_value == 0)
-			{
-				if (pthread_cancel(my_thread[0]))
-				{
-					error_log("ERROR: pthread_cancel(0); in hb_handle() function", ERROR_DEBUG, P2);
-				}
-				else
-				{
-					msg_log("Stopping temperature thread.\n", DEBUG, P0, CONTROL_NODE);
-				}
+	// 	case CLEAR_HB:
+	// 	{
+	// 		if (temp_hb_value == 0)
+	// 		{
+	// 			if (pthread_cancel(my_thread[0]))
+	// 			{
+	// 				error_log("ERROR: pthread_cancel(0); in hb_handle() function", ERROR_DEBUG, P2);
+	// 			}
+	// 			else
+	// 			{
+	// 				msg_log("Stopping temperature thread.\n", DEBUG, P0, CONTROL_NODE);
+	// 			}
 
-				if (pthread_create(&my_thread[0],		   // pointer to thread descriptor
-								   (void *)&my_attributes, // use default attributes
-								   nrf_thread,			   // thread function entry point
-								   (void *)0))			   // parameters to pass in
-				{
-					error_log("ERROR: pthread_create(); in create_threads function, temp_thread not created", ERROR_DEBUG, P2);
-				}
-				else
-				{
-					msg_log("Resetting temperature thread.\n", DEBUG, P0, CONTROL_NODE);
-				}
-			}
-			else
-			{
-				temp_hb_value = 0;
-			}
+	// 			if (pthread_create(&my_thread[0],		   // pointer to thread descriptor
+	// 							   (void *)&my_attributes, // use default attributes
+	// 							   nrf_thread,			   // thread function entry point
+	// 							   (void *)0))			   // parameters to pass in
+	// 			{
+	// 				error_log("ERROR: pthread_create(); in create_threads function, temp_thread not created", ERROR_DEBUG, P2);
+	// 			}
+	// 			else
+	// 			{
+	// 				msg_log("Resetting temperature thread.\n", DEBUG, P0, CONTROL_NODE);
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			temp_hb_value = 0;
+	// 		}
 
-			if (light_hb_value == 0)
-			{
-				if (pthread_cancel(my_thread[1]))
-				{
-					error_log("ERROR: pthread_cancel(1); in hb_handle() function", ERROR_DEBUG, P2);
-				}
-				else
-				{
-					msg_log("Stopping light thread.\n", DEBUG, P0, CONTROL_NODE);
-				}
-			}
-			else
-			{
-				light_hb_value = 0;
-			}
+	// 		if (light_hb_value == 0)
+	// 		{
+	// 			if (pthread_cancel(my_thread[1]))
+	// 			{
+	// 				error_log("ERROR: pthread_cancel(1); in hb_handle() function", ERROR_DEBUG, P2);
+	// 			}
+	// 			else
+	// 			{
+	// 				msg_log("Stopping light thread.\n", DEBUG, P0, CONTROL_NODE);
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			light_hb_value = 0;
+	// 		}
 
-			if (logger_hb_value == 0)
-			{
-				if (pthread_cancel(my_thread[2]))
-				{
-					error_log("ERROR: pthread_cancel(2); in hb_handle() function", ERROR_DEBUG, P2);
-				}
-				else
-				{
-					msg_log("Stopping logger thread.\n", DEBUG, P0, CONTROL_NODE);
-				}
+	// 		if (logger_hb_value == 0)
+	// 		{
+	// 			if (pthread_cancel(my_thread[2]))
+	// 			{
+	// 				error_log("ERROR: pthread_cancel(2); in hb_handle() function", ERROR_DEBUG, P2);
+	// 			}
+	// 			else
+	// 			{
+	// 				msg_log("Stopping logger thread.\n", DEBUG, P0, CONTROL_NODE);
+	// 			}
 
-				if (pthread_create(&my_thread[2],		   // pointer to thread descriptor
-								   (void *)&my_attributes, // use default attributes
-								   logger_thread,		   // thread function entry point
-								   (void *)0))			   // parameters to pass in
-				{
-					error_log("ERROR: pthread_create(); in create_threads function, temp_thread not created", ERROR_DEBUG, P2);
-				}
-				else
-				{
-					msg_log("Resetting logger thread.\n", DEBUG, P0, CONTROL_NODE);
-				}
-			}
-			msg_log("Clearing all heartbeat values.\n", DEBUG, P0, CONTROL_NODE);
-			break;
-		}
-		}
-	}
+	// 			if (pthread_create(&my_thread[2],		   // pointer to thread descriptor
+	// 							   (void *)&my_attributes, // use default attributes
+	// 							   logger_thread,		   // thread function entry point
+	// 							   (void *)0))			   // parameters to pass in
+	// 			{
+	// 				error_log("ERROR: pthread_create(); in create_threads function, temp_thread not created", ERROR_DEBUG, P2);
+	// 			}
+	// 			else
+	// 			{
+	// 				msg_log("Resetting logger thread.\n", DEBUG, P0, CONTROL_NODE);
+	// 			}
+	// 		}
+	// 		msg_log("Clearing all heartbeat values.\n", DEBUG, P0, CONTROL_NODE);
+	// 		break;
+	// 	}
+	// 	}
+	// }
 
 	/**
  * @brief - This function destroys all the mutexes created at the start.
@@ -839,14 +843,14 @@ void *uart_thread(void *filename)
 		char p[5];
 		snprintf(p,5,"%x", otp);
 		printf("Otp %s\n", p);
-		if (id == 1)
+		if (id == 0)
 		{
 			char str[50] = "/usr/bin/python sms-send.py siddhant ";
 			strcat(str, p);
 			system(str);
 			return 0;
 		}
-		else if (id == 0)
+		else if (id == 1)
 		{
 			char str[50] = "/usr/bin/python sms-send.py satya ";
 			strcat(str, p);
