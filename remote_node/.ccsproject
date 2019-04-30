@@ -8,6 +8,6 @@
 	<isElfFormat value="true"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
-	<origin value="C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/senshub_iot/ccs"/>
+	<origin value="C:/Satya/Masters/Masters/Spring 19/APES/Two-Factor-Authentication-System/remote_node"/>
 	<isTargetManual value="true"/>
 </projectOptions>

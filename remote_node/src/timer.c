@@ -17,6 +17,7 @@
 #include "inc/delay.h"
 #include "inc/fingerprint.h"
 #include "inc/lcd.h"
+#include "inc/uart_comm_bbg.h"
 
 
 void timer_config(timer_t timer, uint32_t ms)
@@ -129,11 +130,12 @@ void timer1handler(void)
 
     delay_ms(3000);
 
-    //Enable Interrupts again to Try again.
-    fp_interrupt_enable();
+
 
     printf("Start Again!! Press Finger On Scanner.");
     LCD_write("Start Again!! Press Finger On Scanner.");
+
+    reset_system();
 
     //Enable all interrupts
     ROM_IntMasterEnable();

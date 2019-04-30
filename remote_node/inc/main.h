@@ -83,7 +83,7 @@ uint32_t g_ui32SysClock;                        /**< This variable holds the sys
 volatile uint8_t otp_flag;                      /**< This flag allows data to be stored in the array otp_arr only when OTP has been sent to user*/
 volatile uint8_t otp_count;                     /**< Keeps a Tab on how many digits have been entered*/
 uint8_t otp_arr[4];                             /**< Global array where OTP input by user is stored*/
-
+uint8_t otp_retries;                            /**
 
 //******************************************************************************************/
 //                              STRUCTURES CONTAINING GLOBAL DATA

@@ -49,7 +49,6 @@ void uart_packet_handler(packet datap_rcv);
 void uart_commhandler(void);
 
 
-
 /**
  * @brief This function is used for testing UART communication with beaglebone.
  * @return void.
@@ -57,6 +56,11 @@ void uart_commhandler(void);
 void uart_bbg_test(void);
 
 
+/**
+ * @brief This function resets the system.
+ * @return void.
+ */
+void reset_system(void);
 
 /**
  * @brief This function sends an acknowledgment for the receoved packet.

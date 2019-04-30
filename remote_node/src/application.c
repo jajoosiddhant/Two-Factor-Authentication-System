@@ -49,6 +49,7 @@ void system_init(void)
     //Global Variable Initialization.
     otp_flag = 0;
     otp_count = 0;
+    otp_retries = 0;
     memset(otp_arr, 0, 4);
 
 

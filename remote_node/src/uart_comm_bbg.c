@@ -65,6 +65,27 @@ void configureUART_bbg(void)
 }
 
 
+
+void reset_system(void)
+{
+    send_failcount = 0;
+    otp_count = 0;
+    otp_flag = 0;
+    otp_retries = 0;
+    memset(otp_arr, 0, 4);
+    disable_timer(timer_otp);
+    disable_timer(timer_retry);
+    reset_timer(timer_otp, OTP_INPUT_TIME);
+    reset_timer(timer_retry, PACKET_RETRY_TIME);
+    keypad_interrupt_enable();
+    GPIOIntClear(COMMON_COLUMN_PORT, COLUMN1_PIN | COLUMN2_PIN | COLUMN3_PIN | COLUMN4_PIN);
+    fp_interrupt_enable();
+    GPIOIntClear(FP_IRQ_PORT, FP_IRQ_PIN);
+
+    IntMasterEnable();
+}
+
+
 void uart_packet_handler(packet datap_rcv)
 {
     if(datap_rcv.preamble == PREAMBLE && datap_rcv.crc_check == checksum_calc(datap_rcv.payload, datap_rcv.size))
@@ -96,13 +117,26 @@ void uart_packet_handler(packet datap_rcv)
                 printf("Access Granted.\n");
                 LCD_write("Access Granted");
                 packet_msglog_uart(UART_BBG, "Access Granted");
+                delay_ms(3000);
+                reset_system();
             }
             else
             {
-                printf("Access Denied.\n");
-                LCD_write("Access Denied");
-                packet_msglog_uart(UART_BBG, "Access Denied");
-                buzzer_onoff(1);
+                otp_retries++;
+                if(otp_retries == 2)
+                {
+                    printf("Access Denied.\n");
+                    LCD_write("Access Denied");
+                    packet_msglog_uart(UART_BBG, "Access Denied");
+                    buzzer_onoff(1);
+                }
+                else
+                {
+                    printf("Access Denied, One more try left\n");
+                    LCD_write("Access Denied, One more try left");
+                    packet_msglog_uart(UART_BBG, "Access Denied, One more try left");
+                    fp_interrupt_enable();
+                }
             }
 
             break;
@@ -141,17 +175,7 @@ void uart_packet_handler(packet datap_rcv)
             }
             else if(datap_rcv.payload[0] == GUI_RESET_SYSTEM)
             {
-                send_failcount = 0;
-                otp_count = 0;
-                otp_flag = 0;
-                memset(otp_arr, 0, 4);
-                disable_timer(timer_otp);
-                disable_timer(timer_retry);
-                reset_timer(timer_otp, OTP_INPUT_TIME);
-                reset_timer(timer_retry, PACKET_RETRY_TIME);
-                keypad_interrupt_enable();
-                fp_interrupt_enable();
-                IntMasterEnable();
+                reset_system();
                 printf("Resetting System.\n");
                 LCD_write("Resetting System.");
                 packet_msglog_uart(UART_BBG, "Resetting System");
