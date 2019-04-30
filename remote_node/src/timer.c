@@ -53,6 +53,22 @@ void timer_config(timer_t timer, uint32_t ms)
         ROM_TimerIntEnable(timer, TIMER_TIMA_TIMEOUT);
 
     }
+    else if (timer == timer_fpcheck)
+    {
+
+        // Enable the peripherals for Timers.
+        ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER2);
+
+        // Configure the 32-bit periodic timer.
+        ROM_TimerConfigure(timer, TIMER_CFG_PERIODIC);
+        ROM_TimerLoadSet(timer, TIMER_A, (g_ui32SysClock/1000)*ms);
+
+        // Setup the interrupts for the timer timeout.
+        ROM_IntEnable(INT_TIMER2A);
+        ROM_TimerIntEnable(timer, TIMER_TIMA_TIMEOUT);
+
+    }
+
 }
 
 
@@ -141,3 +157,16 @@ void timer1handler(void)
     ROM_IntMasterEnable();
 
 }
+
+
+void timer2handler(void)
+{
+    //Disable all interrupts
+    ROM_IntMasterDisable();
+
+
+    //Enable all interrupts
+    ROM_IntMasterEnable();
+
+}
+

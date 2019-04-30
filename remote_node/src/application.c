@@ -31,17 +31,17 @@
 #include "inc/application.h"
 
 
-//uint8_t applicationtask_init(void)
-//{
-//    if(xTaskCreate(nrf_logger, (const portCHAR *)"nrf_logger", LEDTASKSTACKSIZE, NULL,
-//                   tskIDLE_PRIORITY, NULL) != pdTRUE)
-//    {
-//        UARTprintf("Failed to create Logger Task.\n");
-//        return(1);
-//    }
-//
-//    return 0;
-//}
+uint8_t sensortask_init(void)
+{
+    if(xTaskCreate(sensorcheck, (const portCHAR *)"sensorcheck", LEDTASKSTACKSIZE, NULL,
+                   tskIDLE_PRIORITY, NULL) != pdTRUE)
+    {
+        UARTprintf("Failed to create Sensor Check Task.\n");
+        return(1);
+    }
+
+    return 0;
+}
 
 
 void system_init(void)
@@ -50,12 +50,15 @@ void system_init(void)
     otp_flag = 0;
     otp_count = 0;
     otp_retries = 0;
+    sensor_check = 0;
+    degrade_mode = 0;
     memset(otp_arr, 0, 4);
 
 
     //Configure Timer for Retries.
     timer_config(timer_retry, PACKET_RETRY_TIME);
     timer_config(timer_otp, OTP_INPUT_TIME);
+//    timer_config(timer_fpcheck, FP_CHECK_TIME);
 
     //Initializing Checksum.
     checksum_init();
@@ -97,5 +100,47 @@ void system_init(void)
     //nrf_config();
 
 }
+
+
+static void sensorcheck(void *pvParameters)
+{
+
+    uint8_t response_packet[RESPONSE_SIZE];
+    uint8_t i;
+
+    while(1)
+    {
+        delay_ms(666);
+
+        //Get enrollment count
+        fp_cmdsend(UART_FP, FP_GETENROLLCOUNT_CMD, FP_NOPARAM);
+
+
+        for(i=0; i < RESPONSE_SIZE; i++)
+        {
+            response_packet[i] = (uint8_t)(UARTCharGetNonBlocking(UART_FP) & 0x000000FF);
+        }
+
+        if(response_packet[8] == ACK)
+        {
+            printf("FINGERPRINT SENSOR online: %x.\n", response_packet[8]);
+            sensor_check = 0;
+            otp_flag = 0;
+            fp_interrupt_enable();
+            LCD_write("Press Finger on Scanner");
+            fp_led_status(UART_FP, FP_LEDON);
+        }
+        else
+        {
+            printf("Sensor Offline %x.\n", response_packet[8]);
+            sensor_check = 1;
+            fp_interrupt_disable();
+            otp_flag = 1;
+            LCD_write("Fingerprint Sensor offline: Enter PASSCODE");
+        }
+    }
+
+}
+
 
 

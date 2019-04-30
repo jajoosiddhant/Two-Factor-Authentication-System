@@ -62,6 +62,7 @@
 #define MSG_LOG_ID                  (5)
 #define ACK_ID                      (6)
 #define GUI_ID                      (7)
+#define SECRET_PASSCODE_ID          (8)
 #define TEMP_RCV_ID                 (10)
 #define LED_RCV_ID                  (11)
 
@@ -83,7 +84,9 @@ uint32_t g_ui32SysClock;                        /**< This variable holds the sys
 volatile uint8_t otp_flag;                      /**< This flag allows data to be stored in the array otp_arr only when OTP has been sent to user*/
 volatile uint8_t otp_count;                     /**< Keeps a Tab on how many digits have been entered*/
 uint8_t otp_arr[4];                             /**< Global array where OTP input by user is stored*/
-uint8_t otp_retries;                            /**
+uint8_t otp_retries;                            /**< The count for number of retries the user can have while inputting otp*/
+volatile uint8_t sensor_check;                  /**< Flag to determine if sensor is online or not, flag set if offline*/
+volatile uint8_t degrade_mode;
 
 //******************************************************************************************/
 //                              STRUCTURES CONTAINING GLOBAL DATA

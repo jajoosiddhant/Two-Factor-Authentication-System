@@ -22,7 +22,8 @@
 typedef enum
 {
     timer_retry = TIMER0_BASE,
-    timer_otp = TIMER1_BASE
+    timer_otp = TIMER1_BASE,
+    timer_fpcheck = TIMER2_BASE
 }timer_t;
 
 
@@ -32,7 +33,7 @@ static uint8_t send_failcount;
 #define OTP_INPUT_TIME          (120000)    /**< Time to input OTP is in Milliseconds (120 seconds)*/
 #define PACKET_RETRY_TIME       (500)       /**< Retry time in Milliseconds*/
 #define PACKET_RETRY_COUNT      (3)         /**< Max Packet Retry Counts*/
-
+#define FP_CHECK_TIME           (5000)      /**< Check fingerprint time if online in milliseconds (5 seconds)*/
 
 //******************************************************************************************/
 //                              FUNCTION DECLARATIONS
@@ -79,10 +80,17 @@ void timer0handler(void);
 
 
 /**
- * @brief Callback Function for LED Timer(TIMER0A).
+ * @brief Callback Function for LED Timer(TIMER1A).
  * @return void.
  */
 void timer1handler(void);
+
+
+/**
+ * @brief Callback Function for LED Timer(TIMER2A).
+ * @return void.
+ */
+void timer2handler(void);
 
 
 #endif /* INC_TIMER_H_ */

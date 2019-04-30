@@ -23,6 +23,17 @@
  */
 void system_init(void);
 
+/**
+ * @brief This function creates a task.
+ * @return void.
+ */
+uint8_t sensortask_init(void);
 
+/**
+ * @brief Callback function for sensorcheck task.
+ * @param pvParameters Not in use.
+ * @return void.
+ */
+static void sensorcheck(void *pvParameters);
 
 #endif /* INC_APPLICATION_H_ */

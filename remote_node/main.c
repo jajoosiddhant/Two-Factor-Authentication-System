@@ -150,6 +150,15 @@ int main(void)
 //    Packet Data testing
 //    packet_loopback_test();
 
+    // Create Fingerprint Sensor Check.
+    if(sensortask_init() != 0)
+    {
+        while(1)
+        {
+        }
+    }
+
+
     // Start the scheduler.  This should not return.
     vTaskStartScheduler();
 

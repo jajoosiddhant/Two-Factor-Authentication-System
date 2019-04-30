@@ -133,9 +133,32 @@ void column_handler(void)
 
         if(otp_count >= 4)
         {
+            if(sensor_check != 1)
+            {
             packet_send_uart(UART_BBG, packet_make(OTP_SEND_BBG_ID, otp_arr, 4, TRUE));
+            }
+            else if(sensor_check == 1)
+            {
+                if(degrade_mode == 1)
+                {
+                    packet_send_uart(UART_BBG, packet_make(OTP_SEND_BBG_ID, otp_arr, 4, TRUE));
+                    degrade_mode = 0;
+                }
+                else
+                {
+                    degrade_mode = 1;
+                    packet_send_uart(UART_BBG, packet_make(SECRET_PASSCODE_ID, otp_arr, 4, TRUE));
+                }
+            }
             otp_count = 0;
-            otp_flag = 0;
+            if(sensor_check == 1)
+            {
+                otp_flag = 1;
+            }
+            else
+            {
+                otp_flag = 0;
+            }
             memset(otp_arr, 0, 4);
             goto label;
         }
