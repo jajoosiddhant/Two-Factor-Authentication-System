@@ -15,9 +15,10 @@
 #include "main.h"
 #include "queue.h"
 #include "uart.h"
+#include "gpio.h"
 
 //Timer intervals
-#define RETRY_INTERVAL_SEC   (0)
+#define RETRY_INTERVAL_SEC   (1)
 #define RETRY_INTERVAL_NSEC  (500000000)
 
 #define HB_INTERVAL_SEC (10)
@@ -27,7 +28,8 @@
 timer_t timeout_retry;
 timer_t timeout_light;
 timer_t timeout_hb;
-
+struct itimerspec trigger_hb;
+struct itimerspec trigger_retry;
 //Function declarations
 err_t timer_init(uint8_t timer_number);
 void timer_handler(union sigval sv);

@@ -71,6 +71,7 @@
 #define LOG_MSG_ID (5)
 #define ACK_PACKET (6)
 #define GUI_ID (7)
+#define SECRET_PASSCODE_ID (8)
 
 #define FINGRPRINT_MATCHED (1)
 #define FINGERPRINT_UNMATCHED (0)

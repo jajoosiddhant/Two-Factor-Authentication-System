@@ -12,26 +12,24 @@
  *
  */
 
-
-
 #include "checksum.h"
 
 
 void checksum_init(void)
 {
-    crc  remainder;
+    crc  rem;
     uint8_t bit;
-    int dividend;
+    int div;
 
     /*
-     * Compute the remainder of each possible dividend.
+     * Compute the rem of each possible div.
      */
-    for (dividend = 0; dividend < 256; ++dividend)
+    for (div = 0; div < 256; ++div)
     {
         /*
-         * Start with the dividend followed by zeros.
+         * Start with the div followed by zeros.
          */
-        remainder = dividend << (WIDTH - 8);
+        rem = div << (WID - 8);
 
         /*
          * Perform modulo-2 division, a bit at a time.
@@ -41,20 +39,20 @@ void checksum_init(void)
             /*
              * Try to divide the current data bit.
              */
-            if (remainder & TOPBIT)
+            if (rem & TBIT)
             {
-                remainder = (remainder << 1) ^ POLYNOMIAL;
+                rem = (rem << 1) ^ POLY;
             }
             else
             {
-                remainder = (remainder << 1);
+                rem = (rem << 1);
             }
         }
 
         /*
          * Store the result into the table.
          */
-        crcTable[dividend] = remainder;
+        crcTable[div] = rem;
     }
 
 }
@@ -63,21 +61,21 @@ void checksum_init(void)
 crc checksum_calc(uint8_t const message[], int nBytes)
 {
     uint8_t data;
-    crc remainder = 0;
+    crc rem = 0;
     int byte;
 
     /*
-     * Divide the message by the polynomial, a byte at a time.
+     * Divide the message by the POLY, a byte at a time.
      */
     for (byte = 0; byte < nBytes; ++byte)
     {
-        data = message[byte] ^ (remainder >> (WIDTH - 8));
-        remainder = crcTable[data] ^ (remainder << 8);
+        data = message[byte] ^ (rem >> (WID - 8));
+        rem = crcTable[data] ^ (rem << 8);
     }
 
     /*
-     * The final remainder is the CRC.
+     * The final rem is the CRC.
      */
-    return (remainder);
+    return (rem);
 
 }

@@ -24,7 +24,6 @@ err_t timer_init(uint8_t timer_handle)
 {
     if (timer_handle == TIMER_RETRY)
     {
-        struct itimerspec trigger_retry;
         struct sigevent sev_temp;
         memset(&sev_temp, 0, sizeof(struct sigevent));
         memset(&trigger_retry, 0, sizeof(struct itimerspec));
@@ -44,21 +43,12 @@ err_t timer_init(uint8_t timer_handle)
         //Setting the first timer interval and the repeating timer interval
         trigger_retry.it_value.tv_sec = RETRY_INTERVAL_SEC;
         trigger_retry.it_interval.tv_sec = RETRY_INTERVAL_SEC;
-        trigger_retry.it_value.tv_nsec = RETRY_INTERVAL_NSEC;
-        trigger_retry.it_interval.tv_nsec = RETRY_INTERVAL_NSEC;
+        trigger_retry.it_value.tv_nsec = 0;
+        trigger_retry.it_interval.tv_nsec = 0;
         retry_flag = 0;
-        if (timer_settime(timeout_retry, 0, &trigger_retry, NULL))
-        {
-            error_log("ERROR: timer_settime(retry); in timer_init function", ERROR_DEBUG, P2);
-        }
-        else
-        {
-            msg_log("Retry Timer started", DEBUG, P0, CONTROL_NODE);
-        }
     }
     else if (timer_handle == TIMER_HB)
     {
-        struct itimerspec trigger_hb;
         struct sigevent sev_hb;
         memset(&sev_hb, 0, sizeof(struct sigevent));
         memset(&trigger_hb, 0, sizeof(struct itimerspec));
@@ -103,17 +93,17 @@ void timer_handler(union sigval sv)
     if (sv.sival_int == TIMER_RETRY)
     {
         struct packet_struct obj;
-        msg_log("Retry timer fired.\n", DEBUG, P0, CONTROL_NODE);
+       // msg_log("Retry timer fired.\n", DEBUG, P0, CONTROL_NODE);
         if(retry_flag == 0)
         {
-            mq_receive(packet_mq, (char *)&obj, sizeof(obj), 0);
+        //    mq_receive(packet_mq, (char *)&obj, sizeof(obj), 0);
         }
-        if(retry_flag == 3)
+       // if(retry_flag == 3)
         {
-            timer_delete(timeout_retry);
             msg_log("Remote Node is offline\n", DEBUG, P0, CONTROL_NODE);
+          //  gpio_ctrl(GPIO56, GPIO56_V, 1);
         }
-       send_bytes(obj);
+      //  send_bytes(obj);
         retry_flag++;
     }
     else if (sv.sival_int == TIMER_HB)
