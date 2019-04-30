@@ -11,6 +11,8 @@ This file consists of all the functions required for Timer initialization, enabl
 {\ttfamily \#include \char`\"{}inc/delay.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inc/fingerprint.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inc/lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/uart\+\_\+comm\+\_\+bbg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/led.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,7 +27,9 @@ void \hyperlink{timer_8c_a7a48b799a011e757e09e2b045e08324e}{reset\+\_\+timer} (\
 void \hyperlink{timer_8c_a68c6c6317b4606f2d571a18bbb77bf10}{timer0handler} (void)
 \begin{DoxyCompactList}\small\item\em Callback Function for Temperature Timer(\+T\+I\+M\+E\+R0\+A). \end{DoxyCompactList}\item 
 void \hyperlink{timer_8c_a45687a76d85bc9cff275eb680b7d4ff5}{timer1handler} (void)
-\begin{DoxyCompactList}\small\item\em Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R0\+A). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R1\+A). \end{DoxyCompactList}\item 
+void \hyperlink{timer_8c_a6d9bc1fc40cbdcba20f70d50e4d50014}{timer2handler} (void)
+\begin{DoxyCompactList}\small\item\em Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R2\+A). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -65,11 +69,11 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 67 of file timer.\+c.
+Definition at line 85 of file timer.\+c.
 
 
 
-Referenced by timer0handler(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by reset\+\_\+system(), timer0handler(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{timer_8c_aeac25b893d3d7db83d6e9aa8b776fb78}\label{timer_8c_aeac25b893d3d7db83d6e9aa8b776fb78}} 
 \index{timer.\+c@{timer.\+c}!enable\+\_\+timer\+\_\+int@{enable\+\_\+timer\+\_\+int}}
@@ -91,7 +95,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 58 of file timer.\+c.
+Definition at line 76 of file timer.\+c.
 
 
 
@@ -119,7 +123,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 74 of file timer.\+c.
+Definition at line 92 of file timer.\+c.
 
 
 
@@ -127,7 +131,7 @@ References g\+\_\+ui32\+Sys\+Clock.
 
 
 
-Referenced by timer0handler(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by reset\+\_\+system(), timer0handler(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{timer_8c_a68c6c6317b4606f2d571a18bbb77bf10}\label{timer_8c_a68c6c6317b4606f2d571a18bbb77bf10}} 
 \index{timer.\+c@{timer.\+c}!timer0handler@{timer0handler}}
@@ -144,11 +148,11 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 80 of file timer.\+c.
+Definition at line 98 of file timer.\+c.
 
 
 
-References disable\+\_\+timer(), P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT, P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, printf, reset\+\_\+timer(), send\+\_\+failcount, and timer\+\_\+retry.
+References disable\+\_\+timer(), L\+E\+D1, led\+\_\+off(), led\+\_\+on(), P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT, P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, printf, reset\+\_\+timer(), send\+\_\+failcount, and timer\+\_\+retry.
 
 \mbox{\Hypertarget{timer_8c_a45687a76d85bc9cff275eb680b7d4ff5}\label{timer_8c_a45687a76d85bc9cff275eb680b7d4ff5}} 
 \index{timer.\+c@{timer.\+c}!timer1handler@{timer1handler}}
@@ -158,18 +162,35 @@ References disable\+\_\+timer(), P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\
 
 
 
-Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R0\+A). 
+Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R1\+A). 
 
 \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
 
 
-Definition at line 110 of file timer.\+c.
+Definition at line 131 of file timer.\+c.
 
 
 
-References delay\+\_\+ms(), disable\+\_\+timer(), fp\+\_\+interrupt\+\_\+enable(), L\+C\+D\+\_\+write(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+T\+I\+ME, printf, reset\+\_\+timer(), and timer\+\_\+otp.
+References delay\+\_\+ms(), disable\+\_\+timer(), L\+C\+D\+\_\+write(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+T\+I\+ME, printf, reset\+\_\+system(), reset\+\_\+timer(), and timer\+\_\+otp.
+
+\mbox{\Hypertarget{timer_8c_a6d9bc1fc40cbdcba20f70d50e4d50014}\label{timer_8c_a6d9bc1fc40cbdcba20f70d50e4d50014}} 
+\index{timer.\+c@{timer.\+c}!timer2handler@{timer2handler}}
+\index{timer2handler@{timer2handler}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{timer2handler()}{timer2handler()}}
+{\footnotesize\ttfamily void timer2handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Callback Function for L\+ED Timer(\+T\+I\+M\+E\+R2\+A). 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file timer.\+c.
 
 \mbox{\Hypertarget{timer_8c_ad3d424835cdf3dc00ecb5b192eb9d4cb}\label{timer_8c_ad3d424835cdf3dc00ecb5b192eb9d4cb}} 
 \index{timer.\+c@{timer.\+c}!timer\+\_\+config@{timer\+\_\+config}}
@@ -193,9 +214,13 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 22 of file timer.\+c.
+Definition at line 24 of file timer.\+c.
 
 
 
-References g\+\_\+ui32\+Sys\+Clock, timer\+\_\+otp, and timer\+\_\+retry.
+References g\+\_\+ui32\+Sys\+Clock, timer\+\_\+fpcheck, timer\+\_\+otp, and timer\+\_\+retry.
+
+
+
+Referenced by system\+\_\+init().
 

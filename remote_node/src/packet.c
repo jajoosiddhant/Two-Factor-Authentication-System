@@ -27,7 +27,9 @@ packet packet_make(uint8_t event_id, uint8_t *payload, uint16_t size, uint8_t ac
     datap.preamble = PREAMBLE;
     datap.event_id = event_id;
     datap.size = size;
-//    printf("Size: %d\n", datap.size);
+
+    //printf("Size: %d\n", datap.size);
+
     for(i = 0; i < datap.size; i++)
     {
         datap.payload[i] = payload[i];
@@ -39,6 +41,8 @@ packet packet_make(uint8_t event_id, uint8_t *payload, uint16_t size, uint8_t ac
 
     return datap;
 }
+
+
 
 void packet_send_uart(uart_t uart, packet datap_send)
 {

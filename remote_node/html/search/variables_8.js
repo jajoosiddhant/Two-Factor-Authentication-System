@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['row_5faddress',['row_address',['../lcd_8c.html#ab414058e30ea48885853ee19a9d64f2d',1,'lcd.c']]],
-  ['rx_5fpipe_5faddress',['rx_pipe_address',['../struct_r_x.html#a450d4bb6c6e98068a74d727e126f859a',1,'RX']]]
+  ['send_5ffailcount',['send_failcount',['../timer_8h.html#a55e376dc85b536df9ec6900e587f8f63',1,'timer.h']]],
+  ['sensor_5fcheck',['sensor_check',['../main_8h.html#a7576c244d44baaefabb65b7c96eaf2c9',1,'main.h']]]
 ];

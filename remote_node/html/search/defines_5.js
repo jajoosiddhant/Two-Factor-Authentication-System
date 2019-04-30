@@ -9,6 +9,7 @@ var searchData=
   ['fp_5fbaudrate_5fcmd',['FP_BAUDRATE_CMD',['../fingerprint_8h.html#a98dc181fd39da59f54276d6affaf5ec6',1,'fingerprint.h']]],
   ['fp_5fbest_5fimage',['FP_BEST_IMAGE',['../fingerprint_8h.html#a57b60815dc4b22b61f97cb11e27a98f5',1,'fingerprint.h']]],
   ['fp_5fcapturefinger_5fcmd',['FP_CAPTUREFINGER_CMD',['../fingerprint_8h.html#af1aa398fd166faba867b50ecf8a1590b',1,'fingerprint.h']]],
+  ['fp_5fcheck_5ftime',['FP_CHECK_TIME',['../timer_8h.html#acce5d88a76dadd9d5ffdd1d4f1573eae',1,'timer.h']]],
   ['fp_5fcheckenrolled_5fcmd',['FP_CHECKENROLLED_CMD',['../fingerprint_8h.html#a7d389a7afaac2358c744393933875eeb',1,'fingerprint.h']]],
   ['fp_5fclose_5fcmd',['FP_CLOSE_CMD',['../fingerprint_8h.html#acb2715a1dc9626e1779e5d8f72dfef06',1,'fingerprint.h']]],
   ['fp_5fcmosled_5fcmd',['FP_CMOSLED_CMD',['../fingerprint_8h.html#a879745450faea1cb049b5924f2fc52b1',1,'fingerprint.h']]],

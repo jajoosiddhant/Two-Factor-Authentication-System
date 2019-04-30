@@ -17,7 +17,7 @@
 void queue_create(void)
 {
     //Creating a message queue
-    nrf_log_mq = xQueueCreate(MQ_SIZE, sizeof(event));
+    nrf_log_mq = xQueueCreate(MQ_SIZE, 20);
     {
         if( nrf_log_mq == NULL )
         {

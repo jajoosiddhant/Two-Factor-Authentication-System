@@ -113,6 +113,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a0a7d3becac1489871c2b61c3c7a19a9d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fingerprint_8c.html#a0a7d3becac1489871c2b61c3c7a19a9d">fp_identify</a> (<a class="el" href="myuart_8h.html#ac667bf51474e96f174f2b6568b166c90">uart_t</a> uart)</td></tr>
 <tr class="memdesc:a0a7d3becac1489871c2b61c3c7a19a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function identifies the captured fingerprint from the stored fingerprints and returns the ID.  <a href="#a0a7d3becac1489871c2b61c3c7a19a9d">More...</a><br /></td></tr>
 <tr class="separator:a0a7d3becac1489871c2b61c3c7a19a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15d9084b914762817b40f9ce7d40ece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fingerprint_8c.html#ab15d9084b914762817b40f9ce7d40ece">fp_init</a> (void)</td></tr>
+<tr class="memdesc:ab15d9084b914762817b40f9ce7d40ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the Scanner and turns LED on.  <a href="#ab15d9084b914762817b40f9ce7d40ece">More...</a><br /></td></tr>
+<tr class="separator:ab15d9084b914762817b40f9ce7d40ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05dbfdb483bf35144c6b8098a4c33731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fingerprint_8c.html#a05dbfdb483bf35144c6b8098a4c33731">fp_access_handle</a> (void)</td></tr>
 <tr class="separator:a05dbfdb483bf35144c6b8098a4c33731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44c7746e37315b87870038bbceb4a541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fingerprint_8c.html#a44c7746e37315b87870038bbceb4a541">fp_irqhandler</a> (void)</td></tr>
@@ -156,11 +159,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00177">177</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00183">183</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00157">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00054">FP_ENROLL1_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00055">FP_ENROLL2_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00056">FP_ENROLL3_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00273">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8h_source.html#l00093">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PORT</a>, <a class="el" href="fingerprint_8c_source.html#l00121">fp_start_enroll()</a>, and <a class="el" href="main_8h_source.html#l00046">printf</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00158">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00053">FP_ENROLL1_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00054">FP_ENROLL2_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00055">FP_ENROLL3_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00268">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00091">FP_IRQ_PORT</a>, <a class="el" href="fingerprint_8c_source.html#l00122">fp_start_enroll()</a>, <a class="el" href="lcd_8c_source.html#l00073">LCD_write()</a>, <a class="el" href="packet_8c_source.html#l00123">packet_msglog_uart()</a>, <a class="el" href="main_8h_source.html#l00046">printf</a>, and <a class="el" href="myuart_8h_source.html#l00039">UART_BBG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="uart__comm__bbg_8c_source.html#l00067">uart_packet_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00415">fingerprint_test()</a>, and <a class="el" href="uart__comm__bbg_8c_source.html#l00085">uart_packet_handler()</a>.</p>
 
 </div>
 </div>
@@ -183,9 +186,9 @@ Functions</h2></td></tr>
 <p>This function was used for testing purposes. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00400">400</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00415">415</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00260">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00072">FP_LEDON</a>, <a class="el" href="fingerprint_8h_source.html#l00247">fp_open()</a>, and <a class="el" href="myuart_8h_source.html#l00035">UART_FP</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00183">add_fingerprint()</a>, <a class="el" href="fingerprint_8h_source.html#l00310">fp_deleteall()</a>, <a class="el" href="fingerprint_8h_source.html#l00255">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00071">FP_LEDON</a>, <a class="el" href="fingerprint_8h_source.html#l00242">fp_open()</a>, and <a class="el" href="myuart_8h_source.html#l00035">UART_FP</a>.</p>
 
 </div>
 </div>
@@ -205,11 +208,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00332">332</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00343">343</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="main_8h_source.html#l00052">DONT_CARE</a>, <a class="el" href="main_8h_source.html#l00058">FINGERPRINT_ID</a>, <a class="el" href="main_8h_source.html#l00050">FINGERPRINT_MATCHED</a>, <a class="el" href="main_8h_source.html#l00051">FINGERPRINT_NOTMATCHED</a>, <a class="el" href="fingerprint_8h_source.html#l00302">fp_capture()</a>, <a class="el" href="fingerprint_8c_source.html#l00324">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00077">FP_LOW_IMAGE</a>, <a class="el" href="fingerprint_8h_source.html#l00085">FP_NACK_DB_IS_EMPTY</a>, <a class="el" href="fingerprint_8h_source.html#l00086">FP_NACK_IDENTIFY_FAILED</a>, <a class="el" href="lcd_8c_source.html#l00073">LCD_write()</a>, <a class="el" href="packet_8c_source.html#l00022">packet_make()</a>, <a class="el" href="packet_8c_source.html#l00043">packet_send_uart()</a>, <a class="el" href="main_8h_source.html#l00046">printf</a>, <a class="el" href="main_8h_source.html#l00048">TRUE</a>, <a class="el" href="myuart_8h_source.html#l00039">UART_BBG</a>, and <a class="el" href="myuart_8h_source.html#l00035">UART_FP</a>.</p>
+<p class="reference">References <a class="el" href="main_8h_source.html#l00052">DONT_CARE</a>, <a class="el" href="main_8h_source.html#l00058">FINGERPRINT_ID</a>, <a class="el" href="main_8h_source.html#l00050">FINGERPRINT_MATCHED</a>, <a class="el" href="main_8h_source.html#l00051">FINGERPRINT_NOTMATCHED</a>, <a class="el" href="fingerprint_8h_source.html#l00297">fp_capture()</a>, <a class="el" href="fingerprint_8c_source.html#l00328">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00076">FP_LOW_IMAGE</a>, <a class="el" href="fingerprint_8h_source.html#l00084">FP_NACK_DB_IS_EMPTY</a>, <a class="el" href="fingerprint_8h_source.html#l00085">FP_NACK_IDENTIFY_FAILED</a>, <a class="el" href="lcd_8c_source.html#l00073">LCD_write()</a>, <a class="el" href="packet_8c_source.html#l00022">packet_make()</a>, <a class="el" href="packet_8c_source.html#l00123">packet_msglog_uart()</a>, <a class="el" href="packet_8c_source.html#l00047">packet_send_uart()</a>, <a class="el" href="main_8h_source.html#l00046">printf</a>, <a class="el" href="main_8h_source.html#l00048">TRUE</a>, <a class="el" href="myuart_8h_source.html#l00039">UART_BBG</a>, and <a class="el" href="myuart_8h_source.html#l00035">UART_FP</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00379">fp_irqhandler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00394">fp_irqhandler()</a>.</p>
 
 </div>
 </div>
@@ -249,9 +252,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The error code or output parameter in case of NACK/ACK respectively. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00225">225</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00229">229</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00041">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00040">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00038">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00049">FP_BAUDRATE_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00108">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00039">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00036">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00040">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00039">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00036">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00048">FP_BAUDRATE_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00109">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00038">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00034">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
 
 </div>
 </div>
@@ -280,9 +283,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The calculated checksum value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00108">108</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00109">109</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00225">fp_baudrate()</a>, <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8c_source.html#l00258">fp_deleteid()</a>, <a class="el" href="fingerprint_8c_source.html#l00121">fp_start_enroll()</a>, and <a class="el" href="fingerprint_8c_source.html#l00291">fp_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00229">fp_baudrate()</a>, <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8c_source.html#l00262">fp_deleteid()</a>, <a class="el" href="fingerprint_8c_source.html#l00122">fp_start_enroll()</a>, and <a class="el" href="fingerprint_8c_source.html#l00295">fp_verify()</a>.</p>
 
 </div>
 </div>
@@ -331,9 +334,9 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00043">43</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00041">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00040">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00038">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00108">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00039">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00036">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00040">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00039">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00036">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00109">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00038">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00034">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8h_source.html#l00302">fp_capture()</a>, <a class="el" href="fingerprint_8h_source.html#l00326">fp_close()</a>, <a class="el" href="fingerprint_8h_source.html#l00315">fp_deleteall()</a>, <a class="el" href="fingerprint_8c_source.html#l00157">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00273">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8c_source.html#l00324">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00289">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00260">fp_led_status()</a>, and <a class="el" href="fingerprint_8h_source.html#l00247">fp_open()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8h_source.html#l00297">fp_capture()</a>, <a class="el" href="fingerprint_8h_source.html#l00321">fp_close()</a>, <a class="el" href="fingerprint_8h_source.html#l00310">fp_deleteall()</a>, <a class="el" href="fingerprint_8c_source.html#l00158">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00268">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8c_source.html#l00328">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00284">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00255">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00242">fp_open()</a>, and <a class="el" href="application_8c_source.html#l00102">sensorcheck()</a>.</p>
 
 </div>
 </div>
@@ -373,9 +376,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The error code or output parameter in case of NACK/ACK respectively. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00258">258</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00262">262</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00041">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00040">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00038">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00108">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00058">FP_DELETEID_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00039">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00036">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00040">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00039">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00036">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00109">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00057">FP_DELETEID_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00038">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00034">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
 
 </div>
 </div>
@@ -415,11 +418,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00157">157</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00158">158</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00076">FP_BEST_IMAGE</a>, <a class="el" href="fingerprint_8h_source.html#l00302">fp_capture()</a>, <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8h_source.html#l00289">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00075">FP_NOPARAM</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, and <a class="el" href="main_8h_source.html#l00046">printf</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00075">FP_BEST_IMAGE</a>, <a class="el" href="fingerprint_8h_source.html#l00297">fp_capture()</a>, <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8h_source.html#l00284">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00074">FP_NOPARAM</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="lcd_8c_source.html#l00073">LCD_write()</a>, <a class="el" href="packet_8c_source.html#l00123">packet_msglog_uart()</a>, <a class="el" href="main_8h_source.html#l00046">printf</a>, and <a class="el" href="myuart_8h_source.html#l00039">UART_BBG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00177">add_fingerprint()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00183">add_fingerprint()</a>.</p>
 
 </div>
 </div>
@@ -448,11 +451,38 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The error code or output parameter in case of NACK/ACK respectively. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00324">324</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00328">328</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8h_source.html#l00061">FP_IDENTIFY_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00075">FP_NOPARAM</a>, and <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00043">fp_cmdsend()</a>, <a class="el" href="fingerprint_8h_source.html#l00060">FP_IDENTIFY_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00074">FP_NOPARAM</a>, and <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00332">fp_access_handle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00343">fp_access_handle()</a>.</p>
+
+</div>
+</div>
+<a id="ab15d9084b914762817b40f9ce7d40ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15d9084b914762817b40f9ce7d40ece">&#9670;&nbsp;</a></span>fp_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fp_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function initializes the Scanner and turns LED on. </p>
+<dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00335">335</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00255">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00071">FP_LEDON</a>, <a class="el" href="fingerprint_8h_source.html#l00242">fp_open()</a>, and <a class="el" href="myuart_8h_source.html#l00035">UART_FP</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="application_8c_source.html#l00045">system_init()</a>.</p>
 
 </div>
 </div>
@@ -477,7 +507,9 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00023">23</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00225">fp_interrupt_enable()</a>, <a class="el" href="fingerprint_8h_source.html#l00093">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PORT</a>, and <a class="el" href="fingerprint_8c_source.html#l00379">fp_irqhandler()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00220">fp_interrupt_enable()</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00091">FP_IRQ_PORT</a>, and <a class="el" href="fingerprint_8c_source.html#l00394">fp_irqhandler()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="application_8c_source.html#l00045">system_init()</a>.</p>
 
 </div>
 </div>
@@ -500,9 +532,9 @@ Functions</h2></td></tr>
 <p>Callback function for Fingerprint Interrupt Handler. </p>
 <dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00379">379</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00394">394</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00332">fp_access_handle()</a>, <a class="el" href="fingerprint_8h_source.html#l00093">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PORT</a>, and <a class="el" href="main_8h_source.html#l00046">printf</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8c_source.html#l00343">fp_access_handle()</a>, <a class="el" href="fingerprint_8h_source.html#l00092">FP_IRQ_PIN</a>, <a class="el" href="fingerprint_8h_source.html#l00091">FP_IRQ_PORT</a>, and <a class="el" href="main_8h_source.html#l00046">printf</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00023">fp_interrupt_config()</a>.</p>
 
@@ -535,9 +567,9 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00068">68</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00065">ACK</a>, <a class="el" href="fingerprint_8h_source.html#l00066">NACK</a>, <a class="el" href="fingerprint_8h_source.html#l00028">RESPONSE_SIZE</a>, and <a class="el" href="temp_8c_source.html#l00110">temp()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00064">ACK</a>, <a class="el" href="fingerprint_8h_source.html#l00065">NACK</a>, and <a class="el" href="fingerprint_8h_source.html#l00028">RESPONSE_SIZE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00225">fp_baudrate()</a>, <a class="el" href="fingerprint_8h_source.html#l00302">fp_capture()</a>, <a class="el" href="fingerprint_8h_source.html#l00326">fp_close()</a>, <a class="el" href="fingerprint_8h_source.html#l00315">fp_deleteall()</a>, <a class="el" href="fingerprint_8c_source.html#l00258">fp_deleteid()</a>, <a class="el" href="fingerprint_8c_source.html#l00157">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00273">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8c_source.html#l00324">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00289">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00260">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00247">fp_open()</a>, <a class="el" href="fingerprint_8c_source.html#l00121">fp_start_enroll()</a>, and <a class="el" href="fingerprint_8c_source.html#l00291">fp_verify()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00229">fp_baudrate()</a>, <a class="el" href="fingerprint_8h_source.html#l00297">fp_capture()</a>, <a class="el" href="fingerprint_8h_source.html#l00321">fp_close()</a>, <a class="el" href="fingerprint_8h_source.html#l00310">fp_deleteall()</a>, <a class="el" href="fingerprint_8c_source.html#l00262">fp_deleteid()</a>, <a class="el" href="fingerprint_8c_source.html#l00158">fp_enroll()</a>, <a class="el" href="fingerprint_8h_source.html#l00268">fp_get_enrollcount()</a>, <a class="el" href="fingerprint_8c_source.html#l00328">fp_identify()</a>, <a class="el" href="fingerprint_8h_source.html#l00284">fp_isfingerpress()</a>, <a class="el" href="fingerprint_8h_source.html#l00255">fp_led_status()</a>, <a class="el" href="fingerprint_8h_source.html#l00242">fp_open()</a>, <a class="el" href="fingerprint_8c_source.html#l00122">fp_start_enroll()</a>, and <a class="el" href="fingerprint_8c_source.html#l00295">fp_verify()</a>.</p>
 
 </div>
 </div>
@@ -577,11 +609,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The error code or output parameter in case of NACK/ACK respectively. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00121">121</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00122">122</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00041">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00040">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00038">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00108">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00053">FP_ENROLLSTART_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00039">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00036">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00040">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00039">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00036">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00109">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8h_source.html#l00052">FP_ENROLLSTART_CMD</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00038">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00034">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00177">add_fingerprint()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="fingerprint_8c_source.html#l00183">add_fingerprint()</a>.</p>
 
 </div>
 </div>
@@ -621,9 +653,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint16_t The error code or output parameter in case of NACK/ACK respectively. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00291">291</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fingerprint_8c_source.html#l00295">295</a> of file <a class="el" href="fingerprint_8c_source.html">fingerprint.c</a>.</p>
 
-<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00041">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00040">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00038">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00108">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00060">FP_VERIFY_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00039">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00036">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
+<p class="reference">References <a class="el" href="fingerprint_8h_source.html#l00040">CHECKSUM_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00039">CMD_CODE_MSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00027">COMMAND_SIZE</a>, <a class="el" href="fingerprint_8h_source.html#l00036">DEVICEID_LSBYTE</a>, <a class="el" href="fingerprint_8h_source.html#l00037">DEVICEID_MSBYTE</a>, <a class="el" href="fingerprint_8c_source.html#l00109">fp_checksum_calc()</a>, <a class="el" href="fingerprint_8c_source.html#l00068">fp_responsercv()</a>, <a class="el" href="fingerprint_8h_source.html#l00059">FP_VERIFY_CMD</a>, <a class="el" href="fingerprint_8h_source.html#l00038">PARAMETER_BYTES</a>, <a class="el" href="fingerprint_8h_source.html#l00034">START_CODE1</a>, <a class="el" href="fingerprint_8h_source.html#l00035">START_CODE2</a>, and <a class="el" href="myuart_8h_source.html#l00096">uart_busy()</a>.</p>
 
 </div>
 </div>

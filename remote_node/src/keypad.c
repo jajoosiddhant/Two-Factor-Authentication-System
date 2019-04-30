@@ -71,7 +71,6 @@ void keypad_config(void)
 
 void keypad_interrupt_enable(void)
 {
-
     GPIOIntEnable(COLUMN1_PORT, COLUMN1_PIN);
     GPIOIntEnable(COLUMN2_PORT, COLUMN2_PIN);
     GPIOIntEnable(COLUMN3_PORT, COLUMN3_PIN);
@@ -81,8 +80,6 @@ void keypad_interrupt_enable(void)
 
 void keypad_interrupt_disable(void)
 {
-//    GPIOIntUnregister(COMMON_COLUMN_PORT);
-
     GPIOIntDisable(COLUMN1_PORT, COLUMN1_PIN);
     GPIOIntDisable(COLUMN2_PORT, COLUMN2_PIN);
     GPIOIntDisable(COLUMN3_PORT, COLUMN3_PIN);
@@ -91,7 +88,6 @@ void keypad_interrupt_disable(void)
 
 void column_handler(void)
 {
-//    GPIOIntUnregister(COMMON_COLUMN_PORT);
     IntMasterDisable();
 
     uint32_t int_status = 0;
@@ -107,25 +103,21 @@ void column_handler(void)
         if(int_status & COLUMN4_PIN)
         {
             int_pin = COLUMN4_PIN;
-            //        GPIOIntClear(COMMON_COLUMN_PORT, int_status & COLUMN4_PIN);
             keypad_button_detect(COLUMN4_PORT, COLUMN4_PIN, keypad_digits, COLUMN4);
         }
         else if(int_status & COLUMN3_PIN)
         {
             int_pin = COLUMN3_PIN;
-            //        GPIOIntClear(COMMON_COLUMN_PORT, int_status & COLUMN3_PIN);
             keypad_button_detect(COLUMN3_PORT, COLUMN3_PIN, keypad_digits, COLUMN3);
         }
         else if(int_status & COLUMN2_PIN)
         {
             int_pin = COLUMN2_PIN;
-            //        GPIOIntClear(COMMON_COLUMN_PORT, int_status & COLUMN2_PIN);
             keypad_button_detect(COLUMN2_PORT, COLUMN2_PIN, keypad_digits, COLUMN2);
         }
         else if(int_status & COLUMN1_PIN)
         {
             int_pin = COLUMN1_PIN;
-            //        GPIOIntClear(COMMON_COLUMN_PORT, int_status & COLUMN1_PIN);
             keypad_button_detect(COLUMN1_PORT, COLUMN1_PIN, keypad_digits, COLUMN1);
         }
 
@@ -177,11 +169,7 @@ void column_handler(void)
     label:
     //Clear Interrupt.
     GPIOIntClear(COMMON_COLUMN_PORT, int_status & int_pin);
-
-
     IntMasterEnable();
-//    GPIOIntRegister(COMMON_COLUMN_PORT, column_handler);
-
 }
 
 

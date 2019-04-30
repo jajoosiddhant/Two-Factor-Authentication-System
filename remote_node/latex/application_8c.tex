@@ -5,7 +5,31 @@
 This file consists of all the functions required for Application Thread.  
 
 
+{\ttfamily \#include \char`\"{}inc/msg\+\_\+queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/sync\+\_\+objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/spi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/led.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/nrf\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/buzzer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/keypad.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/uart\+\_\+comm\+\_\+bbg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/checksum.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/myuart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/fingerprint.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/delay.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/packet.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inc/application.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{application_8c_a660b9749ff9add1e4e6934b2eea58e64}{sensortask\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em This function creates a task. \end{DoxyCompactList}\item 
+void \hyperlink{application_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}{system\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em This function initializes the system with the required configurations and peripherals. \end{DoxyCompactList}\item 
+static void \hyperlink{application_8c_afd1ae504eb20b36a8e920441746c0822}{sensorcheck} (void $\ast$pv\+Parameters)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -22,3 +46,66 @@ Siddhant Jajoo
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2019 
 \end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{application_8c_afd1ae504eb20b36a8e920441746c0822}\label{application_8c_afd1ae504eb20b36a8e920441746c0822}} 
+\index{application.\+c@{application.\+c}!sensorcheck@{sensorcheck}}
+\index{sensorcheck@{sensorcheck}!application.\+c@{application.\+c}}
+\subsubsection{\texorpdfstring{sensorcheck()}{sensorcheck()}}
+{\footnotesize\ttfamily static void sensorcheck (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 102 of file application.\+c.
+
+
+
+References A\+CK, delay\+\_\+ms(), fp\+\_\+cmdsend(), F\+P\+\_\+\+G\+E\+T\+E\+N\+R\+O\+L\+L\+C\+O\+U\+N\+T\+\_\+\+C\+MD, fp\+\_\+interrupt\+\_\+disable(), fp\+\_\+interrupt\+\_\+enable(), fp\+\_\+led\+\_\+status(), F\+P\+\_\+\+L\+E\+D\+ON, F\+P\+\_\+\+N\+O\+P\+A\+R\+AM, L\+C\+D\+\_\+write(), L\+E\+D4, led\+\_\+off(), led\+\_\+on(), otp\+\_\+flag, printf, R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+S\+I\+ZE, sensor\+\_\+check, and U\+A\+R\+T\+\_\+\+FP.
+
+
+
+Referenced by sensortask\+\_\+init().
+
+\mbox{\Hypertarget{application_8c_a660b9749ff9add1e4e6934b2eea58e64}\label{application_8c_a660b9749ff9add1e4e6934b2eea58e64}} 
+\index{application.\+c@{application.\+c}!sensortask\+\_\+init@{sensortask\+\_\+init}}
+\index{sensortask\+\_\+init@{sensortask\+\_\+init}!application.\+c@{application.\+c}}
+\subsubsection{\texorpdfstring{sensortask\+\_\+init()}{sensortask\_init()}}
+{\footnotesize\ttfamily uint8\+\_\+t sensortask\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function creates a task. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file application.\+c.
+
+
+
+References L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE, and sensorcheck().
+
+\mbox{\Hypertarget{application_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}\label{application_8c_a43f5e0d6db0fb41a437cc9096b32e9b5}} 
+\index{application.\+c@{application.\+c}!system\+\_\+init@{system\+\_\+init}}
+\index{system\+\_\+init@{system\+\_\+init}!application.\+c@{application.\+c}}
+\subsubsection{\texorpdfstring{system\+\_\+init()}{system\_init()}}
+{\footnotesize\ttfamily void system\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function initializes the system with the required configurations and peripherals. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file application.\+c.
+
+
+
+References B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+FP, buzzer\+\_\+config(), buzzer\+\_\+dutycycle(), checksum\+\_\+init(), C\+L\+O\+CK, Configure\+U\+A\+R\+T(), configure\+U\+A\+R\+T\+\_\+bbg(), degrade\+\_\+mode, fp\+\_\+init(), fp\+\_\+interrupt\+\_\+config(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+enable(), lcd\+\_\+init(), led\+\_\+init(), M\+A\+X\+\_\+\+F\+R\+EQ, mutex\+\_\+create(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+T\+I\+ME, otp\+\_\+retries, P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, queue\+\_\+create(), sem\+\_\+create(), sensor\+\_\+check, timer\+\_\+config(), timer\+\_\+otp, timer\+\_\+retry, uart\+\_\+configure(), and U\+A\+R\+T\+\_\+\+FP.
+

@@ -11,11 +11,9 @@
  *
  */
 
-#include "inc/temp.h"
 #include "inc/msg_queue.h"
 #include "inc/sync_objects.h"
 #include "inc/timer.h"
-#include "inc/logger.h"
 #include "inc/spi.h"
 #include "inc/led.h"
 #include "inc/nrf_driver.h"
@@ -58,7 +56,6 @@ void system_init(void)
     //Configure Timer for Retries.
     timer_config(timer_retry, PACKET_RETRY_TIME);
     timer_config(timer_otp, OTP_INPUT_TIME);
-//    timer_config(timer_fpcheck, FP_CHECK_TIME);
 
     //Initializing Checksum.
     checksum_init();
@@ -129,6 +126,7 @@ static void sensorcheck(void *pvParameters)
             fp_interrupt_enable();
             LCD_write("Press Finger on Scanner");
             fp_led_status(UART_FP, FP_LEDON);
+            led_off(LED4);
         }
         else
         {
@@ -137,6 +135,7 @@ static void sensorcheck(void *pvParameters)
             fp_interrupt_disable();
             otp_flag = 1;
             LCD_write("Fingerprint Sensor offline: Enter PASSCODE");
+            led_on(LED4);
         }
     }
 

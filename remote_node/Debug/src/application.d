@@ -1,7 +1,7 @@
 # FIXED
 
 src/application.obj: ../src/application.c
-src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/temp.h
+src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/msg_queue.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/main.h
 src/application.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdbool.h
 src/application.obj: C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdint.h
@@ -44,10 +44,8 @@ src/application.obj: C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Sour
 src/application.obj: C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/semphr.h
 src/application.obj: C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/pinout.h
 src/application.obj: C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/buttons.h
-src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/msg_queue.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/sync_objects.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/timer.h
-src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/logger.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/spi.h
 src/application.obj: C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ssi.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/led.h
@@ -64,7 +62,7 @@ src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/lcd.h
 src/application.obj: C:/Users/user1/workspace_v8/remote_node/inc/application.h
 
 ../src/application.c: 
-C:/Users/user1/workspace_v8/remote_node/inc/temp.h: 
+C:/Users/user1/workspace_v8/remote_node/inc/msg_queue.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/main.h: 
 C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdbool.h: 
 C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdint.h: 
@@ -107,10 +105,8 @@ C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/queue.h:
 C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/semphr.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/pinout.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/buttons.h: 
-C:/Users/user1/workspace_v8/remote_node/inc/msg_queue.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/sync_objects.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/timer.h: 
-C:/Users/user1/workspace_v8/remote_node/inc/logger.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/spi.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ssi.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/led.h: 

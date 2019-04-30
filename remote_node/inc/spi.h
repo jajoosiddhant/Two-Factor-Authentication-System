@@ -23,21 +23,13 @@
 //******************************************************************************************/
 //                          VALUES FOR SPI_T
 //******************************************************************************************/
-//#define SPI0   (SSI0_BASE)
-//#define SPI1   (SSI1_BASE)
-//#define SPI2   (SSI2_BASE)
-
 typedef enum
 {
    SPI0 = SSI0_BASE,
    SPI1 = SSI1_BASE,
    SPI2 = SSI2_BASE
-
 }spi_t;
-//******************************************************************************************/
-//                          TYPEDEF FOR UINT32_T (SPI)
-//******************************************************************************************/
-//typedef uint32_t spi_t;
+
 
 
 //******************************************************************************************/
@@ -54,7 +46,6 @@ void spi_config(spi_t ssi_x);
 
 /**
  * @brief This function transfers a value on the MOSI line and reads the data on the MISO line.
- *
  * @param spi The SPI line used.
  * @param value The value transfered on the SPI line. This can be a register address or the value to
  *  be written to the register value.
@@ -65,7 +56,6 @@ uint8_t spi_transfer(spi_t spi, uint8_t value);
 
 /**
  * @brief This function transfers a NO OPERATION Command and reads data from the MISO line.
- *
  * @param spi The SPI line used.
  * @return uint8_t The value read from the MISO line on the specified SPI.
  */

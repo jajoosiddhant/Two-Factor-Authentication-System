@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ce_5fstatus',['ce_status',['../nrf__driver_8h.html#adaf5c954ed225869d7e8b7702280676e',1,'nrf_driver.h']]],
-  ['checksum_5fcalc',['checksum_calc',['../checksum_8c.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c'],['../checksum_8h.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c']]],
+  ['checksum_5fcalc',['checksum_calc',['../checksum_8c.html#a1b5b71cf5e904ae7624a3ce186bd7392',1,'checksum_calc(uint8_t const msg[], int size):&#160;checksum.c'],['../checksum_8h.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c']]],
   ['checksum_5finit',['checksum_init',['../checksum_8c.html#ae1e3b3bacf1809578c36db6ab9d79aa3',1,'checksum_init(void):&#160;checksum.c'],['../checksum_8h.html#ae1e3b3bacf1809578c36db6ab9d79aa3',1,'checksum_init(void):&#160;checksum.c']]],
   ['column_5fhandler',['column_handler',['../keypad_8c.html#a195b3865aa3f88ac9a559933e218704e',1,'column_handler(void):&#160;keypad.c'],['../keypad_8h.html#a195b3865aa3f88ac9a559933e218704e',1,'column_handler(void):&#160;keypad.c']]],
   ['configureuart',['ConfigureUART',['../main_8h.html#a5f60b6a60802eccd1ae9526e776a476c',1,'main.h']]],

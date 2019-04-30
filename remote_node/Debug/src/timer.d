@@ -52,6 +52,7 @@ src/timer.obj: C:/Users/user1/workspace_v8/remote_node/inc/myuart.h
 src/timer.obj: C:/Users/user1/workspace_v8/remote_node/inc/lcd.h
 src/timer.obj: C:/Users/user1/workspace_v8/remote_node/inc/uart_comm_bbg.h
 src/timer.obj: C:/Users/user1/workspace_v8/remote_node/inc/packet.h
+src/timer.obj: C:/Users/user1/workspace_v8/remote_node/inc/led.h
 
 ../src/timer.c: 
 C:/Users/user1/workspace_v8/remote_node/inc/timer.h: 
@@ -105,3 +106,4 @@ C:/Users/user1/workspace_v8/remote_node/inc/myuart.h:
 C:/Users/user1/workspace_v8/remote_node/inc/lcd.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/uart_comm_bbg.h: 
 C:/Users/user1/workspace_v8/remote_node/inc/packet.h: 
+C:/Users/user1/workspace_v8/remote_node/inc/led.h: 

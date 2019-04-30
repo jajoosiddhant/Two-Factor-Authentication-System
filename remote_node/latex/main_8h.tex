@@ -29,13 +29,6 @@ Header file for main.\+c.
 {\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}drivers/pinout.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}drivers/buttons.\+h\char`\"{}}\newline
-\subsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \hyperlink{structtemp}{temp}
-\item 
-struct \hyperlink{structevent}{event}
-\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -71,6 +64,8 @@ struct \hyperlink{structevent}{event}
 \item 
 \#define \hyperlink{main_8h_a0359769f59cc52c10cb409ed5754006d}{G\+U\+I\+\_\+\+ID}~(7)
 \item 
+\#define \hyperlink{main_8h_a3137f6b92db4e565e894b28efe314578}{S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID}~(8)
+\item 
 \#define \hyperlink{main_8h_a1dfc06b020ba4038f330e714a620644a}{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}~(10)
 \item 
 \#define \hyperlink{main_8h_ac2a9918e6ef6f34da1839788a161b794}{L\+E\+D\+\_\+\+R\+C\+V\+\_\+\+ID}~(11)
@@ -84,6 +79,8 @@ struct \hyperlink{structevent}{event}
 \#define \hyperlink{main_8h_a8375673833f6e8677cdcf225949a6604}{G\+U\+I\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+A\+LL}~(4)
 \item 
 \#define \hyperlink{main_8h_acc8ac7cfd08fb89b1c1d25806aa7ca5a}{G\+U\+I\+\_\+\+R\+E\+S\+E\+T\+\_\+\+S\+Y\+S\+T\+EM}~(5)
+\item 
+\#define \hyperlink{main_8h_ad58102823921c82300c8affa586b387f}{G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS}~(6)
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -100,6 +97,12 @@ volatile uint8\+\_\+t \hyperlink{main_8h_a2b4e3bab201a01e073d7547c75f2c818}{otp\
 volatile uint8\+\_\+t \hyperlink{main_8h_ada8361483dd5ab067abcf88162b07b65}{otp\+\_\+count}
 \item 
 uint8\+\_\+t \hyperlink{main_8h_ab5bbd30029e626af8b4182b43bd62e15}{otp\+\_\+arr} \mbox{[}4\mbox{]}
+\item 
+uint8\+\_\+t \hyperlink{main_8h_a7684c13abe3891fb7d1dae867803feab}{otp\+\_\+retries}
+\item 
+volatile uint8\+\_\+t \hyperlink{main_8h_a7576c244d44baaefabb65b7c96eaf2c9}{sensor\+\_\+check}
+\item 
+volatile uint8\+\_\+t \hyperlink{main_8h_a3fb60131d9638b88363ff2440a3475c3}{degrade\+\_\+mode}
 \end{DoxyCompactItemize}
 
 
@@ -160,7 +163,7 @@ Definition at line 47 of file main.\+h.
 
 
 
-Referenced by configure\+U\+A\+R\+T\+\_\+bbg().
+Referenced by configure\+U\+A\+R\+T\+\_\+bbg(), and system\+\_\+init().
 
 \mbox{\Hypertarget{main_8h_afdc326bd5037b2251e62f398ab1b48d1}\label{main_8h_afdc326bd5037b2251e62f398ab1b48d1}} 
 \index{main.\+h@{main.\+h}!D\+O\+N\+T\+\_\+\+C\+A\+RE@{D\+O\+N\+T\+\_\+\+C\+A\+RE}}
@@ -240,7 +243,21 @@ Referenced by fp\+\_\+access\+\_\+handle().
 
 Add Fingerprint Request from B\+BG G\+UI 
 
-Definition at line 73 of file main.\+h.
+Definition at line 74 of file main.\+h.
+
+
+
+Referenced by uart\+\_\+packet\+\_\+handler().
+
+\mbox{\Hypertarget{main_8h_ad58102823921c82300c8affa586b387f}\label{main_8h_ad58102823921c82300c8affa586b387f}} 
+\index{main.\+h@{main.\+h}!G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS@{G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS}}
+\index{G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS@{G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS}{GUI\_ALLOW\_ACCESS}}
+{\footnotesize\ttfamily \#define G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS~(6)}
+
+Allow Access Request from G\+UI 
+
+Definition at line 78 of file main.\+h.
 
 
 
@@ -254,7 +271,7 @@ Referenced by uart\+\_\+packet\+\_\+handler().
 
 Buzzer O\+FF Request from B\+BG G\+UI 
 
-Definition at line 72 of file main.\+h.
+Definition at line 73 of file main.\+h.
 
 
 
@@ -268,7 +285,7 @@ Referenced by uart\+\_\+packet\+\_\+handler().
 
 Buzzer ON Request from B\+BG G\+UI 
 
-Definition at line 74 of file main.\+h.
+Definition at line 75 of file main.\+h.
 
 
 
@@ -282,7 +299,7 @@ Referenced by uart\+\_\+packet\+\_\+handler().
 
 Delete Fingerprint Request from B\+BG G\+UI 
 
-Definition at line 75 of file main.\+h.
+Definition at line 76 of file main.\+h.
 
 
 
@@ -310,7 +327,7 @@ Referenced by uart\+\_\+packet\+\_\+handler().
 
 Reset System Request from G\+UI 
 
-Definition at line 76 of file main.\+h.
+Definition at line 77 of file main.\+h.
 
 
 
@@ -324,11 +341,7 @@ Referenced by uart\+\_\+packet\+\_\+handler().
 
 
 
-Definition at line 66 of file main.\+h.
-
-
-
-Referenced by nrf\+\_\+log().
+Definition at line 67 of file main.\+h.
 
 \mbox{\Hypertarget{main_8h_ae46715b8c3e3e175b44e3d0f2aecd7bb}\label{main_8h_ae46715b8c3e3e175b44e3d0f2aecd7bb}} 
 \index{main.\+h@{main.\+h}!L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE@{L\+E\+D\+T\+A\+S\+K\+S\+T\+A\+C\+K\+S\+I\+ZE}}
@@ -342,7 +355,7 @@ Definition at line 45 of file main.\+h.
 
 
 
-Referenced by nrf\+\_\+loggertask\+\_\+init(), and temptask\+\_\+init().
+Referenced by sensortask\+\_\+init().
 
 \mbox{\Hypertarget{main_8h_a9b82beafa7974d437b933d2aab55a605}\label{main_8h_a9b82beafa7974d437b933d2aab55a605}} 
 \index{main.\+h@{main.\+h}!M\+S\+G\+\_\+\+L\+O\+G\+\_\+\+ID@{M\+S\+G\+\_\+\+L\+O\+G\+\_\+\+ID}}
@@ -398,7 +411,7 @@ Definition at line 46 of file main.\+h.
 
 
 
-Referenced by add\+\_\+fingerprint(), column\+\_\+handler(), fp\+\_\+access\+\_\+handle(), fp\+\_\+enroll(), fp\+\_\+get\+\_\+enrollcount(), fp\+\_\+irqhandler(), keypad\+\_\+button\+\_\+detect(), nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), nrf\+\_\+irqhandler(), nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), packet\+\_\+make(), packet\+\_\+rcv\+\_\+uart(), timer0handler(), timer1handler(), uart\+\_\+bbg\+\_\+test(), uart\+\_\+commhandler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by add\+\_\+fingerprint(), column\+\_\+handler(), fp\+\_\+access\+\_\+handle(), fp\+\_\+enroll(), fp\+\_\+get\+\_\+enrollcount(), fp\+\_\+irqhandler(), keypad\+\_\+button\+\_\+detect(), nrf\+\_\+config(), nrf\+\_\+config\+\_\+mode(), nrf\+\_\+irqhandler(), nrf\+\_\+packet\+\_\+rcv(), nrf\+\_\+read\+\_\+\+R\+Xaddr(), nrf\+\_\+read\+\_\+\+T\+Xaddr(), sensorcheck(), timer0handler(), timer1handler(), uart\+\_\+bbg\+\_\+test(), uart\+\_\+commhandler(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{main_8h_ae42fcded76d6550261dac91cb89e0c9e}\label{main_8h_ae42fcded76d6550261dac91cb89e0c9e}} 
 \index{main.\+h@{main.\+h}!R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID@{R\+A\+N\+D\+O\+M\+\_\+\+T\+E\+S\+T\+\_\+\+ID}}
@@ -410,9 +423,19 @@ Referenced by add\+\_\+fingerprint(), column\+\_\+handler(), fp\+\_\+access\+\_\
 
 Definition at line 57 of file main.\+h.
 
+\mbox{\Hypertarget{main_8h_a3137f6b92db4e565e894b28efe314578}\label{main_8h_a3137f6b92db4e565e894b28efe314578}} 
+\index{main.\+h@{main.\+h}!S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID@{S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID}}
+\index{S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID@{S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID}{SECRET\_PASSCODE\_ID}}
+{\footnotesize\ttfamily \#define S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID~(8)}
 
 
-Referenced by nrf\+\_\+log(), and temp().
+
+Definition at line 65 of file main.\+h.
+
+
+
+Referenced by column\+\_\+handler().
 
 \mbox{\Hypertarget{main_8h_a1dfc06b020ba4038f330e714a620644a}\label{main_8h_a1dfc06b020ba4038f330e714a620644a}} 
 \index{main.\+h@{main.\+h}!T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID@{T\+E\+M\+P\+\_\+\+R\+C\+V\+\_\+\+ID}}
@@ -422,11 +445,7 @@ Referenced by nrf\+\_\+log(), and temp().
 
 
 
-Definition at line 65 of file main.\+h.
-
-
-
-Referenced by nrf\+\_\+log(), and temp\+\_\+send().
+Definition at line 66 of file main.\+h.
 
 \mbox{\Hypertarget{main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
 \index{main.\+h@{main.\+h}!T\+R\+UE@{T\+R\+UE}}
@@ -460,7 +479,25 @@ void
 \end{DoxyReturn}
 
 
+Referenced by system\+\_\+init().
+
+
+
 \subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8h_a3fb60131d9638b88363ff2440a3475c3}\label{main_8h_a3fb60131d9638b88363ff2440a3475c3}} 
+\index{main.\+h@{main.\+h}!degrade\+\_\+mode@{degrade\+\_\+mode}}
+\index{degrade\+\_\+mode@{degrade\+\_\+mode}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{degrade\+\_\+mode}{degrade\_mode}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t degrade\+\_\+mode}
+
+
+
+Definition at line 89 of file main.\+h.
+
+
+
+Referenced by column\+\_\+handler(), and system\+\_\+init().
+
 \mbox{\Hypertarget{main_8h_a85ea8ca26e195a17da88e70e7e4ddf82}\label{main_8h_a85ea8ca26e195a17da88e70e7e4ddf82}} 
 \index{main.\+h@{main.\+h}!g\+\_\+ui32\+Sys\+Clock@{g\+\_\+ui32\+Sys\+Clock}}
 \index{g\+\_\+ui32\+Sys\+Clock@{g\+\_\+ui32\+Sys\+Clock}!main.\+h@{main.\+h}}
@@ -469,7 +506,7 @@ void
 
 This variable holds the system clock 
 
-Definition at line 82 of file main.\+h.
+Definition at line 83 of file main.\+h.
 
 
 
@@ -483,11 +520,11 @@ Referenced by buzzer\+\_\+dutycycle(), delay\+\_\+ms(), delay\+\_\+us(), reset\+
 
 Global array where O\+TP input by user is stored 
 
-Definition at line 85 of file main.\+h.
+Definition at line 86 of file main.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), reset\+\_\+system(), system\+\_\+init(), and timer1handler().
 
 \mbox{\Hypertarget{main_8h_ada8361483dd5ab067abcf88162b07b65}\label{main_8h_ada8361483dd5ab067abcf88162b07b65}} 
 \index{main.\+h@{main.\+h}!otp\+\_\+count@{otp\+\_\+count}}
@@ -497,11 +534,11 @@ Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), timer1han
 
 Keeps a Tab on how many digits have been entered 
 
-Definition at line 84 of file main.\+h.
+Definition at line 85 of file main.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), reset\+\_\+system(), system\+\_\+init(), and timer1handler().
 
 \mbox{\Hypertarget{main_8h_a2b4e3bab201a01e073d7547c75f2c818}\label{main_8h_a2b4e3bab201a01e073d7547c75f2c818}} 
 \index{main.\+h@{main.\+h}!otp\+\_\+flag@{otp\+\_\+flag}}
@@ -511,9 +548,37 @@ Referenced by column\+\_\+handler(), keypad\+\_\+button\+\_\+detect(), timer1han
 
 This flag allows data to be stored in the array otp\+\_\+arr only when O\+TP has been sent to user 
 
-Definition at line 83 of file main.\+h.
+Definition at line 84 of file main.\+h.
 
 
 
-Referenced by column\+\_\+handler(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+Referenced by column\+\_\+handler(), reset\+\_\+system(), sensorcheck(), system\+\_\+init(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
+
+\mbox{\Hypertarget{main_8h_a7684c13abe3891fb7d1dae867803feab}\label{main_8h_a7684c13abe3891fb7d1dae867803feab}} 
+\index{main.\+h@{main.\+h}!otp\+\_\+retries@{otp\+\_\+retries}}
+\index{otp\+\_\+retries@{otp\+\_\+retries}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{otp\+\_\+retries}{otp\_retries}}
+{\footnotesize\ttfamily uint8\+\_\+t otp\+\_\+retries}
+
+The count for number of retries the user can have while inputting otp 
+
+Definition at line 87 of file main.\+h.
+
+
+
+Referenced by reset\+\_\+system(), system\+\_\+init(), and uart\+\_\+packet\+\_\+handler().
+
+\mbox{\Hypertarget{main_8h_a7576c244d44baaefabb65b7c96eaf2c9}\label{main_8h_a7576c244d44baaefabb65b7c96eaf2c9}} 
+\index{main.\+h@{main.\+h}!sensor\+\_\+check@{sensor\+\_\+check}}
+\index{sensor\+\_\+check@{sensor\+\_\+check}!main.\+h@{main.\+h}}
+\subsubsection{\texorpdfstring{sensor\+\_\+check}{sensor\_check}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t sensor\+\_\+check}
+
+Flag to determine if sensor is online or not, flag set if offline 
+
+Definition at line 88 of file main.\+h.
+
+
+
+Referenced by column\+\_\+handler(), sensorcheck(), and system\+\_\+init().
 

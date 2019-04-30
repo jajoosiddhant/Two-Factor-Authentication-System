@@ -18,7 +18,7 @@ var searchData=
   ['checksum_2ec',['checksum.c',['../checksum_8c.html',1,'']]],
   ['checksum_2eh',['checksum.h',['../checksum_8h.html',1,'']]],
   ['checksum_5fbytes',['CHECKSUM_BYTES',['../fingerprint_8h.html#ab0b7565efe6045bdf8da57c2824308e2',1,'fingerprint.h']]],
-  ['checksum_5fcalc',['checksum_calc',['../checksum_8c.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c'],['../checksum_8h.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c']]],
+  ['checksum_5fcalc',['checksum_calc',['../checksum_8c.html#a1b5b71cf5e904ae7624a3ce186bd7392',1,'checksum_calc(uint8_t const msg[], int size):&#160;checksum.c'],['../checksum_8h.html#a0d196fa8d223843c0afa22e43ca1f737',1,'checksum_calc(uint8_t const message[], int nBytes):&#160;checksum.c']]],
   ['checksum_5finit',['checksum_init',['../checksum_8c.html#ae1e3b3bacf1809578c36db6ab9d79aa3',1,'checksum_init(void):&#160;checksum.c'],['../checksum_8h.html#ae1e3b3bacf1809578c36db6ab9d79aa3',1,'checksum_init(void):&#160;checksum.c']]],
   ['clear_5fdisplay',['CLEAR_DISPLAY',['../lcd_8h.html#a221b02b65527a670a158a9b1387e877c',1,'lcd.h']]],
   ['clock',['CLOCK',['../main_8h.html#a3be7ef61d339af381862a81d4b363efb',1,'main.h']]],
@@ -39,11 +39,9 @@ var searchData=
   ['columns',['COLUMNS',['../keypad_8h.html#a06c6c391fc11d106e9909f0401b255b1',1,'keypad.h']]],
   ['command_5fsize',['COMMAND_SIZE',['../fingerprint_8h.html#a87738054f9a89f0ac29c6ee1fb7da08d',1,'fingerprint.h']]],
   ['common_5fcolumn_5fport',['COMMON_COLUMN_PORT',['../keypad_8h.html#ae3f472fe2803691079dcef464d66e62f',1,'keypad.h']]],
-  ['config_5ftemp',['CONFIG_TEMP',['../temp_8h.html#a2675eee3a5655765963703bb567ae5d0',1,'temp.h']]],
   ['configureuart',['ConfigureUART',['../main_8h.html#a5f60b6a60802eccd1ae9526e776a476c',1,'main.h']]],
   ['configureuart_5fbbg',['configureUART_bbg',['../uart__comm__bbg_8c.html#a8bcf99b346a1db866c5c96bfba061f61',1,'configureUART_bbg(void):&#160;uart_comm_bbg.c'],['../uart__comm__bbg_8h.html#a8bcf99b346a1db866c5c96bfba061f61',1,'configureUART_bbg(void):&#160;uart_comm_bbg.c']]],
   ['crc',['crc',['../checksum_8h.html#a9cf47739c68628afd8694d19fede61de',1,'checksum.h']]],
   ['crctable',['crcTable',['../checksum_8h.html#aa0b98c402a809d26602bb9a693083720',1,'checksum.h']]],
-  ['csn_5fstatus',['csn_status',['../nrf__driver_8h.html#a06940c78881ef360743f62602bb3ade5',1,'nrf_driver.h']]],
-  ['current_5ftime',['current_time',['../structtemp.html#a083aa7339b28a78a71bfaef491294393',1,'temp']]]
+  ['csn_5fstatus',['csn_status',['../nrf__driver_8h.html#a06940c78881ef360743f62602bb3ade5',1,'nrf_driver.h']]]
 ];

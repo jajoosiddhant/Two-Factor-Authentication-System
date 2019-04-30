@@ -18,6 +18,7 @@
 #include "inc/fingerprint.h"
 #include "inc/lcd.h"
 #include "inc/uart_comm_bbg.h"
+#include "inc/led.h"
 
 
 void timer_config(timer_t timer, uint32_t ms)
@@ -108,7 +109,9 @@ void timer0handler(void)
     if(send_failcount <= PACKET_RETRY_COUNT)
     {
         //Send Packet Data Over here.
+//        packet_send_uart(UART_BBG, packet_make(OTP_SEND_BBG_ID, 2, 4, TRUE));
         printf("Sending Packet data Again.\n");
+        led_on(LED1);
     }
     else
     {
@@ -117,6 +120,7 @@ void timer0handler(void)
         reset_timer(timer_retry, PACKET_RETRY_TIME);
         send_failcount = 0;
         printf("Crossed Maximum Retries, Control Node offline.\n");
+        led_off(LED1);
     }
 
     //Enable all interrupts
@@ -147,7 +151,6 @@ void timer1handler(void)
     delay_ms(3000);
 
 
-
     printf("Start Again!! Press Finger On Scanner.");
     LCD_write("Start Again!! Press Finger On Scanner.");
 
@@ -164,6 +167,7 @@ void timer2handler(void)
     //Disable all interrupts
     ROM_IntMasterDisable();
 
+    //Add functionality here
 
     //Enable all interrupts
     ROM_IntMasterEnable();

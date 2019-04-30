@@ -23,8 +23,8 @@ typedef uint16_t crc;
 crc  crcTable[256];
 
 #define WIDTH  (8 * sizeof(crc))
-#define TOPBIT (1 << (WIDTH - 1))
-#define POLYNOMIAL (0xD8)
+#define TBIT (1 << (WIDTH - 1))
+#define POLY (0xD8)
 
 
 /**

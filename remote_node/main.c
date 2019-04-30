@@ -30,17 +30,13 @@
  * @author Siddhant Jajoo
  * @date 04/16/2019
  *
- * @see http://www.stack.nl/~dimitri/doxygen/docblocks.html
- * @see http://www.stack.nl/~dimitri/doxygen/commands.html
  */
 
 
 #include "inc/main.h"
-#include "inc/temp.h"
 #include "inc/msg_queue.h"
 #include "inc/sync_objects.h"
 #include "inc/timer.h"
-#include "inc/logger.h"
 #include "inc/spi.h"
 #include "inc/led.h"
 #include "inc/nrf_driver.h"
@@ -133,7 +129,7 @@ int main(void)
     system_init();
 
     printf("Welcome to the Remote Node!!!\n");
-    packet_msglog_uart(UART_BBG, "Hello");
+    packet_msglog_uart(UART_BBG, "Welcome to the Remote Node!!!");
 
     //Uart testing with BBG
     //uart_bbg_test();
@@ -145,7 +141,7 @@ int main(void)
     //lcd_test();
 
     //Fingerprint Test Function.
-    //fingerprint_test();
+//    fingerprint_test();
 
 //    Packet Data testing
 //    packet_loopback_test();

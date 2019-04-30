@@ -67,18 +67,11 @@
 #define CHAR_B                      (B)
 #define CHAR_C                      (C)
 #define CHAR_D                      (D)
-//#define CHAR_*                      (*)
 
 
 #define ROWS                        (4)                 /**< Number of Rows in Keypad*/
 #define COLUMNS                     (4)                 /**< Number of Columns in Keypad*/
 
-
-//******************************************************************************************/
-//                          VARIABLE DECLARATIONS
-//******************************************************************************************/
-
-//char keypad_digits[ROWS][COLUMNS];
 
 //******************************************************************************************/
 //                          FUNCTION DECLARATIONS

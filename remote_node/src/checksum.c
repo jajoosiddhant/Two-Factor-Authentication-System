@@ -19,65 +19,51 @@
 
 void checksum_init(void)
 {
-    crc  remainder;
+    crc  rem;
     uint8_t bit;
     int dividend;
 
-    /*
-     * Compute the remainder of each possible dividend.
-     */
+    //Compute the remainder of each possible dividend.
     for (dividend = 0; dividend < 256; ++dividend)
     {
-        /*
-         * Start with the dividend followed by zeros.
-         */
-        remainder = dividend << (WIDTH - 8);
 
-        /*
-         * Perform modulo-2 division, a bit at a time.
-         */
+        //Start with the dividend followed by zeros.
+        rem = dividend << (WIDTH - 8);
+
+        //Perform modulo-2 division, a bit at a time.
         for (bit = 8; bit > 0; --bit)
         {
-            /*
-             * Try to divide the current data bit.
-             */
-            if (remainder & TOPBIT)
+
+            //Try to divide the current data bit.
+            if (rem & TBIT)
             {
-                remainder = (remainder << 1) ^ POLYNOMIAL;
+                rem = (rem << 1) ^ POLY;
             }
             else
             {
-                remainder = (remainder << 1);
+                rem = (rem << 1);
             }
         }
 
-        /*
-         * Store the result into the table.
-         */
-        crcTable[dividend] = remainder;
+        crcTable[dividend] = rem;
     }
 
 }
 
 
-crc checksum_calc(uint8_t const message[], int nBytes)
+crc checksum_calc(uint8_t const msg[], int size)
 {
     uint8_t data;
-    crc remainder = 0;
+    crc rem = 0;
     int byte;
 
-    /*
-     * Divide the message by the polynomial, a byte at a time.
-     */
-    for (byte = 0; byte < nBytes; ++byte)
+    //Divide the message by the polynomial, a byte at a time.
+    for (byte = 0; byte < size; ++byte)
     {
-        data = message[byte] ^ (remainder >> (WIDTH - 8));
-        remainder = crcTable[data] ^ (remainder << 8);
+        data = msg[byte] ^ (rem >> (WIDTH - 8));
+        rem = crcTable[data] ^ (rem << 8);
     }
 
-    /*
-     * The final remainder is the CRC.
-     */
-    return (remainder);
+    return (rem);
 
 }

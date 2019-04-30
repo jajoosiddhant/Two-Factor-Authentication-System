@@ -82,10 +82,10 @@ $(function() {
 Macros</h2></td></tr>
 <tr class="memitem:a241aeeb764887ae5e3de58b98f04b16d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="checksum_8h.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a>&#160;&#160;&#160;(8 * sizeof(<a class="el" href="checksum_8h.html#a9cf47739c68628afd8694d19fede61de">crc</a>))</td></tr>
 <tr class="separator:a241aeeb764887ae5e3de58b98f04b16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a118ad552670dbefa1df0ba72d147f5e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="checksum_8h.html#a118ad552670dbefa1df0ba72d147f5e1">TOPBIT</a>&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="checksum_8h.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 1))</td></tr>
-<tr class="separator:a118ad552670dbefa1df0ba72d147f5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13d91fe6e514f0aa1caba701ef1ff92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="checksum_8h.html#ae13d91fe6e514f0aa1caba701ef1ff92">POLYNOMIAL</a>&#160;&#160;&#160;(0xD8)</td></tr>
-<tr class="separator:ae13d91fe6e514f0aa1caba701ef1ff92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36667c1e76cecaf146a3de37425f1266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="checksum_8h.html#a36667c1e76cecaf146a3de37425f1266">TBIT</a>&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="checksum_8h.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 1))</td></tr>
+<tr class="separator:a36667c1e76cecaf146a3de37425f1266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55bbb692b1c5e89d3a5c3bee1ce8399"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="checksum_8h.html#aa55bbb692b1c5e89d3a5c3bee1ce8399">POLY</a>&#160;&#160;&#160;(0xD8)</td></tr>
+<tr class="separator:aa55bbb692b1c5e89d3a5c3bee1ce8399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -116,14 +116,14 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="checksum_8h_source.html">checksum.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae13d91fe6e514f0aa1caba701ef1ff92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae13d91fe6e514f0aa1caba701ef1ff92">&#9670;&nbsp;</a></span>POLYNOMIAL</h2>
+<a id="aa55bbb692b1c5e89d3a5c3bee1ce8399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55bbb692b1c5e89d3a5c3bee1ce8399">&#9670;&nbsp;</a></span>POLY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define POLYNOMIAL&#160;&#160;&#160;(0xD8)</td>
+          <td class="memname">#define POLY&#160;&#160;&#160;(0xD8)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -134,14 +134,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a118ad552670dbefa1df0ba72d147f5e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a118ad552670dbefa1df0ba72d147f5e1">&#9670;&nbsp;</a></span>TOPBIT</h2>
+<a id="a36667c1e76cecaf146a3de37425f1266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36667c1e76cecaf146a3de37425f1266">&#9670;&nbsp;</a></span>TBIT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOPBIT&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="checksum_8h.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 1))</td>
+          <td class="memname">#define TBIT&#160;&#160;&#160;(1 &lt;&lt; (<a class="el" href="checksum_8h.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -166,7 +166,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="checksum_8h_source.html#l00025">25</a> of file <a class="el" href="checksum_8h_source.html">checksum.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="checksum_8c_source.html#l00063">checksum_calc()</a>, and <a class="el" href="checksum_8c_source.html#l00020">checksum_init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="checksum_8c_source.html#l00054">checksum_calc()</a>, and <a class="el" href="checksum_8c_source.html#l00020">checksum_init()</a>.</p>
 
 </div>
 </div>
@@ -224,11 +224,11 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>crc. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="checksum_8c_source.html#l00063">63</a> of file <a class="el" href="checksum_8c_source.html">checksum.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="checksum_8c_source.html#l00054">54</a> of file <a class="el" href="checksum_8c_source.html">checksum.c</a>.</p>
 
 <p class="reference">References <a class="el" href="checksum_8h_source.html#l00023">crcTable</a>, and <a class="el" href="checksum_8h_source.html#l00025">WIDTH</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="packet_8c_source.html#l00022">packet_make()</a>, <a class="el" href="packet_8c_source.html#l00073">packet_rcv_uart()</a>, and <a class="el" href="uart__comm__bbg_8c_source.html#l00067">uart_packet_handler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="packet_8c_source.html#l00022">packet_make()</a>, <a class="el" href="packet_8c_source.html#l00077">packet_rcv_uart()</a>, and <a class="el" href="uart__comm__bbg_8c_source.html#l00085">uart_packet_handler()</a>.</p>
 
 </div>
 </div>
@@ -253,7 +253,9 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="checksum_8c_source.html#l00020">20</a> of file <a class="el" href="checksum_8c_source.html">checksum.c</a>.</p>
 
-<p class="reference">References <a class="el" href="checksum_8h_source.html#l00023">crcTable</a>, <a class="el" href="checksum_8h_source.html#l00027">POLYNOMIAL</a>, <a class="el" href="checksum_8h_source.html#l00026">TOPBIT</a>, and <a class="el" href="checksum_8h_source.html#l00025">WIDTH</a>.</p>
+<p class="reference">References <a class="el" href="checksum_8h_source.html#l00023">crcTable</a>, <a class="el" href="checksum_8h_source.html#l00027">POLY</a>, <a class="el" href="checksum_8h_source.html#l00026">TBIT</a>, and <a class="el" href="checksum_8h_source.html#l00025">WIDTH</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="application_8c_source.html#l00045">system_init()</a>.</p>
 
 </div>
 </div>
@@ -272,7 +274,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="checksum_8h_source.html#l00023">23</a> of file <a class="el" href="checksum_8h_source.html">checksum.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="checksum_8c_source.html#l00063">checksum_calc()</a>, and <a class="el" href="checksum_8c_source.html#l00020">checksum_init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="checksum_8c_source.html#l00054">checksum_calc()</a>, and <a class="el" href="checksum_8c_source.html#l00020">checksum_init()</a>.</p>
 
 </div>
 </div>

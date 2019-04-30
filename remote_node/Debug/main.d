@@ -43,11 +43,9 @@ main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/semphr.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/pinout.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/buttons.h
-main.obj: ../inc/temp.h
 main.obj: ../inc/msg_queue.h
 main.obj: ../inc/sync_objects.h
 main.obj: ../inc/timer.h
-main.obj: ../inc/logger.h
 main.obj: ../inc/spi.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ssi.h
 main.obj: ../inc/led.h
@@ -106,11 +104,9 @@ C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/queue.h:
 C:/ti/TivaWare_C_Series-2.1.4.178/third_party/FreeRTOS/Source/include/semphr.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/pinout.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/examples/boards/ek-tm4c1294xl-boostxl-senshub/drivers/buttons.h: 
-../inc/temp.h: 
 ../inc/msg_queue.h: 
 ../inc/sync_objects.h: 
 ../inc/timer.h: 
-../inc/logger.h: 
 ../inc/spi.h: 
 C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ssi.h: 
 ../inc/led.h: 

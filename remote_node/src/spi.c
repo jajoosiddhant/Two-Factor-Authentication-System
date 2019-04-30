@@ -16,10 +16,6 @@
 
 
 
-//*********************************************************************************
-//Check if spi is same as i2c config. Compare the two spi and i2c config functions
-//*********************************************************************************
-
 
 void spi_config(spi_t ssi_x)
 {
@@ -133,7 +129,6 @@ uint8_t spi_transfer(spi_t spi, uint8_t value)
     SSIDataPut(spi, (uint32_t)value);
     spi_busy(SPI2);
     SSIDataGet(spi, &buffer);
-    //SysCtlDelay(100000);
     return ((uint8_t)(buffer & 0xFF));
 }
 

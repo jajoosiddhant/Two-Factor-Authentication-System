@@ -32,6 +32,5 @@ var searchData=
   ['column4_5fport',['COLUMN4_PORT',['../keypad_8h.html#a2229d5564be9cb61f5abdda10eb1331e',1,'keypad.h']]],
   ['columns',['COLUMNS',['../keypad_8h.html#a06c6c391fc11d106e9909f0401b255b1',1,'keypad.h']]],
   ['command_5fsize',['COMMAND_SIZE',['../fingerprint_8h.html#a87738054f9a89f0ac29c6ee1fb7da08d',1,'fingerprint.h']]],
-  ['common_5fcolumn_5fport',['COMMON_COLUMN_PORT',['../keypad_8h.html#ae3f472fe2803691079dcef464d66e62f',1,'keypad.h']]],
-  ['config_5ftemp',['CONFIG_TEMP',['../temp_8h.html#a2675eee3a5655765963703bb567ae5d0',1,'temp.h']]]
+  ['common_5fcolumn_5fport',['COMMON_COLUMN_PORT',['../keypad_8h.html#ae3f472fe2803691079dcef464d66e62f',1,'keypad.h']]]
 ];

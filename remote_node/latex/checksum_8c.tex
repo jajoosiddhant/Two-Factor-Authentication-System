@@ -11,7 +11,7 @@ This file consists of all the functions required for Checksum.
 \item 
 void \hyperlink{checksum_8c_ae1e3b3bacf1809578c36db6ab9d79aa3}{checksum\+\_\+init} (void)
 \begin{DoxyCompactList}\small\item\em This function initializes the Checksum functionality and stores all the possible combinations in a table. \end{DoxyCompactList}\item 
-\hyperlink{checksum_8h_a9cf47739c68628afd8694d19fede61de}{crc} \hyperlink{checksum_8c_a0d196fa8d223843c0afa22e43ca1f737}{checksum\+\_\+calc} (uint8\+\_\+t const message\mbox{[}$\,$\mbox{]}, int n\+Bytes)
+\hyperlink{checksum_8h_a9cf47739c68628afd8694d19fede61de}{crc} \hyperlink{checksum_8c_a1b5b71cf5e904ae7624a3ce186bd7392}{checksum\+\_\+calc} (uint8\+\_\+t const msg\mbox{[}$\,$\mbox{]}, int size)
 \begin{DoxyCompactList}\small\item\em This function calculates the Checksum for the specified data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -35,7 +35,7 @@ Copyright (c) 2019
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{checksum_8c_a0d196fa8d223843c0afa22e43ca1f737}\label{checksum_8c_a0d196fa8d223843c0afa22e43ca1f737}} 
+\mbox{\Hypertarget{checksum_8c_a1b5b71cf5e904ae7624a3ce186bd7392}\label{checksum_8c_a1b5b71cf5e904ae7624a3ce186bd7392}} 
 \index{checksum.\+c@{checksum.\+c}!checksum\+\_\+calc@{checksum\+\_\+calc}}
 \index{checksum\+\_\+calc@{checksum\+\_\+calc}!checksum.\+c@{checksum.\+c}}
 \subsubsection{\texorpdfstring{checksum\+\_\+calc()}{checksum\_calc()}}
@@ -57,7 +57,7 @@ crc.
 \end{DoxyReturn}
 
 
-Definition at line 63 of file checksum.\+c.
+Definition at line 54 of file checksum.\+c.
 
 
 
@@ -86,5 +86,9 @@ Definition at line 20 of file checksum.\+c.
 
 
 
-References crc\+Table, P\+O\+L\+Y\+N\+O\+M\+I\+AL, T\+O\+P\+B\+IT, and W\+I\+D\+TH.
+References crc\+Table, P\+O\+LY, T\+B\+IT, and W\+I\+D\+TH.
+
+
+
+Referenced by system\+\_\+init().
 

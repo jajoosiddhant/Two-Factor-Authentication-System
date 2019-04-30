@@ -4,7 +4,7 @@ var searchData=
   ['d5',['D5',['../lcd_8h.html#a2ddd4183d444d6d128cbdbd6269e4e0c',1,'lcd.h']]],
   ['d6',['D6',['../lcd_8h.html#a79a18a7f5ccf7a7ca31f302bd62527a6',1,'lcd.h']]],
   ['d7',['D7',['../lcd_8h.html#a2ba78f059a7ebebc95e7beef690e88d6',1,'lcd.h']]],
-  ['data',['data',['../structevent.html#a78bc19a07391070a001cd32b7ede572f',1,'event']]],
+  ['degrade_5fmode',['degrade_mode',['../main_8h.html#a3fb60131d9638b88363ff2440a3475c3',1,'main.h']]],
   ['delay_2eh',['delay.h',['../delay_8h.html',1,'']]],
   ['delay_5fms',['delay_ms',['../delay_8h.html#ab7cce8122024d7ba47bf10f434956de4',1,'delay.h']]],
   ['delay_5fus',['delay_us',['../delay_8h.html#ab33ebb2c5ca2d80d259c64a9d658589f',1,'delay.h']]],

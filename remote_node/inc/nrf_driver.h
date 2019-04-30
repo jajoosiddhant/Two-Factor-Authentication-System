@@ -184,6 +184,7 @@ void nrf_config(void);
  * @brief This function configures the NRF24L01+ in TX or RX Mode.
  * @param spi The SPI line used.
  * @param mode The mode specified by the user.
+ * @return void.
  */
 void nrf_config_mode(spi_t spi, modes_t mode);
 
@@ -202,6 +203,7 @@ void nrf_irqhandler(void);
 /**
  * @brief This function sends the packet data.
  * @param spi The SPI line used.
+ * @return void.
  */
 void nrf_packet_send(spi_t spi);
 
@@ -209,6 +211,7 @@ void nrf_packet_send(spi_t spi);
 /**
  * @brief This function receives the packet data.
  * @param spi The SPI line used.
+ * @return void.
  */
 void nrf_packet_rcv(spi_t spi);
 
@@ -217,6 +220,7 @@ void nrf_packet_rcv(spi_t spi);
  * @brief This function assigns the specified TX pipe address.
  * @param spi The SPI line used
  * @param addr The object of structure TX.
+ * @return void.
  */
 void nrf_write_TXaddr(spi_t spi, TX addr);
 
@@ -224,6 +228,7 @@ void nrf_write_TXaddr(spi_t spi, TX addr);
 /**
  * @brief This function reads the specified TX Pipe address.
  * @param spi The SPI line used.
+ * @return void.
  */
 void nrf_read_TXaddr(spi_t spi);
 
@@ -232,6 +237,7 @@ void nrf_read_TXaddr(spi_t spi);
  * @param spi The SPI line used.
  * @param reg The Register address of the PIPE.
  * @param addr The object of structure RX.
+ * @return void.
  */
 void nrf_write_RXaddr(spi_t spi, uint8_t reg, RX addr);
 
@@ -240,10 +246,9 @@ void nrf_write_RXaddr(spi_t spi, uint8_t reg, RX addr);
  * @brief This function reads the specified RX pipe address
  * @param spi The SPI line used.
  * @param reg The Register address of the PIPE.
+ * @return void.
  */
 void nrf_read_RXaddr(spi_t spi, uint8_t reg);
-
-
 
 
 /**
@@ -295,6 +300,7 @@ inline uint8_t nrf_get_statusreg(spi_t spi)
  * @brief This function writes a command to the NRF24L01+.
  * @param spi The SPI line used.
  * @param cmd The Command MACRO.
+ * @return void.
  */
 inline uint8_t nrf_write_cmd(spi_t spi, uint8_t cmd)
 {
@@ -302,10 +308,5 @@ inline uint8_t nrf_write_cmd(spi_t spi, uint8_t cmd)
         return (spi_dummy_transfer(spi));
 }
 
-
-//inline bool nrf_set_rfsetupreg(spi_t, uint8_t value)
-//{
-//    nrf_write_reg(SPI2, W_REGISTER_CMD(NRF_RFSETUP_REG), value);
-//}
 
 #endif /* INC_NRF_DRIVER_H_ */

@@ -10,9 +10,9 @@ Header file for delay functions.
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{delay_8h_ab7cce8122024d7ba47bf10f434956de4}{delay\+\_\+ms} (uint32\+\_\+t ms)
-\item 
+\begin{DoxyCompactList}\small\item\em This function provides the specified amount of delay. \end{DoxyCompactList}\item 
 void \hyperlink{delay_8h_ab33ebb2c5ca2d80d259c64a9d658589f}{delay\+\_\+us} (uint32\+\_\+t us)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function provides the specified amount of delay. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -40,7 +40,19 @@ Copyright (c) 2019
 
 
 
-Definition at line 22 of file delay.\+h.
+This function provides the specified amount of delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & Time in milliseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file delay.\+h.
 
 
 
@@ -48,7 +60,7 @@ References g\+\_\+ui32\+Sys\+Clock.
 
 
 
-Referenced by column\+\_\+handler(), packet\+\_\+loopback\+\_\+test(), and timer1handler().
+Referenced by column\+\_\+handler(), packet\+\_\+loopback\+\_\+test(), sensorcheck(), timer1handler(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{delay_8h_ab33ebb2c5ca2d80d259c64a9d658589f}\label{delay_8h_ab33ebb2c5ca2d80d259c64a9d658589f}} 
 \index{delay.\+h@{delay.\+h}!delay\+\_\+us@{delay\+\_\+us}}
@@ -58,7 +70,19 @@ Referenced by column\+\_\+handler(), packet\+\_\+loopback\+\_\+test(), and timer
 
 
 
-Definition at line 28 of file delay.\+h.
+This function provides the specified amount of delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em us} & Time in microseconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file delay.\+h.
 
 
 

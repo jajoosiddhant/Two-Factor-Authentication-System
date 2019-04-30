@@ -13,14 +13,12 @@ C_SRCS += \
 ../src/keypad.c \
 ../src/lcd.c \
 ../src/led.c \
-../src/logger.c \
 ../src/msg_queue.c \
 ../src/myuart.c \
 ../src/nrf_driver.c \
 ../src/packet.c \
 ../src/spi.c \
 ../src/sync_objects.c \
-../src/temp.c \
 ../src/timer.c \
 ../src/uart_comm_bbg.c 
 
@@ -32,14 +30,12 @@ C_DEPS += \
 ./src/keypad.d \
 ./src/lcd.d \
 ./src/led.d \
-./src/logger.d \
 ./src/msg_queue.d \
 ./src/myuart.d \
 ./src/nrf_driver.d \
 ./src/packet.d \
 ./src/spi.d \
 ./src/sync_objects.d \
-./src/temp.d \
 ./src/timer.d \
 ./src/uart_comm_bbg.d 
 
@@ -51,14 +47,12 @@ OBJS += \
 ./src/keypad.obj \
 ./src/lcd.obj \
 ./src/led.obj \
-./src/logger.obj \
 ./src/msg_queue.obj \
 ./src/myuart.obj \
 ./src/nrf_driver.obj \
 ./src/packet.obj \
 ./src/spi.obj \
 ./src/sync_objects.obj \
-./src/temp.obj \
 ./src/timer.obj \
 ./src/uart_comm_bbg.obj 
 
@@ -70,14 +64,12 @@ OBJS__QUOTED += \
 "src\keypad.obj" \
 "src\lcd.obj" \
 "src\led.obj" \
-"src\logger.obj" \
 "src\msg_queue.obj" \
 "src\myuart.obj" \
 "src\nrf_driver.obj" \
 "src\packet.obj" \
 "src\spi.obj" \
 "src\sync_objects.obj" \
-"src\temp.obj" \
 "src\timer.obj" \
 "src\uart_comm_bbg.obj" 
 
@@ -89,14 +81,12 @@ C_DEPS__QUOTED += \
 "src\keypad.d" \
 "src\lcd.d" \
 "src\led.d" \
-"src\logger.d" \
 "src\msg_queue.d" \
 "src\myuart.d" \
 "src\nrf_driver.d" \
 "src\packet.d" \
 "src\spi.d" \
 "src\sync_objects.d" \
-"src\temp.d" \
 "src\timer.d" \
 "src\uart_comm_bbg.d" 
 
@@ -108,14 +98,12 @@ C_SRCS__QUOTED += \
 "../src/keypad.c" \
 "../src/lcd.c" \
 "../src/led.c" \
-"../src/logger.c" \
 "../src/msg_queue.c" \
 "../src/myuart.c" \
 "../src/nrf_driver.c" \
 "../src/packet.c" \
 "../src/spi.c" \
 "../src/sync_objects.c" \
-"../src/temp.c" \
 "../src/timer.c" \
 "../src/uart_comm_bbg.c" 
 

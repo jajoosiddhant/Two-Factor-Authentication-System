@@ -281,7 +281,7 @@ Definition at line 26 of file keypad.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), and keypad\+\_\+interrupt\+\_\+enable().
+Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), keypad\+\_\+interrupt\+\_\+enable(), and reset\+\_\+system().
 
 \mbox{\Hypertarget{keypad_8h_a9206e6aac9d25e3acef4cac353b0ea41}\label{keypad_8h_a9206e6aac9d25e3acef4cac353b0ea41}} 
 \index{keypad.\+h@{keypad.\+h}!C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT@{C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT}}
@@ -323,7 +323,7 @@ Definition at line 28 of file keypad.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), and keypad\+\_\+interrupt\+\_\+enable().
+Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), keypad\+\_\+interrupt\+\_\+enable(), and reset\+\_\+system().
 
 \mbox{\Hypertarget{keypad_8h_a943d0d66c6f6c21c816f627ce1637588}\label{keypad_8h_a943d0d66c6f6c21c816f627ce1637588}} 
 \index{keypad.\+h@{keypad.\+h}!C\+O\+L\+U\+M\+N2\+\_\+\+P\+O\+RT@{C\+O\+L\+U\+M\+N2\+\_\+\+P\+O\+RT}}
@@ -365,7 +365,7 @@ Definition at line 30 of file keypad.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), and keypad\+\_\+interrupt\+\_\+enable().
+Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), keypad\+\_\+interrupt\+\_\+enable(), and reset\+\_\+system().
 
 \mbox{\Hypertarget{keypad_8h_ae597a6849b48502994840d5459ac9221}\label{keypad_8h_ae597a6849b48502994840d5459ac9221}} 
 \index{keypad.\+h@{keypad.\+h}!C\+O\+L\+U\+M\+N3\+\_\+\+P\+O\+RT@{C\+O\+L\+U\+M\+N3\+\_\+\+P\+O\+RT}}
@@ -407,7 +407,7 @@ Definition at line 32 of file keypad.\+h.
 
 
 
-Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), and keypad\+\_\+interrupt\+\_\+enable().
+Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt\+\_\+disable(), keypad\+\_\+interrupt\+\_\+enable(), and reset\+\_\+system().
 
 \mbox{\Hypertarget{keypad_8h_a2229d5564be9cb61f5abdda10eb1331e}\label{keypad_8h_a2229d5564be9cb61f5abdda10eb1331e}} 
 \index{keypad.\+h@{keypad.\+h}!C\+O\+L\+U\+M\+N4\+\_\+\+P\+O\+RT@{C\+O\+L\+U\+M\+N4\+\_\+\+P\+O\+RT}}
@@ -431,7 +431,7 @@ Referenced by column\+\_\+handler(), keypad\+\_\+config(), keypad\+\_\+interrupt
 
 Number of Columns in Keypad 
 
-Definition at line 74 of file keypad.\+h.
+Definition at line 73 of file keypad.\+h.
 
 \mbox{\Hypertarget{keypad_8h_ae3f472fe2803691079dcef464d66e62f}\label{keypad_8h_ae3f472fe2803691079dcef464d66e62f}} 
 \index{keypad.\+h@{keypad.\+h}!C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT@{C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT}}
@@ -445,7 +445,7 @@ Definition at line 24 of file keypad.\+h.
 
 
 
-Referenced by column\+\_\+handler(), and keypad\+\_\+config().
+Referenced by column\+\_\+handler(), keypad\+\_\+config(), and reset\+\_\+system().
 
 \mbox{\Hypertarget{keypad_8h_ac6ee61281da53701763dea10edccaf75}\label{keypad_8h_ac6ee61281da53701763dea10edccaf75}} 
 \index{keypad.\+h@{keypad.\+h}!R\+O\+W1\+\_\+\+P\+IN@{R\+O\+W1\+\_\+\+P\+IN}}
@@ -567,7 +567,7 @@ Referenced by keypad\+\_\+button\+\_\+detect(), and keypad\+\_\+config().
 
 Number of Rows in Keypad 
 
-Definition at line 73 of file keypad.\+h.
+Definition at line 72 of file keypad.\+h.
 
 
 
@@ -587,11 +587,11 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 92 of file keypad.\+c.
+Definition at line 89 of file keypad.\+c.
 
 
 
-References C\+O\+L\+U\+M\+N1, C\+O\+L\+U\+M\+N1\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N2, C\+O\+L\+U\+M\+N2\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N2\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N3, C\+O\+L\+U\+M\+N3\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N3\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N4, C\+O\+L\+U\+M\+N4\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N4\+\_\+\+P\+O\+RT, C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT, delay\+\_\+ms(), keypad\+\_\+button\+\_\+detect(), keypad\+\_\+digits, L\+C\+D\+\_\+write(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+S\+E\+N\+D\+\_\+\+B\+B\+G\+\_\+\+ID, packet\+\_\+make(), packet\+\_\+send\+\_\+uart(), printf, T\+R\+UE, and U\+A\+R\+T\+\_\+\+B\+BG.
+References C\+O\+L\+U\+M\+N1, C\+O\+L\+U\+M\+N1\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N2, C\+O\+L\+U\+M\+N2\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N2\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N3, C\+O\+L\+U\+M\+N3\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N3\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N4, C\+O\+L\+U\+M\+N4\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N4\+\_\+\+P\+O\+RT, C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT, degrade\+\_\+mode, delay\+\_\+ms(), keypad\+\_\+button\+\_\+detect(), keypad\+\_\+digits, L\+C\+D\+\_\+write(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+S\+E\+N\+D\+\_\+\+B\+B\+G\+\_\+\+ID, packet\+\_\+make(), packet\+\_\+send\+\_\+uart(), printf, S\+E\+C\+R\+E\+T\+\_\+\+P\+A\+S\+S\+C\+O\+D\+E\+\_\+\+ID, sensor\+\_\+check, T\+R\+UE, and U\+A\+R\+T\+\_\+\+B\+BG.
 
 
 
@@ -623,7 +623,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 166 of file keypad.\+c.
+Definition at line 177 of file keypad.\+c.
 
 
 
@@ -654,6 +654,10 @@ Definition at line 26 of file keypad.\+c.
 
 References C\+O\+L\+U\+M\+N1\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N2\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N2\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N3\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N3\+\_\+\+P\+O\+RT, C\+O\+L\+U\+M\+N4\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N4\+\_\+\+P\+O\+RT, column\+\_\+handler(), C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT, R\+O\+W1\+\_\+\+P\+IN, R\+O\+W1\+\_\+\+P\+O\+RT, R\+O\+W2\+\_\+\+P\+IN, R\+O\+W2\+\_\+\+P\+O\+RT, R\+O\+W3\+\_\+\+P\+IN, R\+O\+W3\+\_\+\+P\+O\+RT, R\+O\+W4\+\_\+\+P\+IN, and R\+O\+W4\+\_\+\+P\+O\+RT.
 
+
+
+Referenced by system\+\_\+init().
+
 \mbox{\Hypertarget{keypad_8h_ac8764725e4f54346cfa11d2731dfb797}\label{keypad_8h_ac8764725e4f54346cfa11d2731dfb797}} 
 \index{keypad.\+h@{keypad.\+h}!keypad\+\_\+interrupt\+\_\+disable@{keypad\+\_\+interrupt\+\_\+disable}}
 \index{keypad\+\_\+interrupt\+\_\+disable@{keypad\+\_\+interrupt\+\_\+disable}!keypad.\+h@{keypad.\+h}}
@@ -669,7 +673,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 82 of file keypad.\+c.
+Definition at line 81 of file keypad.\+c.
 
 
 
@@ -698,5 +702,5 @@ References C\+O\+L\+U\+M\+N1\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N1\+\_\+\+P\+O\+RT, C\
 
 
 
-Referenced by uart\+\_\+packet\+\_\+handler().
+Referenced by reset\+\_\+system(), and system\+\_\+init().
 

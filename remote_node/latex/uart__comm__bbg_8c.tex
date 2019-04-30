@@ -13,11 +13,14 @@ This file consists of all the functions required for the U\+A\+RT Communication 
 {\ttfamily \#include \char`\"{}inc/fingerprint.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inc/buzzer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inc/checksum.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inc/delay.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{uart__comm__bbg_8c_a8bcf99b346a1db866c5c96bfba061f61}{configure\+U\+A\+R\+T\+\_\+bbg} (void)
 \begin{DoxyCompactList}\small\item\em This function configures the U\+A\+RT to communicate with beaglebone. \end{DoxyCompactList}\item 
+void \hyperlink{uart__comm__bbg_8c_af4f7d0cc01f643dd07c8bd8a9af799f6}{reset\+\_\+system} (void)
+\begin{DoxyCompactList}\small\item\em This function resets the system. \end{DoxyCompactList}\item 
 void \hyperlink{uart__comm__bbg_8c_af2ba56c50ecfd4c67c3ed7cea1c90914}{uart\+\_\+packet\+\_\+handler} (\hyperlink{packet_8h_a658c47ed7e61ab41375618fb3ebd2fd4}{packet} datap\+\_\+rcv)
 \begin{DoxyCompactList}\small\item\em This function handles the received packet. \end{DoxyCompactList}\item 
 void \hyperlink{uart__comm__bbg_8c_a007b15f62c7cddbebcdf95b9b6509045}{uart\+\_\+commhandler} (void)
@@ -58,7 +61,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 26 of file uart\+\_\+comm\+\_\+bbg.\+c.
+Definition at line 27 of file uart\+\_\+comm\+\_\+bbg.\+c.
 
 
 
@@ -66,7 +69,32 @@ References B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+B\+BG, C\+L\+O\+CK, U\+A\+R\+T\+\_\+\+B
 
 
 
-Referenced by packet\+\_\+loopback\+\_\+test(), and uart\+\_\+bbg\+\_\+test().
+Referenced by packet\+\_\+loopback\+\_\+test(), system\+\_\+init(), and uart\+\_\+bbg\+\_\+test().
+
+\mbox{\Hypertarget{uart__comm__bbg_8c_af4f7d0cc01f643dd07c8bd8a9af799f6}\label{uart__comm__bbg_8c_af4f7d0cc01f643dd07c8bd8a9af799f6}} 
+\index{uart\+\_\+comm\+\_\+bbg.\+c@{uart\+\_\+comm\+\_\+bbg.\+c}!reset\+\_\+system@{reset\+\_\+system}}
+\index{reset\+\_\+system@{reset\+\_\+system}!uart\+\_\+comm\+\_\+bbg.\+c@{uart\+\_\+comm\+\_\+bbg.\+c}}
+\subsubsection{\texorpdfstring{reset\+\_\+system()}{reset\_system()}}
+{\footnotesize\ttfamily void reset\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function resets the system. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file uart\+\_\+comm\+\_\+bbg.\+c.
+
+
+
+References C\+O\+L\+U\+M\+N1\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N2\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N3\+\_\+\+P\+IN, C\+O\+L\+U\+M\+N4\+\_\+\+P\+IN, C\+O\+M\+M\+O\+N\+\_\+\+C\+O\+L\+U\+M\+N\+\_\+\+P\+O\+RT, disable\+\_\+timer(), fp\+\_\+interrupt\+\_\+enable(), F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+IN, F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT, keypad\+\_\+interrupt\+\_\+enable(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+T\+I\+ME, otp\+\_\+retries, P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, reset\+\_\+timer(), send\+\_\+failcount, timer\+\_\+otp, and timer\+\_\+retry.
+
+
+
+Referenced by timer1handler(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{uart__comm__bbg_8c_aee4827e75b9bf6e2c3e30da1abf96eba}\label{uart__comm__bbg_8c_aee4827e75b9bf6e2c3e30da1abf96eba}} 
 \index{uart\+\_\+comm\+\_\+bbg.\+c@{uart\+\_\+comm\+\_\+bbg.\+c}!uart\+\_\+bbg\+\_\+test@{uart\+\_\+bbg\+\_\+test}}
@@ -83,7 +111,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 197 of file uart\+\_\+comm\+\_\+bbg.\+c.
+Definition at line 242 of file uart\+\_\+comm\+\_\+bbg.\+c.
 
 
 
@@ -104,7 +132,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 162 of file uart\+\_\+comm\+\_\+bbg.\+c.
+Definition at line 207 of file uart\+\_\+comm\+\_\+bbg.\+c.
 
 
 
@@ -134,11 +162,11 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 67 of file uart\+\_\+comm\+\_\+bbg.\+c.
+Definition at line 85 of file uart\+\_\+comm\+\_\+bbg.\+c.
 
 
 
-References A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+C\+V\+\_\+\+ID, A\+C\+K\+\_\+\+ID, add\+\_\+fingerprint(), buzzer\+\_\+onoff(), checksum\+\_\+calc(), disable\+\_\+timer(), enable\+\_\+timer\+\_\+int(), fp\+\_\+deleteall(), fp\+\_\+interrupt\+\_\+disable(), fp\+\_\+interrupt\+\_\+enable(), G\+U\+I\+\_\+\+A\+D\+D\+\_\+\+F\+I\+N\+G\+E\+R\+P\+R\+I\+NT, G\+U\+I\+\_\+\+B\+U\+Z\+Z\+E\+R\+\_\+\+O\+FF, G\+U\+I\+\_\+\+B\+U\+Z\+Z\+E\+R\+\_\+\+ON, G\+U\+I\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+A\+LL, G\+U\+I\+\_\+\+ID, G\+U\+I\+\_\+\+R\+E\+S\+E\+T\+\_\+\+S\+Y\+S\+T\+EM, keypad\+\_\+interrupt\+\_\+enable(), L\+C\+D\+\_\+write(), otp\+\_\+arr, otp\+\_\+count, otp\+\_\+flag, O\+T\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+T\+I\+ME, O\+T\+P\+\_\+\+S\+E\+N\+T\+\_\+\+U\+S\+E\+R\+\_\+\+ID, P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, P\+R\+E\+A\+M\+B\+LE, printf, reset\+\_\+timer(), send\+\_\+failcount, timer\+\_\+otp, timer\+\_\+retry, and U\+A\+R\+T\+\_\+\+FP.
+References A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+C\+V\+\_\+\+ID, A\+C\+K\+\_\+\+ID, add\+\_\+fingerprint(), buzzer\+\_\+onoff(), checksum\+\_\+calc(), delay\+\_\+ms(), disable\+\_\+timer(), enable\+\_\+timer\+\_\+int(), fp\+\_\+deleteall(), fp\+\_\+interrupt\+\_\+disable(), fp\+\_\+interrupt\+\_\+enable(), G\+U\+I\+\_\+\+A\+D\+D\+\_\+\+F\+I\+N\+G\+E\+R\+P\+R\+I\+NT, G\+U\+I\+\_\+\+A\+L\+L\+O\+W\+\_\+\+A\+C\+C\+E\+SS, G\+U\+I\+\_\+\+B\+U\+Z\+Z\+E\+R\+\_\+\+O\+FF, G\+U\+I\+\_\+\+B\+U\+Z\+Z\+E\+R\+\_\+\+ON, G\+U\+I\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+A\+LL, G\+U\+I\+\_\+\+ID, G\+U\+I\+\_\+\+R\+E\+S\+E\+T\+\_\+\+S\+Y\+S\+T\+EM, L\+C\+D\+\_\+write(), otp\+\_\+flag, otp\+\_\+retries, O\+T\+P\+\_\+\+S\+E\+N\+T\+\_\+\+U\+S\+E\+R\+\_\+\+ID, packet\+\_\+msglog\+\_\+uart(), P\+A\+C\+K\+E\+T\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+T\+I\+ME, P\+R\+E\+A\+M\+B\+LE, printf, reset\+\_\+system(), reset\+\_\+timer(), send\+\_\+failcount, timer\+\_\+otp, timer\+\_\+retry, U\+A\+R\+T\+\_\+\+B\+BG, and U\+A\+R\+T\+\_\+\+FP.
 
 
 

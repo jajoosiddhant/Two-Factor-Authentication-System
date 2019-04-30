@@ -69,8 +69,9 @@ uint16_t fp_responsercv(uart_t uart)
 {
     uint8_t response_packet[RESPONSE_SIZE];
     uint8_t i;
-//    uint16_t fp_checksum;
     uint16_t temp;
+    //uint16_t fp_checksum;
+
 
     for(i=0; i < RESPONSE_SIZE; i++)
     {
@@ -181,7 +182,6 @@ void fp_enroll(uart_t uart, uint8_t enroll_cmd)
 
 void add_fingerprint(uart_t uart)
 {
-    //TODO: Take care of duplicated ID.
 
     uint16_t enroll_count;
     uint32_t ui32Int;
@@ -189,10 +189,6 @@ void add_fingerprint(uart_t uart)
 
     //Disable GPIO interrupt for Finger print Sensor.
     ui32Int = IntMasterDisable();
-
-
-    //LCD Display
-    //Get ready to Register Fingerprint
 
     //Get enrollment count
     enroll_count = fp_get_enrollcount(uart);
@@ -431,8 +427,8 @@ void fingerprint_test(void)
     fp_led_status(UART_FP, FP_LEDON);
 
 //    fp_deleteid(UART_FP, 0);
-//    fp_deleteall(UART_FP);
-//    add_fingerprint(UART_FP);
+    fp_deleteall(UART_FP);
+    add_fingerprint(UART_FP);
 
     //Terminating the fingerprint sensor
 //    fp_close(UART_FP);

@@ -88,27 +88,6 @@ uint8_t otp_retries;                            /**< The count for number of ret
 volatile uint8_t sensor_check;                  /**< Flag to determine if sensor is online or not, flag set if offline*/
 volatile uint8_t degrade_mode;
 
-//******************************************************************************************/
-//                              STRUCTURES CONTAINING GLOBAL DATA
-//******************************************************************************************/
-struct temp
-{
-    TickType_t current_time;
-    float temp;
-    char str[50];
-    int num;
-};
-
-
-typedef struct
-{
-    uint8_t id;
-    union
-    {
-        struct temp temp_data;
-    }data;
-}event;
-
 
 
 //******************************************************************************************/

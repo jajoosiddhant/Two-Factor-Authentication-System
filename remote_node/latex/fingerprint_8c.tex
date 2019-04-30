@@ -34,6 +34,8 @@ uint16\+\_\+t \hyperlink{fingerprint_8c_a5bb490d64570008a03cc184ed1ad6b48}{fp\+\
 \begin{DoxyCompactList}\small\item\em This function verifies the latest captured fingerprint. \end{DoxyCompactList}\item 
 uint16\+\_\+t \hyperlink{fingerprint_8c_a0a7d3becac1489871c2b61c3c7a19a9d}{fp\+\_\+identify} (\hyperlink{myuart_8h_ac667bf51474e96f174f2b6568b166c90}{uart\+\_\+t} uart)
 \begin{DoxyCompactList}\small\item\em This function identifies the captured fingerprint from the stored fingerprints and returns the ID. \end{DoxyCompactList}\item 
+void \hyperlink{fingerprint_8c_ab15d9084b914762817b40f9ce7d40ece}{fp\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em This function initializes the Scanner and turns L\+ED on. \end{DoxyCompactList}\item 
 void \hyperlink{fingerprint_8c_a05dbfdb483bf35144c6b8098a4c33731}{fp\+\_\+access\+\_\+handle} (void)
 \item 
 void \hyperlink{fingerprint_8c_a44c7746e37315b87870038bbceb4a541}{fp\+\_\+irqhandler} (void)
@@ -79,15 +81,15 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 177 of file fingerprint.\+c.
+Definition at line 183 of file fingerprint.\+c.
 
 
 
-References fp\+\_\+enroll(), F\+P\+\_\+\+E\+N\+R\+O\+L\+L1\+\_\+\+C\+MD, F\+P\+\_\+\+E\+N\+R\+O\+L\+L2\+\_\+\+C\+MD, F\+P\+\_\+\+E\+N\+R\+O\+L\+L3\+\_\+\+C\+MD, fp\+\_\+get\+\_\+enrollcount(), F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+IN, F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT, fp\+\_\+start\+\_\+enroll(), and printf.
+References fp\+\_\+enroll(), F\+P\+\_\+\+E\+N\+R\+O\+L\+L1\+\_\+\+C\+MD, F\+P\+\_\+\+E\+N\+R\+O\+L\+L2\+\_\+\+C\+MD, F\+P\+\_\+\+E\+N\+R\+O\+L\+L3\+\_\+\+C\+MD, fp\+\_\+get\+\_\+enrollcount(), F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+IN, F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT, fp\+\_\+start\+\_\+enroll(), L\+C\+D\+\_\+write(), packet\+\_\+msglog\+\_\+uart(), printf, and U\+A\+R\+T\+\_\+\+B\+BG.
 
 
 
-Referenced by uart\+\_\+packet\+\_\+handler().
+Referenced by fingerprint\+\_\+test(), and uart\+\_\+packet\+\_\+handler().
 
 \mbox{\Hypertarget{fingerprint_8c_a28aefaf0e8f95d8c810bfa27fb1fbe3a}\label{fingerprint_8c_a28aefaf0e8f95d8c810bfa27fb1fbe3a}} 
 \index{fingerprint.\+c@{fingerprint.\+c}!fingerprint\+\_\+test@{fingerprint\+\_\+test}}
@@ -104,11 +106,11 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 400 of file fingerprint.\+c.
+Definition at line 415 of file fingerprint.\+c.
 
 
 
-References fp\+\_\+led\+\_\+status(), F\+P\+\_\+\+L\+E\+D\+ON, fp\+\_\+open(), and U\+A\+R\+T\+\_\+\+FP.
+References add\+\_\+fingerprint(), fp\+\_\+deleteall(), fp\+\_\+led\+\_\+status(), F\+P\+\_\+\+L\+E\+D\+ON, fp\+\_\+open(), and U\+A\+R\+T\+\_\+\+FP.
 
 \mbox{\Hypertarget{fingerprint_8c_a05dbfdb483bf35144c6b8098a4c33731}\label{fingerprint_8c_a05dbfdb483bf35144c6b8098a4c33731}} 
 \index{fingerprint.\+c@{fingerprint.\+c}!fp\+\_\+access\+\_\+handle@{fp\+\_\+access\+\_\+handle}}
@@ -118,11 +120,11 @@ References fp\+\_\+led\+\_\+status(), F\+P\+\_\+\+L\+E\+D\+ON, fp\+\_\+open(), a
 
 
 
-Definition at line 332 of file fingerprint.\+c.
+Definition at line 343 of file fingerprint.\+c.
 
 
 
-References D\+O\+N\+T\+\_\+\+C\+A\+RE, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+ID, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+M\+A\+T\+C\+H\+ED, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+N\+O\+T\+M\+A\+T\+C\+H\+ED, fp\+\_\+capture(), fp\+\_\+identify(), F\+P\+\_\+\+L\+O\+W\+\_\+\+I\+M\+A\+GE, F\+P\+\_\+\+N\+A\+C\+K\+\_\+\+D\+B\+\_\+\+I\+S\+\_\+\+E\+M\+P\+TY, F\+P\+\_\+\+N\+A\+C\+K\+\_\+\+I\+D\+E\+N\+T\+I\+F\+Y\+\_\+\+F\+A\+I\+L\+ED, L\+C\+D\+\_\+write(), packet\+\_\+make(), packet\+\_\+send\+\_\+uart(), printf, T\+R\+UE, U\+A\+R\+T\+\_\+\+B\+BG, and U\+A\+R\+T\+\_\+\+FP.
+References D\+O\+N\+T\+\_\+\+C\+A\+RE, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+ID, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+M\+A\+T\+C\+H\+ED, F\+I\+N\+G\+E\+R\+P\+R\+I\+N\+T\+\_\+\+N\+O\+T\+M\+A\+T\+C\+H\+ED, fp\+\_\+capture(), fp\+\_\+identify(), F\+P\+\_\+\+L\+O\+W\+\_\+\+I\+M\+A\+GE, F\+P\+\_\+\+N\+A\+C\+K\+\_\+\+D\+B\+\_\+\+I\+S\+\_\+\+E\+M\+P\+TY, F\+P\+\_\+\+N\+A\+C\+K\+\_\+\+I\+D\+E\+N\+T\+I\+F\+Y\+\_\+\+F\+A\+I\+L\+ED, L\+C\+D\+\_\+write(), packet\+\_\+make(), packet\+\_\+msglog\+\_\+uart(), packet\+\_\+send\+\_\+uart(), printf, T\+R\+UE, U\+A\+R\+T\+\_\+\+B\+BG, and U\+A\+R\+T\+\_\+\+FP.
 
 
 
@@ -150,7 +152,7 @@ uint16\+\_\+t The error code or output parameter in case of N\+A\+C\+K/\+A\+CK r
 \end{DoxyReturn}
 
 
-Definition at line 225 of file fingerprint.\+c.
+Definition at line 229 of file fingerprint.\+c.
 
 
 
@@ -176,7 +178,7 @@ uint16\+\_\+t The calculated checksum value.
 \end{DoxyReturn}
 
 
-Definition at line 108 of file fingerprint.\+c.
+Definition at line 109 of file fingerprint.\+c.
 
 
 
@@ -214,7 +216,7 @@ References C\+H\+E\+C\+K\+S\+U\+M\+\_\+\+B\+Y\+T\+ES, C\+M\+D\+\_\+\+C\+O\+D\+E\
 
 
 
-Referenced by fp\+\_\+capture(), fp\+\_\+close(), fp\+\_\+deleteall(), fp\+\_\+enroll(), fp\+\_\+get\+\_\+enrollcount(), fp\+\_\+identify(), fp\+\_\+isfingerpress(), fp\+\_\+led\+\_\+status(), and fp\+\_\+open().
+Referenced by fp\+\_\+capture(), fp\+\_\+close(), fp\+\_\+deleteall(), fp\+\_\+enroll(), fp\+\_\+get\+\_\+enrollcount(), fp\+\_\+identify(), fp\+\_\+isfingerpress(), fp\+\_\+led\+\_\+status(), fp\+\_\+open(), and sensorcheck().
 
 \mbox{\Hypertarget{fingerprint_8c_af8e8a5f9d9c3c4d20e04f196fac6319e}\label{fingerprint_8c_af8e8a5f9d9c3c4d20e04f196fac6319e}} 
 \index{fingerprint.\+c@{fingerprint.\+c}!fp\+\_\+deleteid@{fp\+\_\+deleteid}}
@@ -238,7 +240,7 @@ uint16\+\_\+t The error code or output parameter in case of N\+A\+C\+K/\+A\+CK r
 \end{DoxyReturn}
 
 
-Definition at line 258 of file fingerprint.\+c.
+Definition at line 262 of file fingerprint.\+c.
 
 
 
@@ -266,11 +268,11 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 157 of file fingerprint.\+c.
+Definition at line 158 of file fingerprint.\+c.
 
 
 
-References F\+P\+\_\+\+B\+E\+S\+T\+\_\+\+I\+M\+A\+GE, fp\+\_\+capture(), fp\+\_\+cmdsend(), fp\+\_\+isfingerpress(), F\+P\+\_\+\+N\+O\+P\+A\+R\+AM, fp\+\_\+responsercv(), and printf.
+References F\+P\+\_\+\+B\+E\+S\+T\+\_\+\+I\+M\+A\+GE, fp\+\_\+capture(), fp\+\_\+cmdsend(), fp\+\_\+isfingerpress(), F\+P\+\_\+\+N\+O\+P\+A\+R\+AM, fp\+\_\+responsercv(), L\+C\+D\+\_\+write(), packet\+\_\+msglog\+\_\+uart(), printf, and U\+A\+R\+T\+\_\+\+B\+BG.
 
 
 
@@ -296,7 +298,7 @@ uint16\+\_\+t The error code or output parameter in case of N\+A\+C\+K/\+A\+CK r
 \end{DoxyReturn}
 
 
-Definition at line 324 of file fingerprint.\+c.
+Definition at line 328 of file fingerprint.\+c.
 
 
 
@@ -305,6 +307,31 @@ References fp\+\_\+cmdsend(), F\+P\+\_\+\+I\+D\+E\+N\+T\+I\+F\+Y\+\_\+\+C\+MD, F
 
 
 Referenced by fp\+\_\+access\+\_\+handle().
+
+\mbox{\Hypertarget{fingerprint_8c_ab15d9084b914762817b40f9ce7d40ece}\label{fingerprint_8c_ab15d9084b914762817b40f9ce7d40ece}} 
+\index{fingerprint.\+c@{fingerprint.\+c}!fp\+\_\+init@{fp\+\_\+init}}
+\index{fp\+\_\+init@{fp\+\_\+init}!fingerprint.\+c@{fingerprint.\+c}}
+\subsubsection{\texorpdfstring{fp\+\_\+init()}{fp\_init()}}
+{\footnotesize\ttfamily void fp\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function initializes the Scanner and turns L\+ED on. 
+
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+
+
+Definition at line 335 of file fingerprint.\+c.
+
+
+
+References fp\+\_\+led\+\_\+status(), F\+P\+\_\+\+L\+E\+D\+ON, fp\+\_\+open(), and U\+A\+R\+T\+\_\+\+FP.
+
+
+
+Referenced by system\+\_\+init().
 
 \mbox{\Hypertarget{fingerprint_8c_ad9158c1c6810eb171aee0517bb3bc126}\label{fingerprint_8c_ad9158c1c6810eb171aee0517bb3bc126}} 
 \index{fingerprint.\+c@{fingerprint.\+c}!fp\+\_\+interrupt\+\_\+config@{fp\+\_\+interrupt\+\_\+config}}
@@ -327,6 +354,10 @@ Definition at line 23 of file fingerprint.\+c.
 
 References fp\+\_\+interrupt\+\_\+enable(), F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+IN, F\+P\+\_\+\+I\+R\+Q\+\_\+\+P\+O\+RT, and fp\+\_\+irqhandler().
 
+
+
+Referenced by system\+\_\+init().
+
 \mbox{\Hypertarget{fingerprint_8c_a44c7746e37315b87870038bbceb4a541}\label{fingerprint_8c_a44c7746e37315b87870038bbceb4a541}} 
 \index{fingerprint.\+c@{fingerprint.\+c}!fp\+\_\+irqhandler@{fp\+\_\+irqhandler}}
 \index{fp\+\_\+irqhandler@{fp\+\_\+irqhandler}!fingerprint.\+c@{fingerprint.\+c}}
@@ -342,7 +373,7 @@ void.
 \end{DoxyReturn}
 
 
-Definition at line 379 of file fingerprint.\+c.
+Definition at line 394 of file fingerprint.\+c.
 
 
 
@@ -376,7 +407,7 @@ Definition at line 68 of file fingerprint.\+c.
 
 
 
-References A\+CK, N\+A\+CK, R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+S\+I\+ZE, and temp().
+References A\+CK, N\+A\+CK, and R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+S\+I\+ZE.
 
 
 
@@ -404,7 +435,7 @@ uint16\+\_\+t The error code or output parameter in case of N\+A\+C\+K/\+A\+CK r
 \end{DoxyReturn}
 
 
-Definition at line 121 of file fingerprint.\+c.
+Definition at line 122 of file fingerprint.\+c.
 
 
 
@@ -436,7 +467,7 @@ uint16\+\_\+t The error code or output parameter in case of N\+A\+C\+K/\+A\+CK r
 \end{DoxyReturn}
 
 
-Definition at line 291 of file fingerprint.\+c.
+Definition at line 295 of file fingerprint.\+c.
 
 
 
