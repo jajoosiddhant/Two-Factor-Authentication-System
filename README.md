@@ -41,6 +41,9 @@ This project was completed in the course Advanced Embedded Software Development 
 - Signal Handler for safe exit.
 
 ## Block Diagram:
+<img src="Images/Overview%20block%20diagram.jpg">
+
+<img src="Images/Block%20Diagram.PNG">
 
 ## Overview:
 The aim of this project is to have a secure locking system to a highly confidential resource, for example: Bank Lockers. This is implemented in the form of Two Factor Authentication System. This is achieved with the help of a TIVA board and a BBG board. The TIVA board acts as the remote node and the BBG board acts as the control node. The control node is responsible for processing and making all the real-time decisions based on values/data received from the TIVA board. The TIVA + FreeRTOS is integrated with different sensors and input devices to obtain values as per the application. The control node and remote node will function in a closed loop. The Control node will drive the outputs of the Remote Node in the form of actuators. The communication between the two boards can be wired or wireless.  
@@ -66,13 +69,14 @@ We have designed and would be demonstrating the prototype of the above applicati
 5. Reset: Resets the Remote Node to the starting point.
 
 ## GUI:
+<img src="Images/GUI.PNG"> 
 
 
 ## Basic Communication Flow:
+<img src="Images/Communication%20Flow.PNG">
 
 
 
-
-The Entire Project Report can be found [here]().
+The Entire Project Report can be found [here](https://github.com/jajoosiddhant/Two-Factor-Authentication-System/blob/master/Two%20Factor%20Authentication%20System%20Report.pdf).
 
 The Entire Code Documentation can be found [here]().
